@@ -1,6 +1,6 @@
-// app.js - gestione generale dell'app
+// app.js - gestione generale e caricamento header/navbar/footer
 
-// Funzione toggle dark/light
+// ------------------ THEME ------------------
 function toggleTheme() {
     const body = document.body;
     if (body.classList.contains("dark-mode")) {
@@ -14,7 +14,6 @@ function toggleTheme() {
     }
 }
 
-// Inizializzazione tema dal localStorage
 function initTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "light") {
@@ -26,7 +25,6 @@ function initTheme() {
     }
 }
 
-// Aggiunge evento al pulsante toggle
 function initThemeToggle() {
     const toggleBtn = document.getElementById("toggle-theme");
     if (toggleBtn) {
@@ -34,9 +32,20 @@ function initThemeToggle() {
     }
 }
 
-// Eseguito al DOMContentLoaded
+// ------------------ PARTIALS INCLUDE ------------------
+function loadHTML(elementId, url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+            if(elementId === "header-container") initThemeToggle(); // inizializza toggle dopo il caricamento
+        });
+}
+
+// ------------------ INIT ------------------
 document.addEventListener("DOMContentLoaded", () => {
     initTheme();
-    initThemeToggle();
+    loadHTML("header-container", "partials/header.html");
+    loadHTML("navbar-container", "partials/navbar.html");
+    loadHTML("footer-container", "partials/footer.html");
 });
-
