@@ -1,4 +1,4 @@
-// app.js - gestione generale e caricamento header/navbar/footer
+// app.js - gestione generale e caricamento partials
 
 // ------------------ THEME ------------------
 function toggleTheme() {
@@ -33,19 +33,37 @@ function initThemeToggle() {
 }
 
 // ------------------ PARTIALS INCLUDE ------------------
-function loadHTML(elementId, url) {
+function loadHTML(elementId, url, callback) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
             document.getElementById(elementId).innerHTML = data;
-            if(elementId === "header-container") initThemeToggle(); // inizializza toggle dopo il caricamento
+            if(callback) callback(); // chiama inizializzazioni aggiuntive
         });
+}
+
+// ------------------ INIZIALIZZAZIONI MENU FUTURI ------------------
+function initMenus() {
+    // Qui puoi aggiungere eventuali eventi per nuovi menu, dropdown, toggle
+    // Esempio:
+    const dropdowns = document.querySelectorAll(".dropdown-toggle");
+    dropdowns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const menu = btn.nextElementSibling;
+            if(menu) menu.classList.toggle("open");
+        });
+    });
 }
 
 // ------------------ INIT ------------------
 document.addEventListener("DOMContentLoaded", () => {
     initTheme();
-    loadHTML("header-container", "partials/header.html");
-    loadHTML("navbar-container", "partials/navbar.html");
-    loadHTML("footer-container", "partials/footer.html");
+
+    // Carica header, navbar, footer
+    loadHTML("header-container", "partials/header.html", () => {
+        initThemeToggle();  // toggle tema sempre inizializzato
+        initMenus();        // eventuali menu in header
+    });
+    loadHTML("navbar-container", "partials/navbar.html", initMenus);
+    loadHTML("footer-container", "partials/footer.html", initMenus);
 });
