@@ -1,1 +1,139 @@
+/* style.css - stile principale Agenda Scolastica */
+
+/* -----------------------------
+   RESET BASE
+----------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #eee;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* -----------------------------
+   DARK / LIGHT MODE
+----------------------------- */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #eee;
+}
+
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+/* -----------------------------
+   HEADER
+----------------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2c2c2c;
+}
+
+body.light-mode header {
+    background-color: #ddd;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+header button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* -----------------------------
+   MAIN SECTIONS
+----------------------------- */
+main {
+    padding: 20px;
+}
+
+/* Task list (Dashboard) */
+#task-list li {
+    margin: 8px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+}
+
+body.light-mode #task-list li {
+    background-color: #eee;
+}
+
+/* Calendar / Diary / Timetable */
+#calendar-grid div,
+#diary-pages div,
+#timetable-grid div {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+}
+
+body.light-mode #calendar-grid div,
+body.light-mode #diary-pages div,
+body.light-mode #timetable-grid div {
+    background-color: #ddd;
+}
+
+/* -----------------------------
+   FOOTER
+----------------------------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #2c2c2c;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+body.light-mode footer {
+    background-color: #ddd;
+}
+
+/* -----------------------------
+   TASK COMPLETATI
+----------------------------- */
+.completed {
+    color: gray;
+    font-style: italic;
+}
+
+/* -----------------------------
+   BOTTONI E INTERATTIVI
+----------------------------- */
+button {
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #eee;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+body.light-mode button {
+    background-color: #bbb;
+    color: #222;
+}
+
+body.light-mode button:hover {
+    background-color: #999;
+}
 
