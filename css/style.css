@@ -142,7 +142,7 @@ body.light-mode button:hover {
 .nav-bar {
     display: flex;
     flex-direction: row; /* pulsanti uno in fianco l'altro */
-    gap: 10px;
+    gap: 5px;
     padding: 10px 0px;
     width: 100%; /* navbar occupa tutta la larghezza */
 }
@@ -152,7 +152,7 @@ body.light-mode button:hover {
     width: 100%; /* pulsante occupa tutta la larghezza della navbar */
     text-align: center;
     padding: 12px 0;
-    border-radius: 25px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
     color: #eee;
