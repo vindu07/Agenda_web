@@ -67,3 +67,52 @@ saveBtn.addEventListener("click", saveSubject);
 
 buildTable();
 
+
+/*EVIDENZIA ORA CORRENTE*/
+function highlightCurrentSlot() {
+    const now = new Date();
+    let dayIndex = now.getDay(); // 0=Dom, 1=Lun ... 5=Ven
+    let currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    // Orari personalizzabili (inizio di ogni ora in minuti da mezzanotte)
+    const lessonTimes = [
+        8 * 60,   // 1ª ora -> 08:00
+        9 * 60,   // 2ª ora -> 09:00
+        10 * 60,  // 3ª ora -> 10:00
+        11 * 60,  // 4ª ora -> 11:00
+        12 * 60,  // 5ª ora -> 12:00
+        13 * 60   // 6ª ora -> 13:00 (se serve)
+    ];
+
+    // Se oggi è sabato o domenica → non evidenziare
+    if (dayIndex === 0 || dayIndex === 6) return;
+
+    // Determina a che ora siamo
+    let hourIndex = -1;
+    for (let i = 0; i < lessonTimes.length; i++) {
+        let start = lessonTimes[i];
+        let end = (lessonTimes[i + 1] || start + 60); // fino alla prossima ora o 60 min
+        if (currentMinutes >= start && currentMinutes < end) {
+            hourIndex = i;
+            break;
+        }
+    }
+
+    const table = document.querySelector(".schedule-table");
+    if (!table) return;
+
+    const rows = table.rows;
+
+    // Evidenzia colonna giorno
+    for (let i = 1; i < rows.length; i++) {
+        rows[i].cells[dayIndex].classList.add("highlight-day");
+    }
+
+    // Evidenzia la cella dell'ora attuale se siamo in orario scolastico
+    if (hourIndex >= 0 && hourIndex < rows.length - 1) {
+        let cell = rows[hourIndex + 1].cells[dayIndex];
+        cell.classList.add("highlight-cell");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", highlightCurrentSlot);
