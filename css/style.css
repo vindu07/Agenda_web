@@ -243,13 +243,16 @@ body.light-mode .modal-content {
 }
 
 /* Colori per materie */
-.matematica { background-color: #3b82f6; color: #fff; }
-.italiano { background-color: #ef4444; color: #fff; }
-.storia { background-color: #f97316; color: #fff; }
-.inglese { background-color: #22c55e; color: #fff; }
-.scienze { background-color: #8b5cf6; color: #fff; }
-.arte { background-color: #eab308; color: #000; }
-.educ-fisica { background-color: #14b8a6; color: #fff; }
+.matematica { background-color: #3b82f6; /*color: #fff;*/ }
+.italiano { background-color: #ef4444; /*color: #fff;*/ }
+.storia { background-color: #f97316; /*color: #fff;*/ }
+.inglese { background-color: #22c55e; /*color: #fff;*/ }
+.scienze { background-color: #8b5cf6; /*color: #fff;*/ }
+.arte { background-color: #eab308; /*color: #fff;*/ }
+.motoria { background-color: #14b8a6; /*color: #fff;*/ }
+.religione { background-color: #14b8a6; /*color: #fff;*/ }
+.fisica { background-color: #14b8a6; /*color: #fff;*/ }
+.informatica { background-color: #14b8a6; /*color: #fff;*/ }
 
 /* Tabelle */
 .schedule-table td {
