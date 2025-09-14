@@ -208,6 +208,16 @@ body.light-mode .schedule-table td {
     background-color: #f0f0f0;
 }
 
+/* Colore testo automatico */
+body.dark-mode .schedule-table td {
+    color: #fff; /* bianco in dark mode */
+}
+
+body.light-mode .schedule-table td {
+    color: #000; /* nero in light mode */
+}
+
+
 .modal {
     position: fixed;
     top: 0; left: 0;
