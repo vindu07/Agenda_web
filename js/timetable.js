@@ -76,12 +76,13 @@ function highlightCurrentSlot() {
 
     // Orari personalizzabili (inizio di ogni ora in minuti da mezzanotte)
     const lessonTimes = [
-        8 * 60,   // 1ª ora -> 08:00
-        9 * 60,   // 2ª ora -> 09:00
-        10 * 60,  // 3ª ora -> 10:00
-        11 * 60,  // 4ª ora -> 11:00
-        12 * 60,  // 5ª ora -> 12:00
-        13 * 60   // 6ª ora -> 13:00 (se serve)
+        7 * 60 + 45,   // 1ª ora -> 08:00
+        8 * 60 + 35,   // 2ª ora -> 09:00
+        9 * 60 + 25,  // 3ª ora -> 10:00
+        10 * 60 + 15,  // 4ª ora -> 11:00
+        11 * 60 + 15,  // 5ª ora -> 12:00
+        12 * 60 + 5,  // 6ª ora -> 13:00 (se serve)
+        12 * 60 + 55
     ];
 
     // Se oggi è sabato o domenica → non evidenziare
