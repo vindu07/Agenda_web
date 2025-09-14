@@ -3,40 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda Scolastica - Orario</title>
+    <title>Orario</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-mode">
+    <div id="header-container">
+        <header>
+            <h1>Orario</h1>
+            <button id="toggle-theme">🌙 / ☀️</button>
+        </header>
+    </div>
 
-    <header>
-        <h1>ORARIO</h1>
-        <button id="toggle-theme">🌙 / ☀️</button>
-    </header>
-<nav class="nav-bar">
-        <a href="index.html" class="nav-btn">Dashboard</a>
-        <a href="calendario.html" class="nav-btn">Calendario</a>
-        <a href="diario.html" class="nav-btn">Diario</a>
-        <a href="orario.html" class="nav-btn">Orario</a>
-    </nav>
+    <div id="navbar-container">
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="calendario.html" class="nav-btn">Calendario</a>
+            <a href="diario.html" class="nav-btn">Diario</a>
+            <a href="orario.html" class="nav-btn active">Orario</a>
+        </nav>
+    </div>
 
-    <main>
-        <section id="timetable-section">
-            <div id="timetable-grid">
-                <!-- Orario generato da timetable.js -->
-            </div>
-        </section>
+    <main class="schedule-container">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Ora</th>
+                    <th>Lunedì</th>
+                    <th>Martedì</th>
+                    <th>Mercoledì</th>
+                    <th>Giovedì</th>
+                    <th>Venerdì</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-body">
+                <!-- Generato via JS -->
+            </tbody>
+        </table>
     </main>
 
-    <footer>
-        <p>Andrea Vinduska &copy; 2025</p>
-    </footer>
+    <div id="footer-container">
+        <footer><p>Agenda Scolastica &copy; 2025</p></footer>
+    </div>
 
-    <script src="js/utils.js"></script>
-    <script src="js/db.js"></script>
+    <!-- Popup per inserire materia -->
+    <div id="subject-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Modifica lezione</h3>
+            <input type="text" id="subject-input" placeholder="Nome materia">
+            <input type="color" id="subject-color" value="#ffffff">
+            <button id="save-subject">Salva</button>
+            <button id="close-modal">Chiudi</button>
+        </div>
+    </div>
+
     <script src="js/timetable.js"></script>
-    <script src="js/debug.js"></script>
-    <script src="js/app.js"></script>
-
 </body>
 </html>
-
