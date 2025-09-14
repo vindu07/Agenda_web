@@ -7,21 +7,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-mode">
-    <div id="header-container">
-        <header>
-            <h1>Orario</h1>
-            <button id="toggle-theme">🌙 / ☀️</button>
-        </header>
-    </div>
+    <header>
+        <h1>Orario</h1>
+        <button id="toggle-theme">🌙 / ☀️</button>
+    </header>
 
-    <div id="navbar-container">
-        <nav class="nav-bar">
-            <a href="index.html" class="nav-btn">Dashboard</a>
-            <a href="calendario.html" class="nav-btn">Calendario</a>
-            <a href="diario.html" class="nav-btn">Diario</a>
-            <a href="orario.html" class="nav-btn active">Orario</a>
-        </nav>
-    </div>
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">Dashboard</a>
+        <a href="calendario.html" class="nav-btn">Calendario</a>
+        <a href="diario.html" class="nav-btn">Diario</a>
+        <a href="orario.html" class="nav-btn active">Orario</a>
+    </nav>
 
     <main class="schedule-container">
         <table class="schedule-table">
@@ -33,29 +29,73 @@
                     <th>Mercoledì</th>
                     <th>Giovedì</th>
                     <th>Venerdì</th>
+                    <th>Sabato</th>
                 </tr>
             </thead>
-            <tbody id="schedule-body">
-                <!-- Generato via JS -->
+            <tbody>
+                <tr>
+                    <td>1ª</td>
+                    <td class="matematica">Arte</td>
+                    <td class="storia">Informatica</td>
+                    <td class="inglese">Inglese</td>
+                    <td class="Inglese">Inglese</td>
+                    <td class="Inglese">Inglese</td>
+                    <td class="italiano">Filosofia/Storia</td>
+                </tr>
+                <tr>
+                    <td>2ª</td>
+                    <td class="italiano">Matematica</td>
+                    <td class="inglese">Matematica</td>
+                    <td class="arte">Matematica</td>
+                    <td class="scienze">Informatica</td>
+                    <td class="storia">Scienze</td>
+                    <td class="storia">Filosofia/Storia</td>
+                </tr>
+                <tr>
+                    <td>3ª</td>
+                    <td class="storia">Fisica</td>
+                    <td class="mate">Scienze</td>
+                    <td class="italiano">Filosofia/Storia</td>
+                    <td class="inglese">Inglese</td>
+                    <td class="educ-fisica">Filosofia/Storia</td>
+                    <td class="educ-fisica">Italiano</td>
+                </tr>
+                <tr>
+                    <td>4ª</td>
+                    <td class="storia">Motoria</td>
+                    <td class="mate">Scienze</td>
+                    <td class="italiano">Filosofia/Storia</td>
+                    <td class="inglese">Maematica</td>
+                    <td class="educ-fisica">Italiano</td>
+                    <td class="educ-fisica">Italiano</td>
+                </tr>
+                <tr>
+                    <td>5ª</td>
+                    <td class="storia">Motoria</td>
+                    <td class="mate">Arte</td>
+                    <td class="italiano">Italiano</td>
+                    <td class="inglese">Scienze</td>
+                    <td class="educ-fisica">Fisica</td>
+                    <td class="educ-fisica">Informatica</td>
+                </tr>
+                 <tr>
+                    <td>6ª</td>
+                    <td class="storia"></td>
+                    <td class="mate">Religione</td>
+                    <td class="italiano">Fisica</td>
+                    <td class="inglese">Scienze</td>
+                    <td class="educ-fisica">Filosofia/Storia</td>
+                    <td class="educ-fisica"></td>
+                </tr>
+                <!-- Puoi continuare per tutte le ore -->
             </tbody>
         </table>
     </main>
 
-    <div id="footer-container">
-        <footer><p>Agenda Scolastica &copy; 2025</p></footer>
-    </div>
+    <footer>
+        <p>Andrea Vinduska &copy; 2025</p>
+    </footer>
 
-    <!-- Popup per inserire materia -->
-    <div id="subject-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3>Modifica lezione</h3>
-            <input type="text" id="subject-input" placeholder="Nome materia">
-            <input type="color" id="subject-color" value="#ffffff">
-            <button id="save-subject">Salva</button>
-            <button id="close-modal">Chiudi</button>
-        </div>
-    </div>
-
-    <script src="js/timetable.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
