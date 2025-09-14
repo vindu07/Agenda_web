@@ -9,7 +9,7 @@ let editingCell = null;
 let schedule = JSON.parse(localStorage.getItem("schedule")) || {};
 
 const hours = ["1ª", "2ª", "3ª", "4ª", "5ª", "6ª"];
-const days = ["lun", "mar", "mer", "gio", "ven"];
+const days = ["lun", "mar", "mer", "gio", "ven", "sab"];
 
 function buildTable() {
     scheduleBody.innerHTML = "";
