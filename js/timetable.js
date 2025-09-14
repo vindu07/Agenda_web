@@ -86,7 +86,7 @@ function highlightCurrentSlot() {
     ];
 
     // Se oggi è sabato o domenica → non evidenziare
-    if (dayIndex === 0 || dayIndex === 6) return;
+    if (dayIndex === 0) return;
 
     // Determina a che ora siamo
     let hourIndex = -1;
