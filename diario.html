@@ -21,6 +21,7 @@
 </nav>
 
 <main class="diary-container">
+
     <div class="diary-header">
         <button class="nav-btn" id="prev-day">
             <img src="assets/icons/prev.png" alt="Giorno precedente">
@@ -40,39 +41,15 @@
     </div>
 
     <div class="diary-content">
-        <ul id="task-list">
-            <!-- JS inserirà i compiti -->
-        </ul>
+        <ul id="task-list"></ul>
         <p id="empty-message" class="hidden">🎉 Niente da fare per oggi</p>
     </div>
 
     <div class="diary-notes">
         <textarea id="notes" placeholder="Scrivi appunti per oggi..."></textarea>
     </div>
-</main>
 
-<!-- MODAL TASK -->
-<div id="task-modal" class="modal hidden">
-    <div class="modal-content">
-        <input type="text" id="task-subject" placeholder="Materia">
-        <textarea id="task-desc" placeholder="Descrizione (opzionale)"></textarea>
-        <label>Priorità:
-            <select id="task-priority">
-                <option value="1">1 - Alta</option>
-                <option value="2">2 - Media</option>
-                <option value="3" selected>3 - Bassa</option>
-            </select>
-        </label>
-        <label>
-            Verifica?
-            <input type="checkbox" id="task-isTest">
-        </label>
-        <div style="display:flex; justify-content:space-between;">
-            <button id="save-task-btn">💾 Salva</button>
-            <button id="close-task-btn">✖ Chiudi</button>
-        </div>
-    </div>
-</div>
+</main>
 
 <footer>
     <p>Andrea Vinduska &copy; 2025</p>
