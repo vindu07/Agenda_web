@@ -312,7 +312,7 @@ body.light-mode .modal-content {
 #day-number {
     font-size: 5rem;
     font-weight: 700;
-    color: var(--accent-color); /* Colore personalizzabile */
+    color: var(ff0000); /* Colore personalizzabile */
     font-family: 'Poppins', sans-serif; /* Font moderno e leggibile */
     line-height: 1;
 }
@@ -326,8 +326,8 @@ body.light-mode .modal-content {
 
 #weekday-name {
     font-size: 2rem;
-    font-weight: 600;
-    color: var(--accent-color);
+    font-weight: 800;
+    color: var(ff0000);
     font-family: 'Poppins', sans-serif;
 }
 
