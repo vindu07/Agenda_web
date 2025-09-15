@@ -1,59 +1,397 @@
-/* style.css - Agenda Scolastica */
+/* style.css - stile principale Agenda Scolastica */
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-body { background-color:#1e1e1e; color:#eee; min-height:100vh; line-height:1.6; }
-body.light-mode { background-color:#f5f5f5; color:#222; }
+/* -----------------------------
+   RESET BASE
+----------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-header { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background-color:#2c2c2c; }
-body.light-mode header { background-color:#ddd; }
-header h1 { font-size:1.8em; }
-header button { padding:5px 10px; cursor:pointer; }
+body {
+    background-color: #1e1e1e;
+    color: #eee;
+    line-height: 1.6;
+    min-height: 100vh;
+}
 
-main { padding:20px; }
+/* -----------------------------
+   DARK / LIGHT MODE
+----------------------------- */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #eee;
+}
 
-#task-list li { margin:8px 0; padding:5px 10px; border-radius:5px; background-color:#333; display:flex; align-items:center; gap:10px; }
-body.light-mode #task-list li { background-color:#eee; }
-.completed { opacity:0.5; font-style:italic; }
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+}
 
-button { border:none; border-radius:5px; background-color:#555; color:#eee; transition:0.2s; cursor:pointer; }
-button:hover { background-color:#777; }
-body.light-mode button { background-color:#bbb; color:#222; }
-body.light-mode button:hover { background-color:#999; }
+/* -----------------------------
+   HEADER
+----------------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2c2c2c;
+}
 
-.nav-bar { display:flex; gap:5px; padding:10px 0px; width:100%; }
-.nav-btn { display:block; width:100%; text-align:center; padding:12px 0; border-radius:10px; text-decoration:none; font-weight:bold; color:#eee; background-color:#333; transition:background-color 0.2s; }
-.nav-btn:hover { background-color:#555; }
-body.light-mode .nav-btn { color:#222; background-color:#ddd; }
-body.light-mode .nav-btn:hover { background-color:#999; }
+body.light-mode header {
+    background-color: #ddd;
+}
 
-.diary-container { display:flex; flex-direction:column; gap:1rem; padding:1rem; max-width:600px; margin:auto; }
-.diary-header { display:flex; align-items:center; justify-content:space-between; }
-.day-display { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem; }
+header h1 {
+    font-size: 1.8em;
+}
 
-#day-number { font-family:'Baloo 2', sans-serif; font-size:5rem; font-weight:600; color:var(--accent-color); line-height:1; }
-#weekday-name { font-size:1.5rem; font-weight:600; }
-#month-name { font-size:1.3rem; font-weight:bold; opacity:0.85; }
+header button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
-.small-btn { padding:5px; min-width:30px; font-size:1rem; }
+/* -----------------------------
+   MAIN SECTIONS
+----------------------------- */
+main {
+    padding: 20px;
+}
 
-.task-text strong { padding:2px 6px; border-radius:3px; color:#fff; }
-.task-priority-1 strong { background:#f87171; }
-.task-priority-2 strong { background:#fbbf24; }
-.task-priority-3 strong { background:#34d399; }
+/* Task list (Dashboard) */
+#task-list li {
+    margin: 8px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+}
 
-.task-verifica-label { display:inline-block; background:red; color:white; font-size:0.7rem; padding:1px 4px; margin-right:5px; border-radius:3px; }
+body.light-mode #task-list li {
+    background-color: #eee;
+}
 
-.diary-task-item input[type="checkbox"] { flex-shrink:0; }
-.diary-task-item button { margin-left:auto; }
+/* Calendar / Diary / Timetable */
+#calendar-grid div,
+#diary-pages div,
+#timetable-grid div {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+}
 
-/* MODALE TASK */
-.modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; }
-.modal.hidden { display:none; }
-.modal-content { background:#333; padding:20px; border-radius:10px; display:flex; flex-direction:column; gap:10px; min-width:300px; }
-body.light-mode .modal-content { background:#fff; color:#000; }
-.modal-content label { font-weight:bold; }
-.modal-content input, .modal-content textarea, .modal-content select { padding:6px; font-size:1rem; width:100%; border-radius:5px; border:none; }
-.modal-content button { padding:8px; }
-.modal-header { display:flex; justify-content:space-between; align-items:center; }
-.modal-header h2 { margin:0; font-size:1.2rem; }
-.modal-header .close-modal { cursor:pointer; font-size:1.2rem; }
+body.light-mode #calendar-grid div,
+body.light-mode #diary-pages div,
+body.light-mode #timetable-grid div {
+    background-color: #ddd;
+}
+
+/* -----------------------------
+   FOOTER
+----------------------------- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #2c2c2c;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+body.light-mode footer {
+    background-color: #ddd;
+}
+
+/* -----------------------------
+   TASK COMPLETATI
+----------------------------- */
+.completed {
+    color: gray;
+    font-style: italic;
+}
+
+/* -----------------------------
+   BOTTONI E INTERATTIVI
+----------------------------- */
+button {
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #eee;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+body.light-mode button {
+    background-color: #bbb;
+    color: #222;
+}
+
+body.light-mode button:hover {
+    background-color: #999;
+}
+
+/* NAVBAR */
+/* Navbar full-width buttons */
+.nav-bar {
+    display: flex;
+    flex-direction: row; /* pulsanti uno in fianco l'altro */
+    gap: 5px;
+    padding: 10px 0px;
+    width: 100%; /* navbar occupa tutta la larghezza */
+}
+
+.nav-btn {
+    display: block;
+    width: 100%; /* pulsante occupa tutta la larghezza della navbar */
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #eee;
+    background-color: #333;
+    transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #555;
+}
+
+/* Light mode */
+body.light-mode .nav-btn {
+    color: #222;
+    background-color: #ddd;
+}
+
+body.light-mode .nav-btn:hover {
+    background-color: #999;
+}
+
+/* ORARIO */
+
+.schedule-container {
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.schedule-table td {
+    background-color: #222;
+}
+
+.schedule-table td.empty {
+    color: #666;
+    font-style: italic;
+}
+
+body.light-mode .schedule-table td {
+    background-color: #f0f0f0;
+}
+
+/* Colore testo automatico */
+body.dark-mode .schedule-table td {
+    color: #fff; /* bianco in dark mode */
+}
+
+body.light-mode .schedule-table td {
+    color: #000; /* nero in light mode */
+}
+
+
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 250px;
+}
+
+body.light-mode .modal-content {
+    background: #fff;
+    color: #000;
+}
+
+.modal-content input,
+.modal-content button {
+    padding: 8px;
+}
+
+/* Colori per materie */
+.matematica { background-color: #3b82f6; /*color: #fff;*/ }
+.italiano { background-color: #ef4444; /*color: #fff;*/ }
+.storia { background-color: #f97316; /*color: #fff;*/ }
+.inglese { background-color: #22c55e; /*color: #fff;*/ }
+.scienze { background-color: #8b5cf6; /*color: #fff;*/ }
+.arte { background-color: #eab308; /*color: #fff;*/ }
+.motoria { background-color: #14b8a6; /*color: #fff;*/ }
+.religione { background-color: #14b8a6; /*color: #fff;*/ }
+.fisica { background-color: #14b8a6; /*color: #fff;*/ }
+.informatica { background-color: #14b8a6; /*color: #fff;*/ }
+
+/* Tabelle */
+.schedule-table td {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Evidenzia colonna del giorno */
+.highlight-day {
+    background-color: rgba(255, 255, 0, 0.08);
+}
+
+/* Evidenzia la cella dell'ora attuale */
+.highlight-cell {
+    background-color: rgba(255, 255, 0, 0.4);
+    font-weight: bold;
+    border: 2px solid yellow;
+    border-radius: 6px;
+}
+
+/*DIARIO*/
+
+
+:root {
+    /* Colore fisso per l'accento */
+    --accent-color: #2196f3; /* puoi scegliere quello che ti piace */
+    --holiday-color: #e53935; /* colore per domeniche e feste */
+}
+
+
+.diary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+.diary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.day-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+
+#day-number {
+    font-family: 'Baloo 2', sans-serif; /* Font arrotondato e bold */
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--accent-color); /* Colore personalizzabile */
+    font-family: 'Poppins', sans-serif; /* Font moderno e leggibile */
+    font-weight: 600;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+
+.day-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+#weekday-name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+#month-name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+
+#weekday-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#month-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+}
+
+
+#day-image {
+    width: 80px;
+    height: auto;
+}
+
+.nav-btn img {
+    width: 32px;
+    height: 32px;
+    filter: invert(0); /* diventa bianco/nero a seconda della modalità */
+    cursor: pointer;
+}
+
+.diary-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+#empty-message {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.diary-notes textarea {
+    width: 100%;
+    min-height: 100px;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1rem;
+    filter: invert(0)
+}
