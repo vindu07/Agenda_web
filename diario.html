@@ -1,130 +1,75 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda Scolastica - Diario</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Scolastica - Diario</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-mode">
 
-<header>
-    <h1>DIARIO</h1>
-    <button id="toggle-theme">🌙 / ☀️</button>
-</header>
+    <header>
+        <h1>DIARIO</h1>
+        <button id="toggle-theme">🌙 / ☀️</button>
+    </header>
 
-<nav class="nav-bar">
-    <a href="index.html" class="nav-btn">Dashboard</a>
-    <a href="calendario.html" class="nav-btn">Calendario</a>
-    <a href="diario.html" class="nav-btn">Diario</a>
-    <a href="orario.html" class="nav-btn">Orario</a>
-</nav>
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">Dashboard</a>
+        <a href="calendario.html" class="nav-btn">Calendario</a>
+        <a href="diario.html" class="nav-btn">Diario</a>
+        <a href="orario.html" class="nav-btn">Orario</a>
+    </nav>
 
-<main class="diary-container">
-    <div class="diary-header">
-        <button class="nav-btn" id="prev-day">◀</button>
-        <button class="nav-btn" id="next-day">▶</button>
-    </div>
+    <main class="diary-container">
+        <div class="diary-header">
+            <button class="nav-btn small-btn" id="prev-day">
+                <img src="assets/icons/prev.png" alt="Giorno precedente">
+            </button>
 
-    <div class="day-display">
-        <div id="day-number">15</div>
-        <div class="day-text">
-            <span id="weekday-name">Lunedì</span>
-            <span id="month-name">Settembre 2025</span>
+            <div class="day-display">
+                <div id="day-number">15</div>
+                <div class="day-text">
+                    <span id="weekday-name">Lunedì</span>
+                    <span id="month-name">Settembre 2025</span>
+                </div>
+            </div>
+
+            <button class="nav-btn small-btn" id="next-day">
+                <img src="assets/icons/next.png" alt="Giorno successivo">
+            </button>
         </div>
-    </div>
 
-    <button id="add-task-btn">➕ Nuovo Task/Verifica</button>
+        <div class="diary-content">
+            <ul id="task-list">
+                <!-- Qui JS inserirà i compiti e verifiche -->
+            </ul>
+        </div>
 
-    <div class="diary-content">
-        <ul id="task-list"></ul>
-        <p id="empty-message" class="hidden">🎉 Niente da fare per oggi</p>
-    </div>
+        <button id="new-task-btn" class="new-task-btn">➕ Nuovo Task</button>
+    </main>
 
-    <div class="diary-notes">
-        <textarea id="notes" placeholder="Scrivi appunti per oggi..."></textarea>
-    </div>
-
-    <!-- MODAL CREAZIONE/MODIFICA TASK -->
-<div id="task-modal" class="modal hidden">
-    <div class="modal-content">
-        <h3 id="modal-title">Nuovo Task</h3>
-        <label>
-            Materia:
-            <select id="task-subject">
-                <option value="matematica">Matematica</option>
-                <option value="italiano">Italiano</option>
-                <option value="storia">Storia</option>
-                <option value="inglese">Inglese</option>
-                <option value="scienze">Scienze</option>
-                <option value="arte">Arte</option>
-                <option value="motoria">Motoria</option>
-                <option value="religione">Religione</option>
-                <option value="fisica">Fisica</option>
-                <option value="informatica">Informatica</option>
+    <div id="task-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Nuovo Task</h2>
+            <input type="text" id="task-subject" placeholder="Materia">
+            <input type="text" id="task-desc" placeholder="Descrizione">
+            <select id="task-priority">
+                <option value="1">Priorità 1</option>
+                <option value="2">Priorità 2</option>
+                <option value="3">Priorità 3</option>
             </select>
-        </label>
-        <label>
-            Descrizione:
-            <input type="text" id="task-descr" placeholder="Dettagli compito...">
-        </label>
-        <label>
-            Completato:
-            <input type="checkbox" id="task-completed">
-        </label>
-        <label>
-            Verifica:
-            <input type="checkbox" id="task-isTest">
-        </label>
-        <label>
-            Priorità (1-3):
-            <input type="number" id="task-priority" min="1" max="3" value="1">
-        </label>
-        <div style="display:flex; gap:10px; justify-content:flex-end;">
-            <button id="task-save-btn">Salva</button>
-            <button id="task-cancel-btn">Annulla</button>
+            <label><input type="checkbox" id="task-isTest"> Verifica</label>
+            <div class="modal-buttons">
+                <button id="save-task-btn">Salva</button>
+                <button id="cancel-task-btn">Annulla</button>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Pulsante per aprire popup -->
-<button id="add-task-btn" class="nav-btn">➕ Nuovo Task</button>
-
-
-    
-</main>
-
-<!-- Modale task -->
-<div id="task-modal" class="modal hidden">
-  <div class="modal-content">
-    <h2 id="modal-title">Nuovo Task</h2>
-    <label for="task-subject">Materia</label>
-    <input type="text" id="task-subject" placeholder="Matematica">
-    <label for="task-desc">Descrizione</label>
-    <textarea id="task-desc" placeholder="Dettagli del compito..."></textarea>
-    <label for="task-type">Tipo</label>
-    <select id="task-type">
-      <option value="task">Compito</option>
-      <option value="test">Verifica</option>
-    </select>
-    <label for="task-priority">Priorità (1-3)</label>
-    <input type="number" id="task-priority" min="1" max="3" value="1">
-    <div class="modal-buttons">
-      <button id="save-task-btn">💾 Salva</button>
-      <button id="cancel-task-btn">❌ Annulla</button>
-    </div>
-  </div>
-</div>
-
-<footer>
-    <p>Andrea Vinduska &copy; 2025</p>
-</footer>
-
-<script src="js/utils.js"></script>
-<script src="js/db.js"></script>
-<script src="js/diary.js"></script>
-<script src="js/debug.js"></script>
-<script src="js/app.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/diary.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 </html>
