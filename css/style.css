@@ -25,37 +25,30 @@ body.light-mode #task-list li { background:#eee; }
 .completed { color:gray; font-style:italic; }
 
 /* MODAL */
+/* modal */
 .modal {
     position: fixed;
-    top: 0; left: 0;
+    top:0; left:0;
     width: 100%; height: 100%;
     background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .modal.hidden { display: none; }
-
 .modal-content {
-    background-color: #333;
+    background: #333;
     padding: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+body.light-mode .modal-content { background: #fff; color: #000; }
+.modal-content input, .modal-content select, .modal-content button { padding: 8px; }
+.modal-buttons { display: flex; gap: 10px; justify-content: flex-end; }
 
-body.light-mode .modal-content {
-    background-color: #fff;
-    color: #000;
-}
 
-.modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
 /* Diario */
 :root {
     --accent-color: #2196f3;
@@ -116,9 +109,39 @@ body.light-mode .modal-content {
     align-items: center;
 }
 
-#task-list {
-    list-style: none;
-    padding: 0;
+/* task list */
+#task-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+    transition: 0.2s;
+}
+
+body.light-mode #task-list li {
+    background-color: #eee;
+}
+
+.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.task-text strong {
+    display: inline-block;
+    min-width: 120px;
+}
+
+.verifica-badge {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 2px 4px;
+    font-size: 0.7rem;
+    margin-right: 5px;
+    border-radius: 3px;
 }
 
 .diary-task-item {
@@ -205,4 +228,10 @@ body.light-mode #task-modal select {
 #task-modal button {
     padding: 6px 10px;
     cursor: pointer;
+}
+/* prev/next piccoli */
+.small-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
 }
