@@ -204,3 +204,76 @@ function initDiary(){
 }
 
 document.addEventListener("DOMContentLoaded",initDiary);
+
+
+/* ===========================
+   POPUP CREAZIONE/MODIFICA TASK
+=========================== */
+const taskModal = document.getElementById("task-modal");
+const addTaskBtn = document.getElementById("add-task-btn");
+const saveTaskBtn = document.getElementById("task-save-btn");
+const cancelTaskBtn = document.getElementById("task-cancel-btn");
+
+const taskFields = {
+    subject: document.getElementById("task-subject"),
+    descr: document.getElementById("task-descr"),
+    completed: document.getElementById("task-completed"),
+    isTest: document.getElementById("task-isTest"),
+    priority: document.getElementById("task-priority")
+};
+
+let editingTaskId = null;
+
+function openTaskModal(task = null) {
+    taskModal.classList.remove("hidden");
+    if (task) {
+        editingTaskId = task.id;
+        taskFields.subject.value = task.subject || "matematica";
+        taskFields.descr.value = task.descr || "";
+        taskFields.completed.checked = !!task.completed;
+        taskFields.isTest.checked = !!task.isTest;
+        taskFields.priority.value = task.isTest ? 3 : (task.priority || 1);
+        document.getElementById("modal-title").textContent = "Modifica Task";
+    } else {
+        editingTaskId = null;
+        taskFields.subject.value = "matematica";
+        taskFields.descr.value = "";
+        taskFields.completed.checked = false;
+        taskFields.isTest.checked = false;
+        taskFields.priority.value = 1;
+        document.getElementById("modal-title").textContent = "Nuovo Task";
+    }
+}
+
+function closeTaskModal() {
+    taskModal.classList.add("hidden");
+}
+
+// click apri
+if (addTaskBtn) addTaskBtn.addEventListener("click", () => openTaskModal());
+
+// click annulla
+if (cancelTaskBtn) cancelTaskBtn.addEventListener("click", closeTaskModal);
+
+// click salva
+if (saveTaskBtn) saveTaskBtn.addEventListener("click", () => {
+    const newTask = {
+        id: editingTaskId || Date.now().toString(),
+        date: toDateKey(currentDate),
+        subject: taskFields.subject.value,
+        descr: taskFields.descr.value,
+        completed: taskFields.completed.checked,
+        isTest: taskFields.isTest.checked,
+        priority: taskFields.isTest.checked ? 3 : Number(taskFields.priority.value)
+    };
+
+    if (editingTaskId) {
+        updateTask(newTask);
+    } else {
+        addTask(newTask);
+    }
+
+    renderTasksFor(toDateKey(currentDate));
+    closeTaskModal();
+});
+
