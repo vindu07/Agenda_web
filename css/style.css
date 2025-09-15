@@ -24,26 +24,148 @@ main { padding:20px; }
 body.light-mode #task-list li { background:#eee; }
 .completed { color:gray; font-style:italic; }
 
-/* Modale */
-.modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
-.modal.hidden { display:none; }
-.modal-content { background:var(--modal-bg,#333); color:var(--modal-color,#eee); padding:20px; border-radius:10px; width:90%; max-width:400px; display:flex; flex-direction:column; gap:10px; }
-body.light-mode .modal-content { --modal-bg:#fff; --modal-color:#222; }
-.modal-content input, .modal-content textarea, .modal-content select { width:100%; padding:8px; border-radius:6px; border:1px solid #666; font-size:1rem; }
-body.light-mode .modal-content input, body.light-mode .modal-content textarea, body.light-mode .modal-content select { border:1px solid #aaa; }
-.modal-buttons { display:flex; justify-content:flex-end; gap:10px; }
-.modal-buttons button { padding:6px 12px; border-radius:6px; cursor:pointer; }
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.modal.hidden { display: none; }
+
+.modal-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body.light-mode .modal-content {
+    background-color: #fff;
+    color: #000;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
 /* Diario */
-.diary-container { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:1rem; }
-.diary-header { display:flex; justify-content:space-between; align-items:center; }
-.day-display { display:flex; justify-content:center; gap:1rem; margin-bottom:1rem; }
-#day-number { font-size:5rem; font-weight:600; color:var(--accent-color,#2196f3); font-family:'Baloo 2',sans-serif; }
-#weekday-name { font-size:1.5rem; font-weight:600; color:var(--accent-color,#2196f3); }
-#month-name { font-size:1.3rem; font-weight:bold; opacity:0.85; }
-.diary-content ul { list-style:none; padding:0; }
-#empty-message { text-align:center; font-style:italic; opacity:0.7; }
-.diary-notes textarea { width:100%; min-height:100px; border-radius:8px; padding:8px; font-size:1rem; }
+:root {
+    --accent-color: #2196f3;
+    --holiday-color: #e53935;
+}
+
+.diary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+.diary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.day-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#day-number {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.day-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#weekday-name {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+#month-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+}
+
+.small-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.diary-task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #333;
+    color: #eee;
+}
+
+body.light-mode .diary-task-item {
+    background-color: #eee;
+    color: #222;
+}
+
+.diary-task-item.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.task-subject {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.verifica-badge {
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    font-size: 0.75rem;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.new-task-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
 
 /* Task item */
 .diary-task-item { display:flex; align-items:center; justify-content:space-between; gap:10px; }
