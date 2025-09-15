@@ -1,0 +1,71 @@
+/* ===========================
+   STILE ORARIO
+   =========================== */
+
+/* Contenitore tabella */
+#orario-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    background: var(--bg-color, #1e1e1e);
+    transition: background 0.3s ease;
+}
+
+/* Tabella */
+.orario-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Intestazioni */
+.orario-table th {
+    background: var(--accent-color, #3498db);
+    color: white;
+    padding: 0.5rem;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Celle */
+.orario-table td {
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.4rem;
+    transition: background 0.2s ease;
+}
+
+/* Riga evidenziata (giorno corrente) */
+.orario-table tr.current-day td {
+    background: rgba(255,255,255,0.1);
+    font-weight: bold;
+    color: var(--accent-color, #3498db);
+}
+
+/* Colonna ora corrente */
+.orario-table td.current-hour {
+    background: rgba(255,255,255,0.15);
+    font-weight: bold;
+    border-left: 3px solid var(--accent-color, #3498db);
+}
+
+/* Tema chiaro */
+.light .orario-table th {
+    background: var(--accent-color, #3498db);
+    color: white;
+}
+
+.light .orario-table td {
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.light .orario-table tr.current-day td {
+    background: rgba(0,0,0,0.05);
+}
+
+.light .orario-table td.current-hour {
+    background: rgba(0,0,0,0.1);
+    border-left: 3px solid var(--accent-color, #3498db);
+}
