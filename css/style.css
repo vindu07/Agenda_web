@@ -303,7 +303,7 @@ body.light-mode .modal-content {
 
 .day-display {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
