@@ -289,7 +289,8 @@ body.light-mode .modal-content {
 
 :root {
     /* Colore fisso per l'accento */
-    --accent-color: #ff5722; /* puoi scegliere quello che ti piace */
+    --accent-color: #2196f3; /* puoi scegliere quello che ti piace */
+    --holiday-color: #e53935; /* colore per domeniche e feste */
 }
 
 
