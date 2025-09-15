@@ -1,237 +1,59 @@
 /* style.css - Agenda Scolastica */
 
-/* Reset e base */
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-body { background:#1e1e1e; color:#eee; min-height:100vh; line-height:1.6; }
-body.light-mode { background:#f5f5f5; color:#222; }
+body { background-color:#1e1e1e; color:#eee; min-height:100vh; line-height:1.6; }
+body.light-mode { background-color:#f5f5f5; color:#222; }
 
-/* Header */
-header { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:#2c2c2c; }
-body.light-mode header { background:#ddd; }
+header { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background-color:#2c2c2c; }
+body.light-mode header { background-color:#ddd; }
 header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 
-/* Navbar */
-.nav-bar { display:flex; gap:5px; padding:10px 0; }
-.nav-btn { flex:1; text-align:center; padding:12px 0; border-radius:10px; text-decoration:none; font-weight:bold; color:#eee; background:#333; transition:0.2s; }
-.nav-btn:hover { background:#555; }
-body.light-mode .nav-btn { color:#222; background:#ddd; }
-body.light-mode .nav-btn:hover { background:#999; }
-
-/* Main container */
 main { padding:20px; }
-#task-list li { margin:8px 0; padding:5px 10px; border-radius:5px; background:#333; display:flex; align-items:center; justify-content:space-between; }
-body.light-mode #task-list li { background:#eee; }
-.completed { color:gray; font-style:italic; }
 
-/* MODAL */
-/* modal */
-.modal {
-    position: fixed;
-    top:0; left:0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.modal.hidden { display: none; }
-.modal-content {
-    background: #333;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-body.light-mode .modal-content { background: #fff; color: #000; }
-.modal-content input, .modal-content select, .modal-content button { padding: 8px; }
-.modal-buttons { display: flex; gap: 10px; justify-content: flex-end; }
+#task-list li { margin:8px 0; padding:5px 10px; border-radius:5px; background-color:#333; display:flex; align-items:center; gap:10px; }
+body.light-mode #task-list li { background-color:#eee; }
+.completed { opacity:0.5; font-style:italic; }
 
+button { border:none; border-radius:5px; background-color:#555; color:#eee; transition:0.2s; cursor:pointer; }
+button:hover { background-color:#777; }
+body.light-mode button { background-color:#bbb; color:#222; }
+body.light-mode button:hover { background-color:#999; }
 
-/* Diario */
-:root {
-    --accent-color: #2196f3;
-    --holiday-color: #e53935;
-}
+.nav-bar { display:flex; gap:5px; padding:10px 0px; width:100%; }
+.nav-btn { display:block; width:100%; text-align:center; padding:12px 0; border-radius:10px; text-decoration:none; font-weight:bold; color:#eee; background-color:#333; transition:background-color 0.2s; }
+.nav-btn:hover { background-color:#555; }
+body.light-mode .nav-btn { color:#222; background-color:#ddd; }
+body.light-mode .nav-btn:hover { background-color:#999; }
 
-.diary-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    max-width: 600px;
-    margin: auto;
-}
+.diary-container { display:flex; flex-direction:column; gap:1rem; padding:1rem; max-width:600px; margin:auto; }
+.diary-header { display:flex; align-items:center; justify-content:space-between; }
+.day-display { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem; }
 
-.diary-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+#day-number { font-family:'Baloo 2', sans-serif; font-size:5rem; font-weight:600; color:var(--accent-color); line-height:1; }
+#weekday-name { font-size:1.5rem; font-weight:600; }
+#month-name { font-size:1.3rem; font-weight:bold; opacity:0.85; }
 
-.day-display {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+.small-btn { padding:5px; min-width:30px; font-size:1rem; }
 
-#day-number {
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 5rem;
-    font-weight: 600;
-    color: var(--accent-color);
-}
+.task-text strong { padding:2px 6px; border-radius:3px; color:#fff; }
+.task-priority-1 strong { background:#f87171; }
+.task-priority-2 strong { background:#fbbf24; }
+.task-priority-3 strong { background:#34d399; }
 
-.day-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+.task-verifica-label { display:inline-block; background:red; color:white; font-size:0.7rem; padding:1px 4px; margin-right:5px; border-radius:3px; }
 
-#weekday-name {
-    font-size: 2rem;
-    font-weight: 800;
-}
+.diary-task-item input[type="checkbox"] { flex-shrink:0; }
+.diary-task-item button { margin-left:auto; }
 
-#month-name {
-    font-size: 1.3rem;
-    font-weight: bold;
-    opacity: 0.85;
-}
-
-.small-btn {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* task list */
-#task-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #333;
-    transition: 0.2s;
-}
-
-body.light-mode #task-list li {
-    background-color: #eee;
-}
-
-.completed {
-    opacity: 0.5;
-    text-decoration: line-through;
-}
-
-.task-text strong {
-    display: inline-block;
-    min-width: 120px;
-}
-
-.verifica-badge {
-    display: inline-block;
-    background-color: red;
-    color: white;
-    padding: 2px 4px;
-    font-size: 0.7rem;
-    margin-right: 5px;
-    border-radius: 3px;
-}
-
-.diary-task-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px;
-    border-radius: 6px;
-    background-color: #333;
-    color: #eee;
-}
-
-body.light-mode .diary-task-item {
-    background-color: #eee;
-    color: #222;
-}
-
-.diary-task-item.completed {
-    opacity: 0.5;
-    text-decoration: line-through;
-}
-
-.task-subject {
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.verifica-badge {
-    background-color: red;
-    color: white;
-    padding: 2px 5px;
-    font-size: 0.75rem;
-    border-radius: 3px;
-    margin-right: 5px;
-}
-
-.new-task-btn {
-    padding: 10px 15px;
-    border-radius: 8px;
-    background-color: var(--accent-color);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-
-
-/* Task item */
-.diary-task-item { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-.diary-task-item strong { font-weight:bold; }
-.task-subject-priority { display:inline-block; padding:2px 6px; border-radius:4px; color:#fff; }
-.priority-1 { background:#2196f3; }
-.priority-2 { background:#f59e0b; }
-.priority-3 { background:#ef4444; }
-.verifica-label { display:inline-block; background:red; color:white; padding:2px 6px; margin-right:5px; border-radius:3px; font-weight:bold; font-size:0.8rem; }
-
-
-/* MODAL TASK */
-.modal-content h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-#task-modal label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-}
-
-#task-modal input, #task-modal select {
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #555;
-}
-
-body.light-mode #task-modal input,
-body.light-mode #task-modal select {
-    border: 1px solid #aaa;
-}
-
-#task-modal button {
-    padding: 6px 10px;
-    cursor: pointer;
-}
-/* prev/next piccoli */
-.small-btn {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-}
+/* MODALE TASK */
+.modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; }
+.modal.hidden { display:none; }
+.modal-content { background:#333; padding:20px; border-radius:10px; display:flex; flex-direction:column; gap:10px; min-width:300px; }
+body.light-mode .modal-content { background:#fff; color:#000; }
+.modal-content label { font-weight:bold; }
+.modal-content input, .modal-content textarea, .modal-content select { padding:6px; font-size:1rem; width:100%; border-radius:5px; border:none; }
+.modal-content button { padding:8px; }
+.modal-header { display:flex; justify-content:space-between; align-items:center; }
+.modal-header h2 { margin:0; font-size:1.2rem; }
+.modal-header .close-modal { cursor:pointer; font-size:1.2rem; }
