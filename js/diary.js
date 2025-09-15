@@ -69,7 +69,7 @@ function ensureEl(name) {
    =========================== */
 const WEEKDAYS = [
     "Domenica", "Lunedì", "Martedì", "Mercoledì",
-    "Giovedì", "Venerdì", "Sabato"
+    "Giovedì", "Venerdì", "Sabato", "Domenica"
 ];
 
 const MONTHS = [
