@@ -1,279 +1,135 @@
-/* diary.js - Gestione pagina Diario con integrazione db.js */
-
-/* ===========================
-   CONFIG
-=========================== */
-const DIARY_NOTES_KEY = "diary_notes";
-const NOTE_SAVE_DEBOUNCE_MS = 600;
-
-/* ===========================
-   UTILS
-=========================== */
-function pad2(n) { return String(n).padStart(2, "0"); }
-function toDateKey(d) { return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`; }
-function normalizeToDate(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
-
-/* ===========================
-   STATO
-=========================== */
-let currentDate = normalizeToDate(new Date());
-let noteSaveTimer = null;
-
-/* ===========================
-   ELEMENTI DOM
-=========================== */
+// diary.js
+let currentDate = new Date();
 const el = {
     dayNumber: document.getElementById("day-number"),
     weekdayName: document.getElementById("weekday-name"),
     monthName: document.getElementById("month-name"),
     prevBtn: document.getElementById("prev-day"),
     nextBtn: document.getElementById("next-day"),
-    datePicker: document.getElementById("date-picker"),
     taskList: document.getElementById("task-list"),
-    emptyMessage: document.getElementById("empty-message"),
-    notesArea: document.getElementById("notes"),
-    root: document.documentElement
+    newTaskBtn: document.getElementById("new-task-btn"),
+    taskModal: document.getElementById("task-modal"),
+    taskSubject: document.getElementById("task-subject"),
+    taskDesc: document.getElementById("task-desc"),
+    taskPriority: document.getElementById("task-priority"),
+    taskIsTest: document.getElementById("task-isTest"),
+    saveTaskBtn: document.getElementById("save-task-btn"),
+    cancelTaskBtn: document.getElementById("cancel-task-btn"),
 };
 
-/* ===========================
-   NOTES
-=========================== */
-function loadAllNotes() {
-    try { return JSON.parse(localStorage.getItem(DIARY_NOTES_KEY) || "{}"); }
-    catch(e){ return {}; }
-}
-function saveAllNotes(obj) { localStorage.setItem(DIARY_NOTES_KEY, JSON.stringify(obj)); }
-function loadNoteFor(key) { return loadAllNotes()[key] || ""; }
-function saveNoteFor(key, text){
-    const notes = loadAllNotes();
-    if(text.trim()) notes[key] = text;
-    else delete notes[key];
-    saveAllNotes(notes);
-}
-
-/* ===========================
-   HEADER
-=========================== */
 const WEEKDAYS = ["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
-const MONTHS = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno",
-                "Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
+const MONTHS = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 
-function checkIfHoliday(d){
-    const m = pad2(d.getMonth()+1);
-    const day = pad2(d.getDate());
-    const holidays = ["01-01","06-01","25-04","01-05","02-06","15-08","01-11","08-12","25-12","26-12"];
-    return holidays.includes(`${day}-${m}`);
+function pad2(n){return String(n).padStart(2,"0");}
+function toDateKey(d){return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;}
+
+function renderHeader(){
+    const day = currentDate.getDate();
+    const wday = currentDate.getDay();
+    const weekday = WEEKDAYS[wday];
+    const month = MONTHS[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+
+    el.dayNumber.textContent = day;
+    el.weekdayName.textContent = weekday;
+    el.monthName.textContent = `${month} ${year}`;
+    const isHoliday = wday===0 || checkIfHoliday(currentDate);
+    const color = isHoliday? getComputedStyle(document.documentElement).getPropertyValue('--holiday-color') :
+        getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
+    el.dayNumber.style.color=color;
+    el.weekdayName.style.color=color;
 }
 
-function renderHeaderFor(dateObj){
-    const day = dateObj.getDate();
-    const weekday = WEEKDAYS[dateObj.getDay()];
-    const monthYear = `${MONTHS[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
-    const isHoliday = dateObj.getDay()===0 || checkIfHoliday(dateObj);
-    const color = isHoliday ? getComputedStyle(document.documentElement).getPropertyValue('--holiday-color') 
-                            : getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
-    if(el.dayNumber) el.dayNumber.textContent = day; el.dayNumber.style.color=color;
-    if(el.weekdayName) el.weekdayName.textContent = weekday; el.weekdayName.style.color=color;
-    if(el.monthName) el.monthName.textContent = monthYear;
+function checkIfHoliday(date){
+    const d=date.getDate(),m=date.getMonth()+1;
+    const holidays=["01-01","06-01","25-04","01-05","02-06","15-08","01-11","08-12","25-12","26-12"];
+    return holidays.includes(`${pad2(d)}-${pad2(m)}`);
 }
 
-/* ===========================
-   TASKS RENDER
-=========================== */
-function renderTasksFor(dateKey){
-    if(!el.taskList) return;
-    el.taskList.innerHTML = "";
-    const tasks = getTasksForDate(dateKey);
-    if(!tasks.length){
-        if(el.emptyMessage) el.emptyMessage.classList.remove("hidden");
-        return;
-    } else { if(el.emptyMessage) el.emptyMessage.classList.add("hidden"); }
+function renderTasks(){
+    el.taskList.innerHTML="";
+    let tasks=DB.getTasks().filter(t=>t.date===toDateKey(currentDate));
+    if(!tasks.length)return;
 
-    tasks.forEach(task=>{
-        const li = document.createElement("li");
-        li.className="diary-task-item";
-        li.setAttribute("data-task-id",task.id);
+    tasks.sort((a,b)=>{
+        if(a.isTest && !b.isTest) return -1;
+        if(!a.isTest && b.isTest) return 1;
+        return b.priority - a.priority;
+    });
 
-        // checkbox completato
-        const cb = document.createElement("input");
-        cb.type="checkbox"; cb.checked=!!task.completed;
-        cb.className="task-complete-checkbox"; cb.setAttribute("aria-label","Segna come completato");
+    tasks.forEach(t=>{
+        const li=document.createElement("li");
+        li.className="diary-task-item"+(t.completed?" completed":"");
+        li.setAttribute("data-task-id",t.id);
+        const cb=document.createElement("input");
+        cb.type="checkbox"; cb.checked=t.completed;
+        cb.addEventListener("change",()=>{t.completed=cb.checked; DB.saveTasks(DB.getTasks()); renderTasks();});
+        li.appendChild(cb);
 
-        // testo
-        const textWrap = document.createElement("div"); textWrap.className="task-text";
-        const subj = document.createElement("strong"); subj.textContent=task.subject;
-        subj.style.color = getPriorityColor(task.priority); // colore priorità solo sul nome
-        if(task.isTest){
-            const redBox = document.createElement("span");
-            redBox.textContent="Verifica"; redBox.style.backgroundColor="red";
-            redBox.style.color="#fff"; redBox.style.padding="0 4px"; redBox.style.marginRight="6px";
-            redBox.style.borderRadius="3px";
-            textWrap.appendChild(redBox);
+        if(t.isTest){
+            const badge=document.createElement("span");
+            badge.className="verifica-badge";
+            badge.textContent="Verifica";
+            li.appendChild(badge);
+            t.priority=3;
         }
-        const desc = document.createElement("div"); desc.textContent=task.descr; desc.className="task-desc";
-        textWrap.appendChild(subj); if(task.descr) textWrap.appendChild(desc);
 
-        // delete
-        const del = document.createElement("button"); del.className="task-delete-btn"; del.textContent="🗑";
+        const subj=document.createElement("span");
+        subj.className="task-subject";
+        subj.textContent=t.subject;
+        subj.style.color=getPriorityColor(t.priority);
+        li.appendChild(subj);
 
-        if(task.completed) li.classList.add("completed");
+        if(t.descr){
+            const desc=document.createElement("span");
+            desc.className="task-desc";
+            desc.textContent=t.descr;
+            li.appendChild(desc);
+        }
 
-        li.appendChild(cb); li.appendChild(textWrap); li.appendChild(del);
         el.taskList.appendChild(li);
     });
 }
 
-// ritorna colore priorità
-function getPriorityColor(priority){
-    switch(priority){
-        case 3: return "#e74c3c"; // alta
-        case 2: return "#f1c40f"; // media
-        default: return "#2ecc71"; // bassa
-    }
+function getPriorityColor(p){
+    if(p==1) return "gray";
+    if(p==2) return "orange";
+    return "red";
 }
 
-/* ===========================
-   TASK EVENTS
-=========================== */
-function onTaskListClick(e){
-    const li = e.target.closest(".diary-task-item"); if(!li) return;
-    const id = li.getAttribute("data-task-id");
-    if(e.target.classList.contains("task-complete-checkbox")){
-        toggleTaskCompleted(id); renderTasksFor(toDateKey(currentDate));
-        window.dispatchEvent(new CustomEvent("tasksUpdated",{detail:{taskId:id,action:"toggleComplete"}}));
-    }
-    if(e.target.classList.contains("task-delete-btn")){
-        deleteTask(id); renderTasksFor(toDateKey(currentDate));
-        window.dispatchEvent(new CustomEvent("tasksUpdated",{detail:{taskId:id,action:"delete"}}));
-    }
-}
+function prevDay(){currentDate.setDate(currentDate.getDate()-1); renderHeader(); renderTasks();}
+function nextDay(){currentDate.setDate(currentDate.getDate()+1); renderHeader(); renderTasks();}
 
-/* ===========================
-   NOTES EVENTS
-=========================== */
-function loadNoteToUI(dateKey){
-    if(el.notesArea) el.notesArea.value = loadNoteFor(dateKey);
-}
-function scheduleNoteSave(dateKey){
-    if(!el.notesArea) return;
-    if(noteSaveTimer) clearTimeout(noteSaveTimer);
-    noteSaveTimer = setTimeout(()=>{
-        saveNoteFor(dateKey, el.notesArea.value);
-        window.dispatchEvent(new CustomEvent("diaryNoteSaved",{detail:{dateKey}}));
-    },NOTE_SAVE_DEBOUNCE_MS);
-}
+function openModal(){el.taskModal.classList.remove("hidden");}
+function closeModal(){el.taskModal.classList.add("hidden"); el.taskSubject.value=""; el.taskDesc.value=""; el.taskPriority.value="1"; el.taskIsTest.checked=false;}
 
-/* ===========================
-   NAVIGAZIONE
-=========================== */
-function goToDate(d){
-    currentDate = normalizeToDate(d);
-    const key = toDateKey(currentDate);
-    renderHeaderFor(currentDate);
-    renderTasksFor(key);
-    loadNoteToUI(key);
-    if(el.datePicker) el.datePicker.value = key;
-}
-function nextDay(){ const d = new Date(currentDate); d.setDate(d.getDate()+1); goToDate(d);}
-function prevDay(){ const d = new Date(currentDate); d.setDate(d.getDate()-1); goToDate(d);}
-
-/* ===========================
-   EVENT BINDING
-=========================== */
-function attachEventListeners(){
-    if(el.prevBtn) el.prevBtn.addEventListener("click",prevDay);
-    if(el.nextBtn) el.nextBtn.addEventListener("click",nextDay);
-    if(el.datePicker) el.datePicker.addEventListener("change",ev=>{
-        const [y,m,d]=ev.target.value.split("-"); goToDate(new Date(Number(y),Number(m)-1,Number(d)));
-    });
-    if(el.taskList) el.taskList.addEventListener("click",onTaskListClick);
-    if(el.notesArea) el.notesArea.addEventListener("input",()=>scheduleNoteSave(toDateKey(currentDate)));
-    document.addEventListener("keydown",ev=>{
-        if(ev.key==="ArrowLeft") prevDay();
-        else if(ev.key==="ArrowRight") nextDay();
-    });
-    window.addEventListener("tasksUpdated",()=>renderTasksFor(toDateKey(currentDate)));
-}
-
-/* ===========================
-   INIT
-=========================== */
-function initDiary(){
-    attachEventListeners();
-    goToDate(currentDate);
-}
-
-document.addEventListener("DOMContentLoaded",initDiary);
-
-
-/* ===========================
-   POPUP CREAZIONE/MODIFICA TASK
-=========================== */
-const taskModal = document.getElementById("task-modal");
-const addTaskBtn = document.getElementById("add-task-btn");
-const saveTaskBtn = document.getElementById("task-save-btn");
-const cancelTaskBtn = document.getElementById("task-cancel-btn");
-
-const taskFields = {
-    subject: document.getElementById("task-subject"),
-    descr: document.getElementById("task-descr"),
-    completed: document.getElementById("task-completed"),
-    isTest: document.getElementById("task-isTest"),
-    priority: document.getElementById("task-priority")
-};
-
-let editingTaskId = null;
-
-function openTaskModal(task = null) {
-    taskModal.classList.remove("hidden");
-    if (task) {
-        editingTaskId = task.id;
-        taskFields.subject.value = task.subject || "matematica";
-        taskFields.descr.value = task.descr || "";
-        taskFields.completed.checked = !!task.completed;
-        taskFields.isTest.checked = !!task.isTest;
-        taskFields.priority.value = task.isTest ? 3 : (task.priority || 1);
-        document.getElementById("modal-title").textContent = "Modifica Task";
-    } else {
-        editingTaskId = null;
-        taskFields.subject.value = "matematica";
-        taskFields.descr.value = "";
-        taskFields.completed.checked = false;
-        taskFields.isTest.checked = false;
-        taskFields.priority.value = 1;
-        document.getElementById("modal-title").textContent = "Nuovo Task";
-    }
-}
-
-function closeTaskModal() {
-    taskModal.classList.add("hidden");
-}
-
-// click apri
-if (addTaskBtn) addTaskBtn.addEventListener("click", () => openTaskModal());
-
-// click annulla
-if (cancelTaskBtn) cancelTaskBtn.addEventListener("click", closeTaskModal);
-
-// click salva
-if (saveTaskBtn) saveTaskBtn.addEventListener("click", () => {
-    const newTask = {
-        id: editingTaskId || Date.now().toString(),
-        date: toDateKey(currentDate),
-        subject: taskFields.subject.value,
-        descr: taskFields.descr.value,
-        completed: taskFields.completed.checked,
-        isTest: taskFields.isTest.checked,
-        priority: taskFields.isTest.checked ? 3 : Number(taskFields.priority.value)
+function saveTask(){
+    const subj=el.taskSubject.value.trim();
+    if(!subj)return;
+    const tasks=DB.getTasks();
+    const newTask={
+        id:Date.now().toString(),
+        date:toDateKey(currentDate),
+        subject:subj,
+        descr:el.taskDesc.value.trim(),
+        priority:Number(el.taskPriority.value),
+        isTest:el.taskIsTest.checked,
+        completed:false
     };
+    if(newTask.isTest)newTask.priority=3;
+    tasks.push(newTask);
+    DB.saveTasks(tasks);
+    closeModal();
+    renderTasks();
+}
 
-    if (editingTaskId) {
-        updateTask(newTask);
-    } else {
-        addTask(newTask);
-    }
+el.prevBtn.addEventListener("click",prevDay);
+el.nextBtn.addEventListener("click",nextDay);
+el.newTaskBtn.addEventListener("click",openModal);
+el.cancelTaskBtn.addEventListener("click",closeModal);
+el.saveTaskBtn.addEventListener("click",saveTask);
 
-    renderTasksFor(toDateKey(currentDate));
-    closeTaskModal();
+document.addEventListener("DOMContentLoaded",()=>{
+    renderHeader();
+    renderTasks();
 });
-
