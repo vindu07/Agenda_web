@@ -163,16 +163,37 @@ function renderHeaderFor(dateObj) {
     if (!el.dayNumber || !el.weekdayName || !el.monthName) return;
 
     const day = dateObj.getDate();
-    const weekday = WEEKDAYS[dateObj.getDay()];
+    const weekdayIndex = dateObj.getDay(); // 0 = Domenica
+    const weekday = WEEKDAYS[weekdayIndex];
     const month = MONTHS[dateObj.getMonth()];
     const year = dateObj.getFullYear();
+
+    // Applichiamo colore d'accento (via CSS variable) alle parti testuali grandi
+    // Assicurati in CSS: #day-number, #weekday-name leggano --accent-color
 
     el.dayNumber.textContent = day;
     el.weekdayName.textContent = weekday;
     el.monthName.textContent = `${month} ${year}`;
 
-    // Applichiamo colore d'accento (via CSS variable) alle parti testuali grandi
-    // Assicurati in CSS: #day-number, #weekday-name leggano --accent-color
+    // Applica colore speciale se domenica o festivo
+    const isSunday = weekdayIndex === 0;
+    const isHoliday = checkIfHoliday(dateObj); // funzione che puoi definire
+
+    if (isSunday || isHoliday) {
+        el.dayNumber.style.color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--holiday-color');
+        el.weekdayName.style.color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--holiday-color');
+    } else {
+        el.dayNumber.style.color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--accent-color');
+        el.weekdayName.style.color = getComputedStyle(document.documentElement)
+            .getPropertyValue('--accent-color');
+    }
+}
+
+
+   
 }
 
 /* ===========================
@@ -420,6 +441,34 @@ function initDiary() {
 
 // Avvia quando il DOM è pronto
 document.addEventListener("DOMContentLoaded", initDiary);
+
+
+/*RILEVA I FESTIVI*/
+
+function checkIfHoliday(dateObj) {
+    const month = dateObj.getMonth() + 1; // 1-12
+    const day = dateObj.getDate();
+
+    // Feste italiane principali (gg/mm)
+    const fixedHolidays = [
+        "01-01", // Capodanno
+        "06-01", // Epifania
+        "25-04", // Liberazione
+        "01-05", // Festa lavoro
+        "02-06", // Repubblica
+        "15-08", // Ferragosto
+        "01-11", // Ognissanti
+        "08-12", // Immacolata
+        "25-12", // Natale
+        "26-12"  // Santo Stefano
+    ];
+
+    const key = `${pad2(day)}-${pad2(month)}`;
+    return fixedHolidays.includes(key);
+}
+
+
+
 
 /* ===========================
    NOTE:
