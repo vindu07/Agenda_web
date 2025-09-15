@@ -1,79 +1,64 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda Scolastica - Diario</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Scolastica - Diario</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body class="dark-mode">
-
 <header>
-    <h1>DIARIO</h1>
-    <button id="toggle-theme">🌙 / ☀️</button>
+<h1>DIARIO</h1>
+<button id="toggle-theme">🌙 / ☀️</button>
 </header>
-
 <nav class="nav-bar">
-    <a href="index.html" class="nav-btn">Dashboard</a>
-    <a href="calendario.html" class="nav-btn">Calendario</a>
-    <a href="diario.html" class="nav-btn">Diario</a>
-    <a href="orario.html" class="nav-btn">Orario</a>
+<a href="index.html" class="nav-btn">Dashboard</a>
+<a href="calendario.html" class="nav-btn">Calendario</a>
+<a href="diario.html" class="nav-btn">Diario</a>
+<a href="orario.html" class="nav-btn">Orario</a>
 </nav>
-
 <main class="diary-container">
-    <div class="diary-header">
-        <button class="nav-btn small-btn" id="prev-day">
-            <img src="assets/icons/prv.png" alt="<<">
-        </button>
+<div class="diary-header">
+<button class="nav-btn small-btn" id="prev-day">◀</button>
+<button id="new-task-btn" class="nav-btn">➕ Nuovo Task</button>
+<button class="nav-btn small-btn" id="next-day">▶</button>
+</div>
+<div class="day-display">
+<div id="day-number">15</div>
+<div class="day-text">
+<span id="weekday-name">Lunedì</span>
+<span id="month-name">Settembre 2025</span>
+</div>
+</div>
+<ul id="task-list"></ul>
 
-        <div class="day-display">
-            <div id="day-number">15</div>
-            <div class="day-text">
-                <span id="weekday-name">Lunedì</span>
-                <span id="month-name">Settembre 2025</span>
-            </div>
-        </div>
-
-        <button class="nav-btn small-btn" id="next-day">
-            <img src="assets/icons/net.png" alt=">>">
-        </button>
-    </div>
-
-    <div class="diary-content">
-        <ul id="task-list">
-            <!-- JS inserirà i task/verifiche qui -->
-        </ul>
-        <button id="new-task-btn">➕ Nuovo Task</button>
-    </div>
-</main>
-
-<!-- MODAL CREAZIONE/MODIFICA TASK -->
+<!-- MODALE CREAZIONE TASK -->
 <div id="task-modal" class="modal hidden">
-    <div class="modal-content">
-        <h3 id="modal-title">Nuovo Task</h3>
-        <input type="text" id="task-subject" placeholder="Materia">
-        <input type="text" id="task-desc" placeholder="Descrizione">
-        <select id="task-priority">
-            <option value="1">Priorità 1</option>
-            <option value="2">Priorità 2</option>
-            <option value="3">Priorità 3</option>
-        </select>
-        <label><input type="checkbox" id="task-isTest"> Verifica</label>
-        <div class="modal-buttons">
-            <button id="save-task-btn">Salva</button>
-            <button id="cancel-task-btn">Annulla</button>
-        </div>
-    </div>
+<div class="modal-content">
+<div class="modal-header">
+<h2>Nuovo Task</h2>
+<span class="close-modal" id="close-modal">✖</span>
+</div>
+<label for="task-subject">Materia:</label>
+<input type="text" id="task-subject">
+<label for="task-descr">Descrizione:</label>
+<textarea id="task-descr"></textarea>
+<label for="task-priority">Priorità:</label>
+<select id="task-priority">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+<label><input type="checkbox" id="task-isTest"> Verifica</label>
+<button id="save-task-btn">Salva Task</button>
+</div>
 </div>
 
 <footer>
-    <p>Andrea Vinduska &copy; 2025</p>
+<p>Andrea Vinduska &copy; 2025</p>
 </footer>
-
-<script src="js/utils.js"></script>
 <script src="js/db.js"></script>
 <script src="js/diary.js"></script>
 <script src="js/app.js"></script>
-
 </body>
 </html>
