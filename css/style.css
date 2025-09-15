@@ -317,13 +317,16 @@ body.light-mode .modal-content {
     margin-bottom: 1rem;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+
 #day-number {
+    font-family: 'Baloo 2', sans-serif; /* Font arrotondato e bold */
     font-size: 5rem;
-    font-weight: 700;
-    color: var(--accent-color); /* Colore personalizzabile */
-    font-family: 'Poppins', sans-serif; /* Font moderno e leggibile */
+    font-weight: 600;
+    color: var(--accent-color);
     line-height: 1;
 }
+
 
 .day-text {
     display: flex;
