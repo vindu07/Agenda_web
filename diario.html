@@ -8,65 +8,81 @@
 </head>
 <body class="dark-mode">
 
-    <header>
-        <h1>DIARIO</h1>
-        <button id="toggle-theme">🌙 / ☀️</button>
-    </header>
+<header>
+    <h1>DIARIO</h1>
+    <button id="toggle-theme">🌙 / ☀️</button>
+</header>
 
-    <nav class="nav-bar">
-        <a href="index.html" class="nav-btn">Dashboard</a>
-        <a href="calendario.html" class="nav-btn">Calendario</a>
-        <a href="diario.html" class="nav-btn">Diario</a>
-        <a href="orario.html" class="nav-btn">Orario</a>
-    </nav>
+<nav class="nav-bar">
+    <a href="index.html" class="nav-btn">Dashboard</a>
+    <a href="calendario.html" class="nav-btn">Calendario</a>
+    <a href="diario.html" class="nav-btn">Diario</a>
+    <a href="orario.html" class="nav-btn">Orario</a>
+</nav>
 
-    <main class="diary-container">
-        <div class="diary-header">
-            <button class="nav-btn" id="prev-day">
-                <img src="assets/icons/prev.png" alt="Giorno precedente">
-            </button>
+<main class="diary-container">
+    <div class="diary-header">
+        <button class="nav-btn" id="prev-day">
+            <img src="assets/icons/prev.png" alt="Giorno precedente">
+        </button>
 
-            <!-- date picker opzionale -->
-            <input type="date" id="date-picker">
+        <button class="nav-btn" id="next-day">
+            <img src="assets/icons/next.png" alt="Giorno successivo">
+        </button>
+    </div>
 
-            <button class="nav-btn" id="next-day">
-                <img src="assets/icons/next.png" alt="Giorno successivo">
-            </button>
+    <div class="day-display">
+        <div id="day-number">15</div>
+        <div class="day-text">
+            <span id="weekday-name">Lunedì</span>
+            <span id="month-name">Settembre 2025</span>
         </div>
+    </div>
 
-        <div class="day-display">
-            <div id="day-number">15</div>
-            <div class="day-text">
-                <span id="weekday-name">Lunedì</span>
-                <span id="month-name">Settembre 2025</span>
-            </div>
+    <div class="diary-content">
+        <ul id="task-list">
+            <!-- JS inserirà i compiti -->
+        </ul>
+        <p id="empty-message" class="hidden">🎉 Niente da fare per oggi</p>
+    </div>
+
+    <div class="diary-notes">
+        <textarea id="notes" placeholder="Scrivi appunti per oggi..."></textarea>
+    </div>
+</main>
+
+<!-- MODAL TASK -->
+<div id="task-modal" class="modal hidden">
+    <div class="modal-content">
+        <input type="text" id="task-subject" placeholder="Materia">
+        <textarea id="task-desc" placeholder="Descrizione (opzionale)"></textarea>
+        <label>Priorità:
+            <select id="task-priority">
+                <option value="1">1 - Alta</option>
+                <option value="2">2 - Media</option>
+                <option value="3" selected>3 - Bassa</option>
+            </select>
+        </label>
+        <label>
+            Verifica?
+            <input type="checkbox" id="task-isTest">
+        </label>
+        <div style="display:flex; justify-content:space-between;">
+            <button id="save-task-btn">💾 Salva</button>
+            <button id="close-task-btn">✖ Chiudi</button>
         </div>
+    </div>
+</div>
 
-        <div class="diary-content">
-            <div class="task-controls">
-                <button id="add-task-btn">➕ Aggiungi Task/Verifica</button>
-            </div>
+<footer>
+    <p>Andrea Vinduska &copy; 2025</p>
+</footer>
 
-            <ul id="task-list">
-                <!-- Qui JS inserirà i compiti -->
-            </ul>
-            <p id="empty-message" class="hidden">🎉 Niente da fare per oggi</p>
-        </div>
-
-        <div class="diary-notes">
-            <textarea id="notes" placeholder="Scrivi appunti per oggi..."></textarea>
-        </div>
-    </main>
-
-    <footer>
-        <p>Andrea Vinduska &copy; 2025</p>
-    </footer>
-
-    <script src="js/utils.js"></script>
-    <script src="js/db.js"></script>
-    <script src="js/diary.js"></script>
-    <script src="js/debug.js"></script>
-    <script src="js/app.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/db.js"></script>
+<script src="js/diary.js"></script>
+<script src="js/debug.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
