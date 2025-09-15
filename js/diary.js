@@ -129,4 +129,43 @@ el.closeTaskBtn?.addEventListener("click",closeTaskModal);
 el.saveTaskBtn?.addEventListener("click",()=>{
     const tasks=getTasks();
     const dateKey=toDateKey(currentDate);
-    const newTask={id:editingTaskId??String
+    const newTask={id:editingTaskId??String(Date.now()),date:dateKey,subject:el.taskSubject.value.trim()||"Compito",descr:el.taskDesc.value.trim(),completed:false,priority:Math.min(Math.max(Number(el.taskPriority.value),1),3),isTest:!!el.taskIsTest.checked};
+    if(editingTaskId){const idx=tasks.findIndex(t=>t.id===editingTaskId);if(idx!==-1) tasks[idx]=newTask;}
+    else tasks.push(newTask);
+    saveTasks(tasks); renderTasksFor(dateKey); closeTaskModal();
+});
+
+/* =========================
+   NOTES
+========================= */
+function loadNoteToUI(dateKey){if(!el.notesArea) return; el.notesArea.value=loadNoteFor(dateKey);}
+function scheduleNoteSave(dateKey){if(!el.notesArea) return; if(noteSaveTimer) clearTimeout(noteSaveTimer); noteSaveTimer=setTimeout(()=>{saveNoteFor(dateKey,el.notesArea.value); window.dispatchEvent(new CustomEvent("diaryNoteSaved",{detail:{dateKey}}));},NOTE_SAVE_DEBOUNCE_MS);}
+
+/* =========================
+   NAVIGAZIONE DATA
+========================= */
+function goToDate(newDate){currentDate=normalizeToDate(newDate); const key=toDateKey(currentDate); renderHeaderFor(currentDate); renderTasksFor(key); loadNoteToUI(key);}
+function nextDay(){const d=new Date(currentDate); d.setDate(d.getDate()+1); goToDate(d);}
+function prevDay(){const d=new Date(currentDate); d.setDate(d.getDate()-1); goToDate(d);}
+el.nextBtn?.addEventListener("click",nextDay); el.prevBtn?.addEventListener("click",prevDay);
+
+/* =========================
+   TASK LIST CLICK
+========================= */
+el.taskList?.addEventListener("click",e=>{
+    const li=e.target.closest(".diary-task-item"); if(!li) return;
+    const taskId=li.getAttribute("data-task-id");
+    if(e.target.classList.contains("task-complete-checkbox")) toggleTaskComplete(taskId,e.target.checked);
+    if(e.target.classList.contains("task-delete-btn")) deleteTask(taskId);
+});
+
+/* =========================
+   NOTES INPUT
+========================= */
+el.notesArea?.addEventListener("input",()=>{scheduleNoteSave(toDateKey(currentDate));});
+
+/* =========================
+   INIT
+========================= */
+function initDiary(){goToDate(currentDate);}
+document.addEventListener("DOMContentLoaded",initDiary);
