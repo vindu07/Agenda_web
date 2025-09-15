@@ -91,3 +91,41 @@ function getTasksForDate(dateKey) {
     });
     return tasks;
 }
+
+
+function getTasksForDate(dateKey) {
+    return getTasks().filter(t => t.date === dateKey);
+}
+
+function addTask(task) {
+    const tasks = getTasks();
+    tasks.push(task);
+    saveTasks(tasks);
+    window.dispatchEvent(new CustomEvent("tasksUpdated"));
+}
+
+function updateTask(updatedTask) {
+    const tasks = getTasks();
+    const idx = tasks.findIndex(t => t.id === updatedTask.id);
+    if (idx >= 0) {
+        tasks[idx] = updatedTask;
+        saveTasks(tasks);
+        window.dispatchEvent(new CustomEvent("tasksUpdated"));
+    }
+}
+
+function deleteTaskById(taskId) {
+    const tasks = getTasks().filter(t => t.id !== taskId);
+    saveTasks(tasks);
+    window.dispatchEvent(new CustomEvent("tasksUpdated"));
+}
+
+function toggleTaskCompletedById(taskId, completed) {
+    const tasks = getTasks();
+    const idx = tasks.findIndex(t => t.id === taskId);
+    if (idx >= 0) {
+        tasks[idx].completed = completed;
+        saveTasks(tasks);
+        window.dispatchEvent(new CustomEvent("tasksUpdated"));
+    }
+}
