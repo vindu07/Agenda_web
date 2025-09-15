@@ -1,14 +1,16 @@
-/* diary.js - gestione pagina Diario */
+/* diary.js */
 
-// key
-const ACCENT_COLOR_KEY = "diary_accent_color";
+const DIARY_NOTES_KEY = "diary_notes";
+const TASKS_KEY = "tasks";
 const NOTE_SAVE_DEBOUNCE_MS = 600;
 
-// stato
-let currentDate = new Date();
+function pad2(n){return String(n).padStart(2,"0");}
+function toDateKey(d){return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;}
+function normalizeToDate(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
+
+let currentDate = normalizeToDate(new Date());
 let noteSaveTimer = null;
 
-// elementi DOM
 const el = {
     dayNumber: document.getElementById("day-number"),
     weekdayName: document.getElementById("weekday-name"),
@@ -21,127 +23,71 @@ const el = {
     root: document.documentElement
 };
 
-// utils
-function pad2(n){return String(n).padStart(2,"0");}
-function toDateKey(d){return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;}
-function normalizeDate(d){return new Date(d.getFullYear(), d.getMonth(), d.getDate());}
+/* Tasks storage */
+function getTasks(){try{const t=localStorage.getItem(TASKS_KEY);return t?JSON.parse(t):[]}catch(e){return[];}}
+function saveTasks(a){try{localStorage.setItem(TASKS_KEY,JSON.stringify(a));}catch(e){}}
 
-// festivi
-function checkIfHoliday(dateObj){
-    const month = pad2(dateObj.getMonth()+1);
-    const day = pad2(dateObj.getDate());
-    const fixedHolidays=["01-01","06-01","25-04","01-05","02-06","15-08","01-11","08-12","25-12","26-12"];
-    return fixedHolidays.includes(`${day}-${month}`);
-}
+/* Notes storage */
+function loadAllNotes(){try{const n=localStorage.getItem(DIARY_NOTES_KEY);return n?JSON.parse(n):{}}catch(e){return{}}}
+function saveAllNotes(o){try{localStorage.setItem(DIARY_NOTES_KEY,JSON.stringify(o));}catch(e){}}
+function loadNoteFor(dk){return loadAllNotes()[dk]||"";}
+function saveNoteFor(dk,text){const all=loadAllNotes();text&&text.trim().length>0?all[dk]=text:delete all[dk];saveAllNotes(all);}
 
-// accent color
-function loadAccentColor(){
-    const col = localStorage.getItem(ACCENT_COLOR_KEY);
-    if(col) el.root.style.setProperty("--accent-color", col);
-}
-
-// header
-function renderHeader(dateObj){
-    const day = dateObj.getDate();
-    const weekdayIndex = dateObj.getDay();
-    const weekday=["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"][weekdayIndex];
-    const month=["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"][dateObj.getMonth()];
-    const year = dateObj.getFullYear();
+/* Render header */
+const WEEKDAYS=["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
+const MONTHS=["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
+function renderHeaderFor(d){
+    const day=d.getDate(),w=d.getDay(),weekday=WEEKDAYS[w],month=MONTHS[d.getMonth()],year=d.getFullYear();
     el.dayNumber.textContent=day;
     el.weekdayName.textContent=weekday;
     el.monthName.textContent=`${month} ${year}`;
-    if(weekdayIndex===0 || checkIfHoliday(dateObj)){
-        el.dayNumber.style.color=getComputedStyle(el.root).getPropertyValue("--holiday-color");
-        el.weekdayName.style.color=getComputedStyle(el.root).getPropertyValue("--holiday-color");
-    }else{
-        el.dayNumber.style.color=getComputedStyle(el.root).getPropertyValue("--accent-color");
-        el.weekdayName.style.color=getComputedStyle(el.root).getPropertyValue("--accent-color");
-    }
+    const color=(w===0)?getComputedStyle(document.documentElement).getPropertyValue('--holiday-color')||"#e53935":getComputedStyle(document.documentElement).getPropertyValue('--accent-color')||"#2196f3";
+    el.dayNumber.style.color=color; el.weekdayName.style.color=color;
 }
 
-// render tasks
-function renderTasks(){
-    const key = toDateKey(currentDate);
-    const listEl = el.taskList;
-    const emptyEl = el.emptyMessage;
-    if(!listEl) return;
+/* Render tasks */
+function renderTasksFor(dateKey){
+    const listEl=el.taskList,emptyEl=el.emptyMessage; if(!listEl)return;
     listEl.innerHTML="";
-    let tasks = getTasks();
-    let todayTasks = tasks.filter(t=>t.date===key);
-    if(todayTasks.length===0){
-        if(emptyEl) emptyEl.classList.remove("hidden");
-        return;
-    }else if(emptyEl) emptyEl.classList.add("hidden");
-
-    todayTasks.sort((a,b)=>{
-        const aTest = a.isTest?0:1; const bTest = b.isTest?0:1;
-        if(aTest!==bTest) return aTest-bTest;
-        const aComp = a.completed?1:0; const bComp = b.completed?1:0;
-        return aComp-bComp;
+    const tasks=getTasks().filter(t=>t.date===dateKey);
+    if(!tasks.length){emptyEl?.classList.remove("hidden");return;} else emptyEl?.classList.add("hidden");
+    tasks.sort((a,b)=>{
+        if(a.isTest!==b.isTest)return a.isTest? -1:1;
+        return b.priority - a.priority;
     });
-
-    todayTasks.forEach(t=>{
-        const li=document.createElement("li");
-        li.className="diary-task-item";
-        li.setAttribute("data-task-id",t.id||"");
-
-        const cb=document.createElement("input");
-        cb.type="checkbox"; cb.checked=!!t.completed; cb.className="task-complete-checkbox";
-
+    tasks.forEach(task=>{
+        const li=document.createElement("li"); li.className="diary-task-item"; li.setAttribute("data-task-id",task.id||"");
+        const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=!!task.completed; cb.className="task-complete-checkbox";
+        cb.addEventListener("change",()=>{toggleTaskComplete(task.id,cb.checked);});
         const textWrap=document.createElement("div");
-        textWrap.className="task-text";
-        const subj=document.createElement("strong"); subj.textContent=t.subject||"Compito";
-        const desc=document.createElement("div"); desc.textContent=t.descr||""; desc.className="task-desc";
-        textWrap.appendChild(subj); if(t.descr) textWrap.appendChild(desc);
-
-        const del=document.createElement("button"); del.className="task-delete-btn"; del.textContent="🗑";
-
-        if(t.completed) li.classList.add("completed");
-
-        li.appendChild(cb); li.appendChild(textWrap); li.appendChild(del);
-        listEl.appendChild(li);
+        const subjSpan=document.createElement("strong"); subjSpan.textContent=task.subject||"Compito"; subjSpan.className="task-subject-priority priority-"+task.priority;
+        if(task.isTest){const testLabel=document.createElement("span");testLabel.textContent="VERIFICA";testLabel.className="verifica-label";textWrap.appendChild(testLabel); subjSpan.style.color="white";}
+        textWrap.appendChild(subjSpan);
+        if(task.descr){const d=document.createElement("div");d.textContent=task.descr; textWrap.appendChild(d);}
+        const del=document.createElement("button"); del.textContent="🗑"; del.addEventListener("click",()=>{deleteTask(task.id);});
+        if(task.completed) li.classList.add("completed");
+        li.appendChild(cb); li.appendChild(textWrap); li.appendChild(del); listEl.appendChild(li);
     });
 }
 
-// task events
-function onTaskClick(e){
-    const li = e.target.closest(".diary-task-item"); if(!li) return;
-    const id = li.getAttribute("data-task-id");
-    if(e.target.classList.contains("task-complete-checkbox")){
-        let tasks = getTasks(); let idx = tasks.findIndex(t=>t.id===id);
-        if(idx>=0){ tasks[idx].completed=e.target.checked; saveTasks(tasks); renderTasks(); }
-    }
-    if(e.target.classList.contains("task-delete-btn")){
-        let tasks = getTasks(); tasks = tasks.filter(t=>t.id!==id); saveTasks(tasks); renderTasks();
-    }
-}
+/* Task handlers */
+function toggleTaskComplete(id,completed){let t=getTasks(),i=t.findIndex(x=>x.id===id);if(i!==-1){t[i].completed=completed; saveTasks(t); renderTasksFor(toDateKey(currentDate));}}
+function deleteTask(id){let t=getTasks();t=t.filter(x=>x.id!==id);saveTasks(t);renderTasksFor(toDateKey(currentDate));}
 
-// notes
-function loadNote(){
-    if(!el.notesArea) return;
-    el.notesArea.value = getAllNotes()[toDateKey(currentDate)] || "";
-}
-function saveNoteDebounced(){
-    if(!el.notesArea) return;
-    if(noteSaveTimer) clearTimeout(noteSaveTimer);
-    noteSaveTimer = setTimeout(()=>{ saveNote(toDateKey(currentDate), el.notesArea.value); }, NOTE_SAVE_DEBOUNCE_MS);
-}
+/* Notes */
+function loadNoteToUI(dk){el.notesArea.value=loadNoteFor(dk);}
+function scheduleNoteSave(dk){if(noteSaveTimer)clearTimeout(noteSaveTimer);noteSaveTimer=setTimeout(()=>{saveNoteFor(dk,el.notesArea.value);},NOTE_SAVE_DEBOUNCE_MS);}
 
-// navigation
-function goToDate(d){ currentDate=normalizeDate(d); renderHeader(currentDate); renderTasks(); loadNote(); }
-function nextDay(){ const d = new Date(currentDate); d.setDate(d.getDate()+1); goToDate(d);}
-function prevDay(){ const d = new Date(currentDate); d.setDate(d.getDate()-1); goToDate(d);}
+/* Navigation */
+function goToDate(d){currentDate=normalizeToDate(d);const k=toDateKey(currentDate); renderHeaderFor(currentDate); renderTasksFor(k); loadNoteToUI(k);}
+function nextDay(){const d=new Date(currentDate);d.setDate(d.getDate()+1);goToDate(d);}
+function prevDay(){const d=new Date(currentDate);d.setDate(d.getDate()-1);goToDate(d);}
 
-// events
-function attachEvents(){
-    if(el.prevBtn) el.prevBtn.addEventListener("click",prevDay);
-    if(el.nextBtn) el.nextBtn.addEventListener("click",nextDay);
-    if(el.taskList) el.taskList.addEventListener("click",onTaskClick);
-    if(el.notesArea) el.notesArea.addEventListener("input",saveNoteDebounced);
-    document.addEventListener("keydown", ev=>{ if(ev.key==="ArrowLeft") prevDay(); else if(ev.key==="ArrowRight") nextDay();});
-}
-
-// init
+/* Init */
 document.addEventListener("DOMContentLoaded",()=>{
-    loadAccentColor(); attachEvents(); goToDate(currentDate);
+    el.prevBtn?.addEventListener("click",prevDay);
+    el.nextBtn?.addEventListener("click",nextDay);
+    el.notesArea?.addEventListener("input",()=>{scheduleNoteSave(toDateKey(currentDate));});
+    document.getElementById("add-task-btn")?.addEventListener("click",()=>openTaskModal());
+    goToDate(currentDate);
 });
