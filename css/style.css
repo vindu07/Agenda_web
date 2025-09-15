@@ -303,10 +303,40 @@ body.light-mode .modal-content {
 
 .day-display {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
+
+#day-number {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--accent-color); /* Colore personalizzabile */
+    font-family: 'Poppins', sans-serif; /* Font moderno e leggibile */
+    line-height: 1;
+}
+
+.day-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+#weekday-name {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+#month-name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
 
 #weekday-name {
     font-size: 1.5rem;
