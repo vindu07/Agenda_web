@@ -283,3 +283,57 @@ body.light-mode .modal-content {
     border: 2px solid yellow;
     border-radius: 6px;
 }
+
+/*DIARIO*/
+
+.diary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+.diary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.day-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#day-image {
+    width: 80px;
+    height: auto;
+}
+
+.nav-btn img {
+    width: 32px;
+    height: 32px;
+    filter: invert(0); /* diventa bianco/nero a seconda della modalità */
+    cursor: pointer;
+}
+
+.diary-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+#empty-message {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.diary-notes textarea {
+    width: 100%;
+    min-height: 100px;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1rem;
+}
