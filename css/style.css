@@ -303,9 +303,22 @@ body.light-mode .modal-content {
 
 .day-display {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    gap: 0.3rem;
 }
+
+#weekday-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#month-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+}
+
 
 #day-image {
     width: 80px;
@@ -336,4 +349,5 @@ body.light-mode .modal-content {
     border-radius: 8px;
     padding: 8px;
     font-size: 1rem;
+    filter: invert(0)
 }
