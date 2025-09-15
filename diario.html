@@ -44,6 +44,54 @@
     <div class="diary-notes">
         <textarea id="notes" placeholder="Scrivi appunti per oggi..."></textarea>
     </div>
+
+    <!-- MODAL CREAZIONE/MODIFICA TASK -->
+<div id="task-modal" class="modal hidden">
+    <div class="modal-content">
+        <h3 id="modal-title">Nuovo Task</h3>
+        <label>
+            Materia:
+            <select id="task-subject">
+                <option value="matematica">Matematica</option>
+                <option value="italiano">Italiano</option>
+                <option value="storia">Storia</option>
+                <option value="inglese">Inglese</option>
+                <option value="scienze">Scienze</option>
+                <option value="arte">Arte</option>
+                <option value="motoria">Motoria</option>
+                <option value="religione">Religione</option>
+                <option value="fisica">Fisica</option>
+                <option value="informatica">Informatica</option>
+            </select>
+        </label>
+        <label>
+            Descrizione:
+            <input type="text" id="task-descr" placeholder="Dettagli compito...">
+        </label>
+        <label>
+            Completato:
+            <input type="checkbox" id="task-completed">
+        </label>
+        <label>
+            Verifica:
+            <input type="checkbox" id="task-isTest">
+        </label>
+        <label>
+            Priorità (1-3):
+            <input type="number" id="task-priority" min="1" max="3" value="1">
+        </label>
+        <div style="display:flex; gap:10px; justify-content:flex-end;">
+            <button id="task-save-btn">Salva</button>
+            <button id="task-cancel-btn">Annulla</button>
+        </div>
+    </div>
+</div>
+
+<!-- Pulsante per aprire popup -->
+<button id="add-task-btn" class="nav-btn">➕ Nuovo Task</button>
+
+
+    
 </main>
 
 <!-- Modale task -->
