@@ -286,6 +286,13 @@ body.light-mode .modal-content {
 
 /*DIARIO*/
 
+
+:root {
+    /* Colore fisso per l'accento */
+    --accent-color: #ff5722; /* puoi scegliere quello che ti piace */
+}
+
+
 .diary-container {
     display: flex;
     flex-direction: column;
@@ -312,7 +319,7 @@ body.light-mode .modal-content {
 #day-number {
     font-size: 5rem;
     font-weight: 700;
-    color: var(ff0000); /* Colore personalizzabile */
+    color: var(--accent-color); /* Colore personalizzabile */
     font-family: 'Poppins', sans-serif; /* Font moderno e leggibile */
     line-height: 1;
 }
@@ -327,7 +334,7 @@ body.light-mode .modal-content {
 #weekday-name {
     font-size: 2rem;
     font-weight: 800;
-    color: var(ff0000);
+    color: var(--accent-color);
     font-family: 'Poppins', sans-serif;
 }
 
