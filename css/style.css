@@ -9,10 +9,7 @@
   --sfondo: #1a1a1a;
   --sfondo1: black;
   
-  --dashboard: url(assets/icons/dasboard-dark.png);
-  --calendario: url(assets/icons/calendario-dark.png);
-  --diario: url(assets/icons/diario-dark.png);
-  --orario: url(assets/icons/orario-dark.png);
+ 
 }
 
 body.light-mode{
@@ -21,10 +18,7 @@ body.light-mode{
   --sfondo: #white;
   --sfondo1: #ddd;
   
-  --dashboard: url(assets/icons/dasboard-light.png);
-  --calendario: url(assets/icons/calendario-light.png);
-  --diario: url(assets/icons/diario-light.png);
-  --orario: url(assets/icons/orario-light.png);
+  
   
 }
 
