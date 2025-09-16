@@ -1,6 +1,8 @@
 
-/* style.css - Generale */
+/* STYLE.CSS - IMPOSTAZIONE GENERALE PAGINA */
 
+
+/*VARIABILE PER TOGGLE TEMA*/
 :root{
   --testo: white;
   --evidenziato: blue;
@@ -27,6 +29,8 @@ body.light-mode{
 }
 
 
+
+/*GENERALE*/
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh;}
 
@@ -37,16 +41,20 @@ header button { padding:5px 10px; cursor:pointer; }
 main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
   background-color: var(--sfondo);}
 
+
+/*PULSANTI IN BASSO*/
 .nav-bar { display:flex; gap: 5px; padding:0px 0px; width:100%; }
 .nav-btn { display:block;  width:100%; text-align:center; padding:12px 0; border-radius: 12px; text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
 .nav-btn:hover { background-color:var(--testo); color: var(--sfondo1); }
 
-
+/*PULSANTI TOGGLE E IMPOSTAZIONI*/
 button { border:none; border-radius:5px; background-color:var(--sfondo); color:var(--testo); transition:0.5s; cursor:pointer; }
 button:hover { background-color:var(--testo); color: var(--sfondo1); }
 
 body.light-mode button { background-color:white; color: var(--testo); }
 
+
+/*ICONE PULSANTI*/
 .nav-icon{
   
   width: 150px;       /* larghezza */
