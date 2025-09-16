@@ -33,7 +33,7 @@ main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
 /*PULSANTI IN BASSO*/
 .nav-bar { display:flex; /*gap: 5px;*/ padding:0px 0px; width:100%; }
 .nav-btn { display:block;  width:100%; text-align:center; padding:12px 0; /*border-radius: 12px;*/ text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
-.nav-btn:hover { background-color:var(--testo); color: var(--sfondo1); }
+/*.nav-btn:hover { background-color:var(--testo); color: var(--sfondo1); }*/
 
 /*PULSANTI TOGGLE E IMPOSTAZIONI*/
 button { border:none; border-radius:5px; background-color:var(--sfondo); color:var(--testo); transition:0.5s; cursor:pointer; }
@@ -50,6 +50,12 @@ body.light-mode button { background-color:white; color: var(--testo); }
     border-radius: 10px; /* angoli arrotondati */
     transition: transform 0.3s ease; /* effetto smooth */
 
+}
+.nav-icon:hover{
+
+  width: 6vw;
+  heigth: auto;
+  transition: transform 0.5s ease
 }
 
 /*MOSTRA LE ICONE CHIARE/SCURE*/
