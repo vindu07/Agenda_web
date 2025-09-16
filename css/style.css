@@ -8,20 +8,14 @@
   --evidenziato: blue;
   --sfondo: #1a1a1a;
   --sfondo1: black;
-  
- 
 }
 
 body.light-mode{
   --testo: black;
   --evidenziato: blue;
   --sfondo: #white;
-  --sfondo1: #ddd;
-  
-  
-  
+  --sfondo1: #ddd;  
 }
-
 
 
 /*GENERALE*/
@@ -51,7 +45,7 @@ body.light-mode button { background-color:white; color: var(--testo); }
 /*ICONE PULSANTI*/
 .nav-icon{
   
-  width: 150px;       /* larghezza */
+  width: 20vw;       /* larghezza 20% schermo */
     height: auto;       /* mantiene proporzioni */
     border-radius: 10px; /* angoli arrotondati */
     transition: transform 0.3s ease; /* effetto smooth */
