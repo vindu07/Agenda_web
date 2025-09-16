@@ -52,10 +52,7 @@ body.light-mode button { background-color:white; color: var(--testo); }
 
 }
 .nav-icon:hover{
- 
-  heigth: 16vw;
-  width: auto;
-  transition: transform 0.5s ease
+   transform: scale(1.1); /* ingrandisce del 10% */
 }
 
 /*MOSTRA LE ICONE CHIARE/SCURE*/
