@@ -31,8 +31,8 @@ main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
 
 
 /*PULSANTI IN BASSO*/
-.nav-bar { display:flex; gap: 5px; padding:0px 0px; width:100%; }
-.nav-btn { display:block;  width:100%; text-align:center; padding:12px 0; border-radius: 12px; text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
+.nav-bar { display:flex; /*gap: 5px;*/ padding:0px 0px; width:100%; }
+.nav-btn { display:block;  width:100%; text-align:center; padding:12px 0; /*border-radius: 12px;*/ text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
 .nav-btn:hover { background-color:var(--testo); color: var(--sfondo1); }
 
 /*PULSANTI TOGGLE E IMPOSTAZIONI*/
