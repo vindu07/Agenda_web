@@ -22,7 +22,7 @@ body.light-mode{
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh;}
 
-header { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background-color:var(--sfondo1); }
+header { display:flex; justify-content:space-between; align-items:center; /*padding:15px 20px;*/ heigth: 15vh; background-color:var(--sfondo1); }
 header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 
@@ -45,7 +45,7 @@ body.light-mode button { background-color:white; color: var(--testo); }
 /*ICONE PULSANTI*/
 .nav-icon{
   
-  heigth: 20vw;    /*alto 20% dello schermo*/
+  heigth: 15vh;    /*alto 15% dello schermo*/
   width: auto;       /* mantiene proporzioni */
     border-radius: 10px; /* angoli arrotondati */
     transition: transform 0.3s ease; /* effetto smooth */
