@@ -15,6 +15,13 @@ Credits: icons8 per le icone   -> https://icons8.it/icons/all
 │   ├── header.html
 │   ├── navbar.html
 │   └── footer.html
+├── assets
+│   ├── icons
+│   ├── images
+│   ├── navbar.html
+│   └── footer.html
+│   
+│   
 │
 ├── css
 │   └── style.css
