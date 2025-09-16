@@ -52,7 +52,7 @@ body.light-mode button { background-color:white; color: var(--testo); }
 
 }
 .nav-icon:hover{
-   transform: scale(1.1); /* ingrandisce del 10% */
+   transform: scale(1.2); /* ingrandisce del 20% */
 }
 
 /*MOSTRA LE ICONE CHIARE/SCURE*/
