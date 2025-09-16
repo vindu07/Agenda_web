@@ -1,6 +1,8 @@
 # Agenda_web
 
-Piccola webapp per tenere traccia dei task scolastici quotidiani
+Piccola webapp per tenere traccia dei task scolastici quotidiani - in sviluppo...
+
+Credits: icons8 per le icone   -> https://icons8.it/icons/all
 
 /agenda-scolastica
 │
