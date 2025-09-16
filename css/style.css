@@ -45,16 +45,16 @@ body.light-mode button { background-color:white; color: var(--testo); }
 /*ICONE PULSANTI*/
 .nav-icon{
   
-  width: 5vw;       /* larghezza 5% schermo */
-    height: auto;       /* mantiene proporzioni */
+  heigth: 15vw;    /*alto 2/13 dello schermo*/
+  width: auto;       /* mantiene proporzioni */
     border-radius: 10px; /* angoli arrotondati */
     transition: transform 0.3s ease; /* effetto smooth */
 
 }
 .nav-icon:hover{
-
-  width: 6vw;
-  heigth: auto;
+ 
+  heigth: 16vw;
+  width: auto;
   transition: transform 0.5s ease
 }
 
