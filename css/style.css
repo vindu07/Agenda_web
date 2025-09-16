@@ -22,7 +22,7 @@ body.light-mode{
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh;}
 
-header { display:flex; justify-content:space-between; align-items:center; /*padding:15px 20px;*/ heigth: 20vh; background-color:var(--sfondo1); }
+header { display:flex; justify-content:space-between; align-items:center; padding:15px 20px;/* heigth: 20vh;*/ background-color:var(--sfondo1); }
 header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 
@@ -32,8 +32,8 @@ main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
 
 /*PULSANTI IN BASSO*/
 .nav-bar { display:flex; /*gap: 5px;*/ padding:0px 0px; width:100%; }
-.nav-btn { display:block;  width:100%; text-align:center; padding:12px 0; /*border-radius: 12px;*/ text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
-/*.nav-btn:hover { background-color:var(--testo); color: var(--sfondo1); }*/
+.nav-btn { display:block;  width:100%; text-align:center; padding:12px 0;  text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
+
 
 /*PULSANTI TOGGLE E IMPOSTAZIONI*/
 button { border:none; border-radius:5px; background-color:var(--sfondo); color:var(--testo); transition:0.5s; cursor:pointer; }
@@ -45,14 +45,14 @@ body.light-mode button { background-color:white; color: var(--testo); }
 /*ICONE PULSANTI*/
 .nav-icon{
   
-  heigth: 15vh;    /*alto 15% dello schermo*/
+  heigth: 16vh;    /*alto 15% dello schermo*/
   width: auto;       /* mantiene proporzioni */
     border-radius: 10px; /* angoli arrotondati */
     transition: transform 0.3s ease; /* effetto smooth */
 
 }
 .nav-icon:hover{
-   transform: scale(1.2); /* ingrandisce del 20% */
+   transform: scale(1.3); /* ingrandisce del 30% */
 }
 
 /*MOSTRA LE ICONE CHIARE/SCURE*/
