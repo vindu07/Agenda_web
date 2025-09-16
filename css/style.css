@@ -45,7 +45,7 @@ body.light-mode button { background-color:white; color: var(--testo); }
 /*ICONE PULSANTI*/
 .nav-icon{
   
-  heigth: 15vw;    /*alto 2/13 dello schermo*/
+  heigth: 20vw;    /*alto 20% dello schermo*/
   width: auto;       /* mantiene proporzioni */
     border-radius: 10px; /* angoli arrotondati */
     transition: transform 0.3s ease; /* effetto smooth */
