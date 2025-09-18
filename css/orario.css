@@ -22,7 +22,7 @@
   background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
 
 #orario-container {
-    max-width: 900px;
+    heigth: 50vh;
     margin: 0 auto;
     padding: 1rem 1rem;
     border-radius: 1rem;
