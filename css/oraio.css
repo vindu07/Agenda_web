@@ -1,0 +1,143 @@
+
+/* ===========================
+   STILE ORARIO
+   =========================== */
+
+/* Contenitore tabella */
+main{padding: 1rem; display: flex; align-items: center; }
+
+#orario-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    background: var(--sfondo1);
+    transition: background 0.3s ease;
+    overflow: auto;
+}
+
+/* Tabella */
+.orario-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Intestazioni */
+.orario-table th {
+    color: var(--evidenziato);
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Celle */
+.orario-table td {
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 0.4rem;
+    transition: background 0.2s ease;
+}
+
+
+/* Tema chiaro */
+body.light-mode .orario-table th {
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+body.light-mode .orario-table td {
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+
+/*colori materie*/
+:root{
+  --italiano: lightblue;
+  --matematica: ;
+  --fisica: lightgreen;
+  --scienze: violet;
+  --informatica: grey;
+  --motoria: grey;
+  --religione: grey;
+  --storia: orange;
+  --arte: yellow;
+  --inglese: red;
+}
+/*colori materie*/
+.italiano{color: var(--italiano); }
+.matematica{color: var(--matematica); }
+.fisica{color: var(--fisica); }
+.scienze{color: var(--scienze); }
+.informatica{color: var(--informatica); }
+.motoria{color: var(--motoria); }
+.religione{color: var(--religione); }
+.storia{color: var(--storia); }
+.arte{color: var(--arte); }
+.inglese{color: var(--inglese); }
+
+/* STYLE.CSS - IMPOSTAZIONE GENERALE PAGINA */
+
+
+/*VARIABILE PER TOGGLE TEMA*/
+:root{
+  --testo: #eee;
+  --evidenziato: blue;
+  --sfondo: #222;
+  --sfondo1: #111;
+}
+
+body.light-mode{
+  --testo: #111;
+  --evidenziato: blue;
+  --sfondo: #eee;
+  --sfondo1: #ddd;  
+}
+
+
+/*GENERALE*/
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh;}
+
+header { display:flex; justify-content: space-between;  padding:15px 10px;  background-color:var(--sfondo1); }
+header h1 { font-size:1.8em; align: left;}
+header button { padding:5px 10px; cursor:pointer; align:right; }
+header div{ padding: 0 0; display:flex; align-elements: center; gap: 10px; }
+
+main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
+  background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
+
+
+/*PULSANTI IN BASSO*/
+.nav-bar { display:flex; /*gap: 5px;*/ padding:0px 0px; width:100%; border-bottom: 5vh solid var(--sfondo1);}
+.nav-btn { display:block;  width:100%; text-align:center; padding:12px 0;  text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
+
+
+/*PULSANTI TOGGLE E IMPOSTAZIONI*/
+button { border:none; border-radius:5px; background-color:var(--sfondo); color:var(--testo); transition:0.5s; cursor:pointer; }
+button:hover { background-color:var(--testo); color: var(--sfondo1); }
+
+body.light-mode button { background-color:white; color: var(--testo); }
+
+
+/*ICONE PULSANTI*/
+.nav-icon{
+  
+  heigth: 16vh;    /*alto 15% dello schermo*/
+  width: auto;       /* mantiene proporzioni */
+    border-radius: 10px; /* angoli arrotondati */
+    transition: transform 0.3s ease; /* effetto smooth */
+
+}
+.nav-icon:hover{
+   transform: scale(1.3); /* ingrandisce del 30% */
+}
+
+/*MOSTRA LE ICONE CHIARE/SCURE*/
+.dark { display: inline; }
+.light { display: none; }
+
+body.light-mode .light { display: inLine; }
+body.light-mode .dark { display: none; }
