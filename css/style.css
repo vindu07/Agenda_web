@@ -4,16 +4,16 @@
 
 /*VARIABILE PER TOGGLE TEMA*/
 :root{
-  --testo: white;
+  --testo: #eee;
   --evidenziato: blue;
-  --sfondo: #1a1a1a;
-  --sfondo1: black;
+  --sfondo: #222;
+  --sfondo1: #111;
 }
 
 body.light-mode{
-  --testo: black;
+  --testo: #111;
   --evidenziato: blue;
-  --sfondo: #white;
+  --sfondo: #eee;
   --sfondo1: #ddd;  
 }
 
