@@ -31,7 +31,7 @@ main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
 
 
 /*PULSANTI IN BASSO*/
-.nav-bar { display:flex; /*gap: 5px;*/ padding:0px 0px; width:100%; }
+.nav-bar { display:flex; /*gap: 5px;*/ padding:0px 0px; width:100%; border-bottom: 5vh solid var(--sfondo1);}
 .nav-btn { display:block;  width:100%; text-align:center; padding:12px 0;  text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
 
 
