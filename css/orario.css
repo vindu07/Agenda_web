@@ -79,3 +79,6 @@ body.light-mode .orario-table td {
 .storia{color: var(--storia); }
 .arte{color: var(--arte); }
 .inglese{color: var(--inglese); }
+
+main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
+  background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
