@@ -18,7 +18,8 @@
 
 
 /* Contenitore tabella */
-main{padding: 1rem; display: flex; align-items: center; }
+main { padding:1rem; flex: 1; /* occupa tutto lo spazio residuo */
+  background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
 
 #orario-container {
     max-width: 900px;
@@ -80,5 +81,4 @@ body.light-mode .orario-table td {
 .arte{color: var(--arte); }
 .inglese{color: var(--inglese); }
 
-main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
-  background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
+
