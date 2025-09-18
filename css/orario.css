@@ -5,14 +5,14 @@
 /*colori materie*/
 :root{
   --italiano: lightblue;
-  --matematica: ;
+  --matematica: skyblue;
   --fisica: lightgreen;
   --scienze: violet;
-  --informatica: grey;
-  --motoria: grey;
-  --religione: grey;
+  --informatica: khaki;
+  --motoria: aqua;
+  --religione: lime;
   --storia: orange;
-  --arte: yellow;
+  --arte: coral;
   --inglese: red;
 }
 
