@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let todayIndex = new Date().getDay() - 1; 
     if (todayIndex < 0) todayIndex = 5; // se domenica, punta a Sabato
 
+    const currentHour = new Date().getHours();
+
+    // Se siamo oltre l'ora limite, passa al giorno successivo
+    const cutoffHour = 14;
+    
+    if (currentHour >= cutoffHour) {
+        todayIndex += 1;
+        if (todayIndex > 5) todayIndex = 0; // se supera Sabato, torna a Lunedì
+    }
+    
     for (let r = 0; r < rows.length; r++) {
         const cells = rows[r].cells;
         for (let c = 0; c < cells.length; c++) {
