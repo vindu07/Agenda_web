@@ -1,3 +1,4 @@
+/*CAMBIA TEMA*/
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("toggle-theme");
   toggleBtn.addEventListener("click", () => {
@@ -5,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/*IMPOSTAZIONI*/
+document.addEventListener("DOMContentLoaded", () => {
+  const settingsBtn = document.getElementById("settings");
+  settingsBtn.addEventListener("click", () => {
+    alert("Impostescions");
+  });
+});
 
 // registra il service worker
 if ("serviceWorker" in navigator) {
