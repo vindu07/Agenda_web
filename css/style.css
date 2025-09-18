@@ -28,7 +28,7 @@ header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-elements: center; gap: 10px; }
 
 main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
-  background-color: var(--sfondo);}
+  background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
 
 
 /*PULSANTI IN BASSO*/
