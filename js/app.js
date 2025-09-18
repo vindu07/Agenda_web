@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const settingsBtn = document.getElementById("settings");
   settingsBtn.addEventListener("click", () => {
-    alert("Impostescions");
+    alert("Funzione in fase di sviluppo");
   });
 });
 
