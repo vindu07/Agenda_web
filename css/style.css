@@ -22,7 +22,7 @@ body.light-mode{
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh;}
 
-header { display:flex; justify-content:space-between; align-items:center; /*padding:15px 20px;*/ height: 15vh; background-color:var(--sfondo1); }
+header { display:flex; justify-content:space-between; align-items:center; /*padding:15px 20px;*/ height: 10vh; background-color:var(--sfondo1); }
 header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 
