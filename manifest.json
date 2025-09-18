@@ -1,7 +1,7 @@
 {
   "name": "Agenda Scolastica",
   "short_name": "Agenda",
-  "start_url": "/index.html",
+  "start_url": "https://github.com/vindu07/Agenda_web/blob/main/manifest.json",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#121212",
