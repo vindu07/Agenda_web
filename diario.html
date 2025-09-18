@@ -1,24 +1,34 @@
+
+
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda Scolastica - Diario</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/diary.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Scolastica - Diario</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--MANIFEST PER PWA-->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+
 </head>
 <body class="dark-mode">
-<header>
-<h1>DIARIO</h1>
-<button id="toggle-theme">🌙 / ☀️</button>
-</header>
-<nav class="nav-bar">
-<a href="index.html" class="nav-btn">Dashboard</a>
-<a href="calendario.html" class="nav-btn">Calendario</a>
-<a href="diario.html" class="nav-btn">Diario</a>
-<a href="orario.html" class="nav-btn">Orario</a>
-</nav>
-<main class="diary-container">
+
+  <header>
+    <div class="titolo">    
+      <h1>DIARIO</h1>
+    </div>
+    <div class="pulsanti">
+        <button id="toggle-theme">🌙</button>
+        <button id="settings">⚙️</button>
+    </div>
+    </header>
+
+  
+
+    <!-- MAIN -->
+   <main class="diary-container">
 <div class="diary-header">
 <button class="nav-btn small-btn" id="prev-day">◀</button>
 <button id="new-task-btn" class="nav-btn">➕ Nuovo Task</button>
@@ -54,6 +64,41 @@
 <button id="save-task-btn">Salva Task</button>
 </div>
 </div>
+  
+  <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">
+          <img class="nav-icon dark", src="assets/icons/dashboard-dark.png", alt ="Dashboard">
+          <img class="nav-icon light", src="assets/icons/dashboard-light.png", alt ="Dashboard">
+        </a>
+        <a href="calendario.html" class="nav-btn">
+          <img class="nav-icon dark", src="assets/icons/calendario-dark.png", alt ="Calendario">
+          <img class="nav-icon light", src="assets/icons/calendario-light.png", alt ="Calendario">
+        </a>
+        <a href="diario.html" class="nav-btn">
+    <img class="nav-icon dark", src="assets/icons/diario-dark.png", alt ="Diario">
+          <img class="nav-icon light", src="assets/icons/diario-light.png", alt ="Diario">
+    </a>
+        <a href="orario.html" class="nav-btn">
+    <img class="nav-icon dark", src="assets/icons/orario-dark.png", alt ="Orario">
+      <img class="nav-icon light", src="assets/icons/orario-light.png", alt ="Orario">
+    </a>
+    </nav>
+  
+<!-- Icone di <a target="_blank" href="https://icons8.com">Icons8</a> -->
+
+   
+
+    <!-- JS -->
+    <script src="js/utils.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/debug.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>    
+
+
 
 <footer>
 <p>Andrea Vinduska &copy; 2025</p>
