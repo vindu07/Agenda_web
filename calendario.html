@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -5,21 +9,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Scolastica - Calendario</title>
     <link rel="stylesheet" href="css/style.css">
+    <!--MANIFEST PER PWA-->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+
 </head>
 <body class="dark-mode">
 
-    <header>
-        <h1>CALENDARIO</h1>
-        <button id="toggle-theme">🌙 / ☀️</button>
+  <header>
+    <div class="titolo">    
+      <h1>CALENDARIO</h1>
+    </div>
+    <div class="pulsanti">
+        <button id="toggle-theme">🌙</button>
+        <button id="settings">⚙️</button>
+    </div>
     </header>
-<nav class="nav-bar">
-        <a href="index.html" class="nav-btn">Dashboard</a>
-        <a href="calendario.html" class="nav-btn">Calendario</a>
-        <a href="diario.html" class="nav-btn">Diario</a>
-        <a href="orario.html" class="nav-btn">Orario</a>
-</nav>
 
-    <main>
+  
+
+    <!-- MAIN -->
+   <main>
         <section id="calendar-section">
             <div id="calendar-grid">
                 <!-- Calendario generato da calendar.js -->
@@ -27,16 +37,36 @@
         </section>
     </main>
 
-    <footer>
-        <p>Andrea Vinduska &copy; 2025</p>
-    </footer>
+  
+  <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">
+          <img class="nav-icon dark", src="assets/icons/dashboard-dark.png", alt ="Dashboard">
+          <img class="nav-icon light", src="assets/icons/dashboard-light.png", alt ="Dashboard">
+        </a>
+        <a href="calendario.html" class="nav-btn">
+          <img class="nav-icon dark", src="assets/icons/calendario-dark.png", alt ="Calendario">
+          <img class="nav-icon light", src="assets/icons/calendario-light.png", alt ="Calendario">
+        </a>
+        <a href="diario.html" class="nav-btn">
+    <img class="nav-icon dark", src="assets/icons/diario-dark.png", alt ="Diario">
+          <img class="nav-icon light", src="assets/icons/diario-light.png", alt ="Diario">
+    </a>
+        <a href="orario.html" class="nav-btn">
+    <img class="nav-icon dark", src="assets/icons/orario-dark.png", alt ="Orario">
+      <img class="nav-icon light", src="assets/icons/orario-light.png", alt ="Orario">
+    </a>
+    </nav>
+  
+<!-- Icone di <a target="_blank" href="https://icons8.com">Icons8</a> -->
 
+   
+
+    <!-- JS -->
     <script src="js/utils.js"></script>
     <script src="js/db.js"></script>
-    <script src="js/calendar.js"></script>
+    <script src="js/tasks.js"></script>
     <script src="js/debug.js"></script>
     <script src="js/app.js"></script>
 
 </body>
 </html>
-
