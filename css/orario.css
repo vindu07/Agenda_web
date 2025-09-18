@@ -2,15 +2,33 @@
    STILE ORARIO
    =========================== */
 
+/*colori materie*/
+:root{
+  --italiano: lightblue;
+  --matematica: ;
+  --fisica: lightgreen;
+  --scienze: violet;
+  --informatica: grey;
+  --motoria: grey;
+  --religione: grey;
+  --storia: orange;
+  --arte: yellow;
+  --inglese: red;
+}
+
+
 /* Contenitore tabella */
+main{padding: 1rem; display: flex; align-items: center; }
+
 #orario-container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1rem 1rem;
     border-radius: 1rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    background: var(--bg-color, #1e1e1e);
+    background: var(--sfondo1);
     transition: background 0.3s ease;
+    overflow: auto;
 }
 
 /* Tabella */
@@ -23,49 +41,41 @@
 
 /* Intestazioni */
 .orario-table th {
-    background: var(--accent-color, #3498db);
-    color: white;
+    color: var(--evidenziato);
     padding: 0.5rem;
     font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.2);
 }
 
 /* Celle */
 .orario-table td {
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
     padding: 0.4rem;
     transition: background 0.2s ease;
 }
 
-/* Riga evidenziata (giorno corrente) */
-.orario-table tr.current-day td {
-    background: rgba(255,255,255,0.1);
-    font-weight: bold;
-    color: var(--accent-color, #3498db);
-}
-
-/* Colonna ora corrente */
-.orario-table td.current-hour {
-    background: rgba(255,255,255,0.15);
-    font-weight: bold;
-    border-left: 3px solid var(--accent-color, #3498db);
-}
 
 /* Tema chiaro */
-.light .orario-table th {
-    background: var(--accent-color, #3498db);
-    color: white;
+body.light-mode .orario-table th {
+    border: 2px solid rgba(0,0,0,0.1);
 }
 
-.light .orario-table td {
-    border: 1px solid rgba(0,0,0,0.1);
+body.light-mode .orario-table td {
+    border: 2px solid rgba(0,0,0,0.1);
 }
 
-.light .orario-table tr.current-day td {
-    background: rgba(0,0,0,0.05);
-}
 
-.light .orario-table td.current-hour {
-    background: rgba(0,0,0,0.1);
-    border-left: 3px solid var(--accent-color, #3498db);
-}
+
+/*colori materie*/
+.italiano{color: var(--italiano); }
+.matematica{color: var(--matematica); }
+.fisica{color: var(--fisica); }
+.scienze{color: var(--scienze); }
+.informatica{color: var(--informatica); }
+.motoria{color: var(--motoria); }
+.religione{color: var(--religione); }
+.storia{color: var(--storia); }
+.arte{color: var(--arte); }
+.inglese{color: var(--inglese); }
