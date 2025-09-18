@@ -1,1 +1,11 @@
+/*prototipo di task html*/
 
+<div class="task">
+     <div class="bo1">
+      <h3>Materia</h3>
+      <p>Descrizione...</p>
+     </div>
+     <button id="cestino">
+     <img id="cestino" src="assets/icons/canc.png">
+  </button>
+  </div>
