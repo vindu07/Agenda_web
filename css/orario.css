@@ -18,7 +18,7 @@
 
 
 /* Contenitore tabella */
-main { padding:1rem; flex: 1; /* occupa tutto lo spazio residuo */
+#main { padding:1rem; flex: 1; /* occupa tutto lo spazio residuo */
   background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
 
 #orario-container {
