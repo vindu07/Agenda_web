@@ -17,7 +17,7 @@
   --inglese: #E6F5EB;
 }
 
-.light-mode{
+body.light-mode{
    --intestazione:  #2878C8;
   --italiano: #A06E50;
   --matematica: #6464A0;
