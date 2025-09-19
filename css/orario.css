@@ -4,18 +4,30 @@
 
 /*colori materie*/
 :root{
-  --italiano: lightblue;
-  --matematica: skyblue;
-  --fisica: lightgreen;
-  --scienze: violet;
-  --informatica: khaki;
-  --motoria: aqua;
-  --religione: lime;
-  --storia: orange;
-  --arte: coral;
-  --inglese: red;
+  --italiano: #E6DCD2;
+  --matematica: #F0F0F5;
+  --fisica: #D7EBFF;
+  --scienze: #F0C8D2;
+  --informatica: #FAF0C8;
+  --motoria: #D2F0DC;
+  --religione: #EBD7F5;
+  --storia: #DCE6F0;
+  --arte: #F5E6E6;
+  --inglese: #E6F5EB;
 }
 
+.light-mode{
+  --italiano: #A06E50;
+  --matematica: #6464A0;
+  --fisica: #2878C8;
+  --scienze: #C81E50;
+  --informatica: #DCB414;
+  --motoria: #14A050;
+  --religione: #9632C8;
+  --storia: #5064A0;
+  --arte: #C85064;
+  --inglese: #1EA06E;
+}
 
 /* Contenitore tabella */
 #main { padding:1rem; flex: 1; /* occupa tutto lo spazio residuo */
