@@ -4,7 +4,7 @@
 
 /*colori materie*/
 :root{
-   --intestazione:  #D7EBFF;
+   --intestazione:  #2878C8;
   --italiano: #E6DCD2;
   --matematica: #F0F0F5;
   --fisica: #D7EBFF;
@@ -18,7 +18,7 @@
 }
 
 body.light-mode{
-   --intestazione:  #2878C8;
+   --intestazione:  blue;
   --italiano: #A06E50;
   --matematica: #6464A0;
   --fisica: #2878C8;
