@@ -60,12 +60,12 @@ body.light-mode{
     color: var(--intestazione);
     padding: 0.5rem;
     font-size: 1rem;
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 2px solid #eee /*rgba(255,255,255,0.2)*/;
 }
 
 /* Celle */
 .orario-table td {
-    border: 2px solid rgba(255,255,255,0.15);
+    border: 2px solid #eee /*rgba(255,255,255,0.15)*/;
     border-radius: 10px;
     padding: 0.4rem;
     transition: background 0.2s ease;
@@ -74,11 +74,11 @@ body.light-mode{
 
 /* Tema chiaro */
 body.light-mode .orario-table th {
-    border: 2px solid rgba(0,0,0,0.1);
+    border: 2px solid #222 /*rgba(0,0,0,0.1)*/;
 }
 
 body.light-mode .orario-table td {
-    border: 2px solid rgba(0,0,0,0.1);
+    border: 2px solid #222/*rgba(0,0,0,0.1)*/;
 }
 
 
