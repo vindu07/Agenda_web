@@ -52,13 +52,13 @@ body.light-mode{
     border-collapse: collapse;
     text-align: center;
     font-size: 0.95rem;
+   font-weight: bold;
 }
 
 /* Intestazioni */
 .orario-table th {
     color: var(--intestazione);
     padding: 0.5rem;
-    font-weight: bold;
     font-size: 1rem;
     border: 2px solid rgba(255,255,255,0.2);
 }
@@ -95,4 +95,4 @@ body.light-mode .orario-table td {
 .arte{color: var(--arte); }
 .inglese{color: var(--inglese); }
 
-.not-today {color: grey !important; /* forza il grigio per tutti i giorni diversi dal corrente */
+.not-today {font-weight: normal; color: grey !important; /* forza il grigio per tutti i giorni diversi dal corrente */
