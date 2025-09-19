@@ -96,4 +96,4 @@ body.light-mode .orario-table td {
 .arte{color: var(--arte); }
 .inglese{color: var(--inglese); }
 
-.not-today {font-weight: normal; color: grey !important; /* forza il grigio per tutti i giorni diversi dal corrente */
+.not-today {font-weight: normal; opacity: 0.8;}/* brightness: 0.8; /*color: grey !important; /* forza il grigio per tutti i giorni diversi dal corrente */
