@@ -3,8 +3,8 @@
    =========================== */
 
 /*colori materie*/
-:root{
-   --intestazione:  #2878C8;
+:root {
+  --intestazione: #2878C8;
   --italiano: #E6DCD2;
   --matematica: #F0F0F5;
   --fisica: #D7EBFF;
@@ -17,8 +17,8 @@
   --inglese: #E6F5EB;
 }
 
-body.light-mode{
-   --intestazione:  blue;
+body.light-mode {
+  --intestazione: blue;
   --italiano: #A06E50;
   --matematica: #6464A0;
   --fisica: #2878C8;
@@ -31,12 +31,13 @@ body.light-mode{
   --inglese: #1EA06E;
 }
 
+
 /* Contenitore tabella */
 #main { padding:1rem; flex: 1; /* occupa tutto lo spazio residuo */
   background-color: var(--sfondo); display:flex; align-items:center; justify-content: center;}
 
 #orario-container {
-    heigth: 80vh;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 1rem;
     border-radius: 1rem;
