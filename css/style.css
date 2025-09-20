@@ -20,15 +20,15 @@ body.light-mode{
 
 /*GENERALE*/
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh;}
+body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh; overflow:hidden;}
 
-header { display:flex; justify-content:space-between; align-items:center; padding:15px 10px;  background-color:var(--sfondo1); }
+header { display:flex; justify-content:space-between; align-items:center; padding:15px 10px;  background-color:var(--sfondo1); min-heigth: 30px;}
 header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-elements: center; gap: 10px; }
 
 main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
-  background-color: var(--sfondo); }
+  background-color: var(--sfondo); overflow: auto;}
 
 
 /*PULSANTI IN BASSO*/
