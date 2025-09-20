@@ -27,7 +27,7 @@ header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-elements: center; gap: 10px; }
 
-main { padding:20px; position: absolute; top:20vh; bottom: 25vh; left:0; right:0;/* flex:1; occupa tutto lo spazio residuo */
+main { padding:20px; position: absolute; top:20vh; bottom: 25vh; left:20px; right:20px;/* flex:1; occupa tutto lo spazio residuo */
   background-color: var(--sfondo); overflow-y: auto; min-height: 0; overflow-x:hidden;}
 
 
