@@ -12,13 +12,13 @@
   color:white;
   font-weight: 700;
 }
-.verifica{display:flex; justify-content: space-between; align-items: center; padding:10px 20px; background: var(--sfondo1); border-radius: 10px; width: 100vw; max-width: 800px; }
+.verifica{display:flex; justify-content: space-between; align-items: center; padding:10px 20px; background: var(--sfondo1); border-radius: 10px; width: 100%; max-width: 800px; }
 .verifica h3{
   color: red;
 }
 
 .bo1{width:50vw; max-width: 1;}
-.task{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100vw; max-width: 800px; }
+.task{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
 .task h3{color: lightgreen;}
 .cancella{display:flex; justify-items: left;}
 
