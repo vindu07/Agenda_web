@@ -25,5 +25,5 @@
 
 
 main { padding:20px; flex: 1; /* occupa tutto lo spazio residuo */
-  background-color: var(--sfondo); display:flex; flex-direction:column; align-items:left; justify-content: top; gap:15px; overflow-y:auto;}
+  background-color: var(--sfondo); display:flex; flex-direction:column; align-items:left; justify-content: top; gap:15px; overflow-y:scroll;}
 
