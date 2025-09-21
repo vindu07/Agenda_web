@@ -2,33 +2,33 @@
    STILE ORARIO
    =========================== */
 
-/*colori materie*/
+/* Colori materie */
 :root {
-  --intestazione: #2878C8;
-  --italiano: #E6DCD2;
-  --matematica: #F0F0F5;
-  --fisica: #D7EBFF;
-  --scienze: #F0C8D2;
-  --informatica: #FAF0C8;
-  --motoria: #D2F0DC;
-  --religione: #EBD7F5;
-  --storia: #DCE6F0;
-  --arte: #F5E6E6;
-  --inglese: #E6F5EB;
+  --intestazione: #2878C8;  /* blu acceso */
+  --italiano:    #F28C6B;   /* arancio caldo */
+  --matematica:  #8A84E2;   /* viola blu */
+  --fisica:      #5EC2F2;   /* azzurro brillante */
+  --scienze:     #F25E7A;   /* rosa/rosso vivo */
+  --informatica: #F2C94C;   /* giallo saturo */
+  --motoria:     #4EC97F;   /* verde brillante */
+  --religione:   #C25EF2;   /* viola intenso */
+  --storia:      #4E89F2;   /* blu medio */
+  --arte:        #F277A4;   /* rosa forte */
+  --inglese:     #4EC9A0;   /* verde acqua */
 }
 
 body.light-mode {
-  --intestazione: blue;
-  --italiano: #A06E50;
-  --matematica: #6464A0;
-  --fisica: #2878C8;
-  --scienze: #C81E50;
-  --informatica: #DCB414;
-  --motoria: #14A050;
-  --religione: #9632C8;
-  --storia: #5064A0;
-  --arte: #C85064;
-  --inglese: #1EA06E;
+  --intestazione: #005BBB;  /* blu intenso */
+  --italiano:    #C94C1E;   /* mattone vivo */
+  --matematica:  #4338CA;   /* blu/indigo forte */
+  --fisica:      #0077B6;   /* azzurro deciso */
+  --scienze:     #C1124F;   /* cremisi */
+  --informatica: #E0A500;   /* giallo oro */
+  --motoria:     #138A36;   /* verde scuro brillante */
+  --religione:   #7209B7;   /* viola saturo */
+  --storia:      #1D4ED8;   /* blu pieno */
+  --arte:        #B5174D;   /* fucsia-rosso forte */
+  --inglese:     #008060;   /* verde petrolio */
 }
 
 
