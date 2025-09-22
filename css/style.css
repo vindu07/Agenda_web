@@ -25,12 +25,12 @@ header { position:fixed; top:0; left:0; right:0; height: 12vh; min-height: 60px;
 header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-items: center; gap: 10px; }
-main {  position: fixed; top:12vh; bottom: 20vh; left:20px; right:20px;
+main {  position: fixed; top:12vh; bottom: 15vh; left:20px; right:20px;
   background-color: var(--sfondo); overflow-y: auto; min-height: 0; overflow-x:hidden;}
 
 
 /*PULSANTI IN BASSO*/
-.nav-bar { position:fixed; bottom:0; left:0; right:0; height:15vh; min-height: 60px; display:flex; width:100%; border-bottom: 5vh solid var(--sfondo1); }
+.nav-bar { position:fixed; bottom: 0; left:0; right:0; height:15vh; min-height: 60px; display:flex; width:100%; border-bottom: 5vh solid var(--sfondo1); }
 .nav-btn { display:block;  width:100%; text-align:center; padding:12px 0;  text-decoration:none; font-weight:bold; color:var(--testo); background-color:var(--sfondo1); transition:background-color 0.5s; }
 
 
