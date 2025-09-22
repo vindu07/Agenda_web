@@ -26,7 +26,7 @@ header h1 { font-size:1.8em; }
 header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-items: center; gap: 10px; }
 main {  position: fixed; top:12vh; bottom: 15vh; left:20px; right:20px;
-  background-color: var(--sfondo); overflow-y: auto; min-height: 0; overflow-x:hidden;}
+  background-color: var(--sfondo); overflow-y: auto; min-height: 0; padding-top:20px; padding-bottom:20px; overflow-x:hidden;}
 
 
 /*PULSANTI IN BASSO*/
