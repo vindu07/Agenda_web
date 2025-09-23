@@ -40,7 +40,7 @@ async function loadTasks() {
     console.log("Tasks caricati:", tasks);
 
     // Passa l'array a taskRender
-    taskRender(tasks);
+    renderTasks(tasks);
 
   } catch (err) {
     console.error("Errore nel caricamento dei task:", err);
