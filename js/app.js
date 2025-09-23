@@ -38,7 +38,7 @@ if ("serviceWorker" in navigator) {
 
 /*SALVA TASK TEMPORANEO*/
 // Array globale o gestito in altro file
-let taskArray = [1];
+let taskArray = [0];
 
 document.getElementById("save-task").addEventListener("click", () => {
   //leggo l'ultimo ID e lo cancello
