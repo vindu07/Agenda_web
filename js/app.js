@@ -1,6 +1,14 @@
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
-import { initializeApp } from "firebase/app";
-
+import { initializeApp } from "";
+const firebaseConfig = {
+    apiKey: "AIzaSyBrc58aNKEHfGueKron2D87g3tlAWWqBlU",
+    authDomain: "agenda-pwa-b5bb0.firebaseapp.com",
+    projectId: "agenda-pwa-b5bb0",
+    storageBucket: "agenda-pwa-b5bb0.firebasestorage.app",
+    messagingSenderId: "211012466659",
+    appId: "1:211012466659:web:feaf2be83c99a55ae5d2d6",
+    measurementId: "G-5V4TVEFWEC"
+  };
 const app = initializeApp(firebaseConfig);
 
 import { 
