@@ -60,7 +60,7 @@ document.getElementById("save-task").addEventListener("click", () => {
   //render 
   renderTasks(taskArray);
 
-  const salva = document.getElementById("salva-task");
+  const salva = document.getElementById("save-task");
   salva.addEventListener("click", () => {
     const hud = document.getElementById("hud"); 
     hud.classList.toggle("invisible");
