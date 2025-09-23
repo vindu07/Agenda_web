@@ -66,3 +66,7 @@ document.getElementById("save-task").addEventListener("click", () => {
     hud.classList.toggle("invisible");
   });
 });
+
+//render 
+  renderTasks(taskArray);
+
