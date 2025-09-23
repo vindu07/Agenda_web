@@ -25,13 +25,13 @@ const tasksRef = collection(db, "tasks");
 async function createTask(task) {
   // Trasforma l'array in oggetto
   const task_obj = {
-    ID: task[0],
-    scadenza: task[1],
-    materia: task[2],
-    isTest: task[3],
-    priority: task[4],
-    desc: task[5],
-    isCompleted: task[6]
+    
+    scadenza: task[0],
+    materia: task[1],
+    isTest: task[2],
+    priority: task[3],
+    desc: task[4],
+    isCompleted: task[5]
   };
 
   // Salva in Firestore
