@@ -37,6 +37,7 @@ async function createTask(task) {
   // Salva in Firestore
   const docRef = await addDoc(tasksRef, task_obj);
   console.log("Task salvato con ID:", docRef.id);
+  alert("Compito salvato correttamente!");
   return docRef.id;
 }
 async function editTask(ID, task){}
