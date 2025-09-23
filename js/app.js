@@ -115,7 +115,6 @@ if ("serviceWorker" in navigator) {
 document.getElementById("save-task").addEventListener("click", () => {
   
   // raccogli valori dall'HUD
-  const ID = 0;
   const scadenza = pagDiario;
   const isCompleted = false;
   const desc = document.getElementById("task-desc").value.trim();
@@ -128,7 +127,7 @@ document.getElementById("save-task").addEventListener("click", () => {
     hud.classList.toggle("invisible");
 
   // costruisci un oggetto task
-  const newTask = { ID, scadenza, materia, isTest, priority, desc, isCompleted  };
+  const newTask = { scadenza, materia, isTest, priority, desc, isCompleted  };
 
   //salva in firestore
   createTask(newTask);
