@@ -39,6 +39,8 @@ async function createTask(task) {
   console.log("Task salvato con ID:", docRef.id);
   alert("Compito salvato correttamente!");
   return docRef.id;
+    //render
+    loadTasks();
 }
 async function editTask(ID, task){}
 async function deleteTask(ID){}
