@@ -13,8 +13,8 @@ const nextBtn = document.getElementById("next-day");
 function updateDiary() {
   weekdayEl.textContent = weekdays[currentDate.getDay()];
   dayNumberEl.textContent = currentDate.getDate();
-  monthYearEl.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-  //aggiorna la variabile con la data della pagina corrente
+  monthYearEl.textContent = months[currentDate.getMonth()] + currentDate.getFullYear();
+  //el aggiorna la variabile co la data del la pagina corrente
   pagDiario = currentDate.toISOString().slice(0,10);
 
 }
