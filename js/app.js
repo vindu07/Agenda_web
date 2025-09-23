@@ -35,3 +35,27 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker registrato"))
     .catch(err => console.error("Errore Service Worker:", err));
 }
+
+/*SALVA TASK TEMPORANEO*/
+// Array globale o gestito in altro file
+let tasksArray = [];
+
+document.getElementById("save-task").addEventListener("click", () => {
+  // raccogli valori dall'HUD
+  const desc = document.getElementById("task-desc").value.trim();
+  const materia = document.getElementById("task-subject").value;
+  const isTest = document.getElementById("isTest").value;
+  const priority = document.getElementById("task-priority").value;
+  
+  //chiudi hud
+  const hud = document.getElementById("hud"); 
+    hud.classList.toggle("invisible");
+
+  // costruisci un oggetto task
+  const newTask = { materia, isTest, priority, desc  };
+
+  // salvalo in array
+  tasksArray.push(newTask);
+  
+  //render 
+  renderTasks(taskArray);
