@@ -65,3 +65,4 @@ document.getElementById("save-task").addEventListener("click", () => {
     const hud = document.getElementById("hud"); 
     hud.classList.toggle("invisible");
   });
+});
