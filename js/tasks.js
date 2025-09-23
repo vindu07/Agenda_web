@@ -2,7 +2,7 @@ function renderTasks(tasksArray) {
   const container = document.getElementById("task-container");
   container.innerHTML = ""; // pulisco prima
 
-  tasksArray.forEach((task, index) => {
+  tasksArray.slice(0, -1).forEach((task, index) => { //crea un array senza l'ultimo elemento(last_ID)
     // contenitore principale
     const div = document.createElement("div");
     div.className = task.isTest === 1 ? "verifica" : "compito"; //1 verifica, 0 compito
