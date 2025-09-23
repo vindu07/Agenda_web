@@ -115,7 +115,7 @@ if ("serviceWorker" in navigator) {
 document.getElementById("save-task").addEventListener("click", () => {
   
   // raccogli valori dall'HUD
-  const scadenza = pagDiario;
+  const scadenza = 0;
   const isCompleted = false;
   const desc = document.getElementById("task-desc").value.trim();
   const materia = document.getElementById("task-subject").value;
