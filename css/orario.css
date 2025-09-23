@@ -54,7 +54,7 @@ body.light-mode {
     text-align: center;
     font-size: 0.95rem;
    font-weight: bold;
-   text-shadow: 0 0 5px #0ff,
+   text-shadow: 0 0 5px #0ff;
                
 }
 
@@ -98,4 +98,4 @@ body.light-mode .orario-table td {
 .arte{color: var(--arte); }
 .inglese{color: var(--inglese); }
 
-.not-today {font-weight: normal; font-style:italic; opacity: 0.8;}/* brightness: 0.8; /*color: grey !important; /* forza il grigio per tutti i giorni diversi dal corrente */
+.not-today {font-weight: normal; font-style:italic; opacity: 0.8; text-shadow: 0 0 0; }/* brightness: 0.8; /*color: grey !important; /* forza il grigio per tutti i giorni diversi dal corrente */
