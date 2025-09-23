@@ -1,5 +1,18 @@
 const TASKS_KEY = "tasks";
 
+
+function createTask(task){}
+function editTask(ID, task){}
+function deleteTask(ID){}
+function sortTaskByDate(first_date, last_date){}
+function sortTaskBySubject(subject){}
+
+
+function saveTasks(){}
+function getTasks(){}
+
+
+
 function getTasks(){
     try{ return JSON.parse(localStorage.getItem(TASKS_KEY)||"[]"); }
     catch(e){ console.warn("Errore parsing tasks", e); return []; }
