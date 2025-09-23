@@ -126,8 +126,8 @@ document.getElementById("save-task").addEventListener("click", () => {
   const hud = document.getElementById("hud"); 
     hud.classList.toggle("invisible");
 
-  // costruisci un oggetto task
-  const newTask = { scadenza, materia, isTest, priority, desc, isCompleted  };
+  // costruisci un array task
+  const newTask = [ scadenza, materia, isTest, priority, desc, isCompleted  ];
 
   //salva in firestore
   createTask(newTask);
