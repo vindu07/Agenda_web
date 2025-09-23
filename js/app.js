@@ -12,7 +12,7 @@ const tasksRef = collection(db, "tasks");
 /*CREA TASK*/
 async function createTask(task) {
   // Trasforma l'array in oggetto
-  const task = {
+  const task_obj = {
     ID: task[0],
     scadenza: task[1],
     materia: task[2],
@@ -23,7 +23,7 @@ async function createTask(task) {
   };
 
   // Salva in Firestore
-  const docRef = await addDoc(tasksRef, task);
+  const docRef = await addDoc(tasksRef, task_obj);
   console.log("Task salvato con ID:", docRef.id);
   return docRef.id;
 }
