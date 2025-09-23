@@ -37,7 +37,6 @@ if ("serviceWorker" in navigator) {
 }
 
 /*SALVA TASK TEMPORANEO*/
-import { createTask, loadTasks } from "./db.js";
 document.getElementById("save-task").addEventListener("click", () => {
   
   // raccogli valori dall'HUD
