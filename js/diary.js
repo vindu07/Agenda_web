@@ -2,7 +2,7 @@ const weekdays = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "
 const months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
 
 let currentDate = new Date();
-let pagDiario; //data della pagina corrente
+var pagDiario; //data della pagina corrente
 
 const weekdayEl = document.getElementById("weekday-name");
 const dayNumberEl = document.getElementById("day-number");
