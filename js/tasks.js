@@ -1,5 +1,5 @@
 function renderTasks(tasksArray) {
-  const container = document.querySelector("task-container");
+  const container = document.getElementById("task-container");
   container.innerHTML = ""; // pulisco prima
 
   tasksArray.forEach((task, index) => {
