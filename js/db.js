@@ -10,7 +10,7 @@ const tasksRef = collection(db, "tasks");
 
 
 /*CREA TASK*/
-export async function createTask(task) {
+async function createTask(task) {
   // Trasforma l'array in oggetto
   const task = {
     ID: task[0],
@@ -31,7 +31,7 @@ async function editTask(ID, task){}
 async function deleteTask(ID){}
 
 /*LEGGE I RECORD E LI MANDA AL RENDERER*/
-export async function loadTasks() {
+async function loadTasks() {
   try {
     const snapshot = await getDocs(tasksRef);
     const tasks = snapshot.docs.map(doc => ({
