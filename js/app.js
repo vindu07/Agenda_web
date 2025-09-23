@@ -1,11 +1,15 @@
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
+import { initializeApp } from "firebase/app";
+
+const app = initializeApp(firebaseConfig);
+
 import { 
   getFirestore, collection, addDoc, getDocs, 
   doc, getDoc, updateDoc, deleteDoc, 
   query, where, orderBy 
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
-const db = getFirestore(); // già inizializzato col tuo app
+const db = getFirestore(app); // già inizializzato col tuo app
 const tasksRef = collection(db, "tasks");
 
 
