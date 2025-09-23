@@ -5,8 +5,8 @@ function renderTasks(tasksArray) {
   tasksArray.forEach((task, index) => {
     // contenitore principale
     const div = document.createElement("div");
-    div.className = task.type === "verifica" ? "verifica" : "compito";
-    div.id = `task-${index}`;
+    div.className = task.isTest === 1 ? "verifica" : "compito"; //1 verifica, 0 compito
+    div.id = task.ID;
 
     // sezione tag
     const tagDiv = document.createElement("div");
@@ -20,9 +20,9 @@ function renderTasks(tasksArray) {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.className = "isCompleted";
-      checkbox.checked = task.completed || false;
+      checkbox.checked = task.isCompleted || false;
       checkbox.addEventListener("change", () => {
-        task.completed = checkbox.checked; // aggiorna array
+        task.isCompleted = checkbox.checked; // aggiorna array
         console.log("Task aggiornata:", task);
       });
       tagDiv.appendChild(checkbox);
