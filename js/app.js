@@ -65,8 +65,8 @@ document.getElementById("save-task").addEventListener("click", () => {
   //salva l'ultimo ID usato
   taskArray.push(ID);
   
-  //render 
-  renderTasks(taskArray);
+  //salva in firestore
+  createTask(newTask);
 
   const salva = document.getElementById("save-task");
   salva.addEventListener("click", () => {
@@ -76,5 +76,5 @@ document.getElementById("save-task").addEventListener("click", () => {
 });
 
 //render 
-  renderTasks(taskArray);
+  loadTasks();
 
