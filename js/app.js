@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const hud = document.getElementById("hud"); 
     hud.classList.toggle("invisible");
   });
+
+  const annulla = document.getElementById("annulla-task");
+  annulla.addEventListener("click", () => {
+    const hud = document.getElementById("hud"); 
+    hud.classList.toggle("invisible");
+  });
 });
 
 // registra il service worker
