@@ -1,6 +1,6 @@
 // diary.js - Gestione Diario
 
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     const dayNumber = document.getElementById("day-number");
     const weekdayName = document.getElementById("weekday-name");
     const monthName = document.getElementById("month-name");
