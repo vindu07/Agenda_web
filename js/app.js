@@ -38,7 +38,7 @@ if ("serviceWorker" in navigator) {
 
 /*SALVA TASK TEMPORANEO*/
 // Array globale o gestito in altro file
-let tasksArray = [];
+let taskArray = [];
 
 document.getElementById("save-task").addEventListener("click", () => {
   // raccogli valori dall'HUD
@@ -55,7 +55,7 @@ document.getElementById("save-task").addEventListener("click", () => {
   const newTask = { materia, isTest, priority, desc  };
 
   // salvalo in array
-  tasksArray.push(newTask);
+  taskArray.push(newTask);
   
   //render 
   renderTasks(taskArray);
