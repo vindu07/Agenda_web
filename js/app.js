@@ -46,7 +46,7 @@ document.getElementById("save-task").addEventListener("click", () => {
   taskArray.pop();
   // raccogli valori dall'HUD
   const ID = lastID + 1;
-  const scadenza = null;
+  const scadenza = currentDate;
   const isCompleted = false;
   const desc = document.getElementById("task-desc").value.trim();
   const materia = document.getElementById("task-subject").value;
