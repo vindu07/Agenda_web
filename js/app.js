@@ -38,10 +38,16 @@ if ("serviceWorker" in navigator) {
 
 /*SALVA TASK TEMPORANEO*/
 // Array globale o gestito in altro file
-let taskArray = [];
+let taskArray = [1];
 
 document.getElementById("save-task").addEventListener("click", () => {
+  //leggo l'ultimo ID e lo cancello
+  const lastID = taskArray[taskArray.length - 1];
+  taskArray.pop();
   // raccogli valori dall'HUD
+  const ID = lastID + 1;
+  const scadenza = null;
+  const isCompleted = false;
   const desc = document.getElementById("task-desc").value.trim();
   const materia = document.getElementById("task-subject").value;
   const isTest = document.getElementById("isTest").value;
@@ -52,10 +58,12 @@ document.getElementById("save-task").addEventListener("click", () => {
     hud.classList.toggle("invisible");
 
   // costruisci un oggetto task
-  const newTask = { materia, isTest, priority, desc  };
+  const newTask = { ID, scadenza, materia, isTest, priority, desc, isCompleted  };
 
   // salvalo in array
   taskArray.push(newTask);
+  //salva l'ultimo ID usato
+  taskArray.push(ID);
   
   //render 
   renderTasks(taskArray);
