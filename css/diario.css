@@ -14,10 +14,10 @@
 
 /* MODALE TASK no sta cancellarme*/
 .hud.invisible{display: none; !important}
-.hud{ display: flex; background:var(--sfondo1); position:fixed; top: 15vh; bottom: 20vh; width: 80vw; max-width: 900px; border-radius:20px; flex-direction:column; gap: 15px; align-items:center; overflow-y: auto; padding:20px;}
+.hud{ display: flex; background:var(--sfondo1); position:fixed; top: 15vh; bottom: 20vh; width: 80vw; max-width: 900px; border-radius:20px; flex-direction:column; gap: 15px; align-items:center; overflow-y: auto; overflow-x: hidden;padding:20px;}
 #hud h3{color: lightblue;}
 label{color: white;}
-#hud button{background: var(--sfondo); padding:10px; width: 200px; font-size:16px;}
+#hud button{background: var(--sfondo); padding:10px; width: 48%; font-size:16px;}
 #hud button:hover{background: var(--testo); color: var(--sfondo);}
 #hud .buttons{display: flex; gap: 10px;   }
 #hud .hud-divs{background: var(--sfondo); padding:10px; border-radius: 10px;  text-align:center;}
