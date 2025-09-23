@@ -37,13 +37,9 @@ if ("serviceWorker" in navigator) {
 }
 
 /*SALVA TASK TEMPORANEO*/
-// Array globale o gestito in altro file
-let taskArray = [0];
 
 document.getElementById("save-task").addEventListener("click", () => {
-  //leggo l'ultimo ID e lo cancello
-  const lastID = taskArray[taskArray.length - 1];
-  taskArray.pop();
+  
   // raccogli valori dall'HUD
   const ID = lastID + 1;
   const scadenza = pagDiario;
@@ -60,11 +56,6 @@ document.getElementById("save-task").addEventListener("click", () => {
   // costruisci un oggetto task
   const newTask = { ID, scadenza, materia, isTest, priority, desc, isCompleted  };
 
-  // salvalo in array
-  taskArray.push(newTask);
-  //salva l'ultimo ID usato
-  taskArray.push(ID);
-  
   //salva in firestore
   createTask(newTask);
 
@@ -76,5 +67,5 @@ document.getElementById("save-task").addEventListener("click", () => {
 });
 
 //render 
-  loadTasks();
+loadTasks();
 
