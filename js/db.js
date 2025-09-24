@@ -113,6 +113,7 @@ export async function sortTasks(options = {}) {
     if (conditions.length > 0) {
       q = query(q, ...conditions);
     }
+    console.log("Condizioni filtro date:", tsInizio, tsFine);
 
     const querySnapshot = await getDocs(q);
 
