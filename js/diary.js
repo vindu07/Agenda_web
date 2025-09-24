@@ -1,6 +1,7 @@
 const weekdays = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
-const months = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
-
+const months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+  "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+];
 let currentDate = new Date();
 var pagDiario; //data della pagina corrente
 
@@ -13,9 +14,11 @@ const nextBtn = document.getElementById("next-day");
 function updateDiary() {
   weekdayEl.textContent = weekdays[currentDate.getDay()];
   dayNumberEl.textContent = currentDate.getDate();
-  monthYearEl.textContent = months[currentDate.getMonth()] + currentDate.getFullYear();
+  monthYearEl.textContent = months[currentDate.getMonth()] + " " + currentDate.getFullYear();
   //el aggiorna la variabile co la data del la pagina corrente
   pagDiario = currentDate.toISOString().slice(0,10);
+  console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
+
 
 }
 
