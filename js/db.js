@@ -61,7 +61,68 @@ export async function deleteTask(id) {
   }
 }
 
-export async function sortTasks(ID){}
+/**
+ * Carica i task da Firestore con filtri
+ * @param {Object} options - Opzioni di filtro/ordinamento
+ * @param {string|null} options.materia
+ * @param {string|null} options.dataInizio
+ * @param {string|null} options.dataFine
+ * @param {boolean|null} options.isTest
+ * @param {boolean|null} options.isCompleted
+ * @param {string|null} options.priority
+ */
+export async function loadTasks(options = {}) {
+  try {
+    let q = collection(db, "tasks");
+
+    const conditions = [];
+
+    // filtra per materia
+    if (options.materia) {
+      conditions.push(where("materia", "==", options.materia));
+    }
+
+    // filtra per date (salva sempre la data come stringa ISO "YYYY-MM-DD" o come Timestamp!)
+    if (options.dataInizio) {
+      conditions.push(where("data", ">=", options.dataInizio));
+    }
+    if (options.dataFine) {
+      conditions.push(where("data", "<=", options.dataFine));
+    }
+
+    // verifiche / compiti
+    if (options.isTest !== null && options.isTest !== undefined) {
+      conditions.push(where("isTest", "==", options.isTest));
+    }
+
+    // completati / non completati
+    if (options.isCompleted !== null && options.isCompleted !== undefined) {
+      conditions.push(where("isCompleted", "==", options.isCompleted));
+    }
+
+    // costruisco la query con where multipli
+    if (conditions.length > 0) {
+      q = query(q, ...conditions);
+    }
+
+    // ordinamento per priorità
+    if (options.priority) {
+      q = query(q, orderBy("priority", options.priority));
+    }
+
+    const querySnapshot = await getDocs(q);
+
+    const tasks = [];
+    querySnapshot.forEach((doc) => {
+      tasks.push({ id: doc.id, ...doc.data() });
+    });
+
+    return tasks;
+  } catch (err) {
+    console.error("Errore nel caricamento dei task:", err);
+    return [];
+  }
+}
 
 /*LEGGE I RECORD E LI MANDA AL RENDERER*/
 export async function loadTasks() {
