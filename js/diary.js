@@ -1,5 +1,6 @@
 import * as db from "./db.js";
 import * as Tasks from "./tasks.js";
+import { Timestamp } from "firebase/firestore";
 
 
 
@@ -27,7 +28,7 @@ function updateDiary() {
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
   /*chiama sortTasks*/
-  import { Timestamp } from "firebase/firestore";
+  
   const ts = Timestamp.fromDate(currentDate);
 
   db.sortTasks({ dataInizio: ts,
