@@ -33,14 +33,14 @@ function updateDiary() {
   const ts1 = ts.toDate();
 
 // 2️⃣ aggiungo 1 giorno (24 ore)
-ts1.setDate(ts1.getDate() + 1);
+ts1.setDate(ts1.getDate() - 1);
 
 // 3️⃣ converto di nuovo in Timestamp
 const TS = Timestamp.fromDate(ts1)
 //TS.setDate(TS.getDate() + 1);
 
-  db.sortTasks({ dataInizio: ts,
-  dataFine: TS /*,materia: "Italiano"*/ })
+  db.sortTasks({ dataInizio: TS,
+  dataFine: ts /*,materia: "Italiano"*/ })
   .then(sortedTasks => {
     // qui sortedTasks è l'array ordinato
     Tasks.renderTasks(sortedTasks);
