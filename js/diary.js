@@ -26,9 +26,12 @@ function updateDiary() {
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
-  
-  db.sortTasks({ dataInizio: new Date(pagDiario),
-  dataFine:  new Date(pagDiario) })
+  /*chiama sortTasks*/
+  import { Timestamp } from "firebase/firestore";
+  const ts = Timestamp.fromDate(pagDiario);
+
+  db.sortTasks({ dataInizio: ts,
+  dataFine: ts })
   .then(sortedTasks => {
     // qui sortedTasks è l'array ordinato
     Tasks.renderTasks(sortedTasks);
