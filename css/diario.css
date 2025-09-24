@@ -26,7 +26,7 @@ label{color: white;}
 #hud textarea{background: var(--sfondo); color: var(--testo); border-radius: 5px; width: 200px; height: 80px;}
 
 /*COMPITI*/
-.isCompleted{background: grey; width: 15px; heigth:15px; color:grey; margin-right:20px;}
+.isCompleted{background: grey; width: 15px; height:15px; color:grey; margin-right:20px;}
 .isCompleted:hover{color:white; background:white;}
 .nascosto{display:none;}
 .cestino{border-left:20px; background: var(--sfondo); }
@@ -46,6 +46,6 @@ label{color: white;}
 }
 
 .bo1{width:50vw; max-width: 1;}
-.task{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
-.task h3{color: lightgreen;}
+.compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
+.compito h3{color: lightgreen;}
 .cancella{display:flex; justify-items: left;}
