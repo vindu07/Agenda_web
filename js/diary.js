@@ -39,8 +39,8 @@ function updateDiary() {
 const TS = ts;//Timestamp.fromDate(ts1)
 TS.setDate(TS.getDate() + 1);
 
-  db.sortTasks({ /*dataInizio: ts,
-  dataFine: TS ,materia: "Italiano"*/ })
+  db.sortTasks({ dataInizio: ts,
+  dataFine: TS /*,materia: "Italiano"*/ })
   .then(sortedTasks => {
     // qui sortedTasks è l'array ordinato
     Tasks.renderTasks(sortedTasks);
