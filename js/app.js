@@ -22,6 +22,7 @@ const tasksRef = collection(db, "tasks");
 
 
 import * as Tasks from "./tasks.js";
+import { pagDiario } from "./diary.js";
 
 
 /*CREA TASK*/
