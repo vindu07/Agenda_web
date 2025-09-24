@@ -46,8 +46,10 @@ export async function createTask(task) {
     //render
     loadTasks();
 }
-async function editTask(ID, task){}
-async function deleteTask(ID){}
+export async function editTask(ID, task){}
+export async function deleteTask(ID){}
+
+export async function sortTasks(ID){}
 
 /*LEGGE I RECORD E LI MANDA AL RENDERER*/
 export async function loadTasks() {
@@ -69,18 +71,3 @@ export async function loadTasks() {
 }
 
 
-
-
-
-
-
-
-/*function editTask(ID, task){}
-function deleteTask(ID){}
-function sortTaskByDate(first_date, last_date){}
-function sortTaskBySubject(subject){}
-
-
-function saveTasks(){}
-function getTasks(){}
-*/
