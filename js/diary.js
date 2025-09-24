@@ -3,7 +3,7 @@ const months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
   "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
 ];
 let currentDate = new Date();
-var pagDiario; //data della pagina corrente
+export var pagDiario; //data della pagina corrente
 
 const weekdayEl = document.getElementById("weekday-name");
 const dayNumberEl = document.getElementById("day-number");
