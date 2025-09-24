@@ -27,7 +27,6 @@ function renderTasks(tasksArray) {
         task.isCompleted = checkbox.checked; // aggiorna array
         console.log("Task aggiornata:", task);
       });
-      tagDiv.appendChild(checkbox);
     }
 
     // sezione contenuto
