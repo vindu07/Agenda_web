@@ -4,10 +4,10 @@
 .diary-header { display:flex; align-items:center; justify-content:space-between; }
 
 .day-display { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem; }
-.day-text{ display: flex; flex-direction: column; gap: 10px; align-items: left; }
+.day-text{ display: flex; flex-direction: column; gap: 5px; align-items: left; }
 #day-number { font-family:'Baloo 2', sans-serif; font-size:5rem; font-weight:600; color:var(--accent-color,#4cafef); line-height:1; }
 #weekday-name { font-size:1.5rem; font-weight:600; color:var(--accent-color,#4cafef);}
-#month-name { font-size:1.3rem; font-weight:bold; opacity:0.85; }
+#month-year { font-size:1.2rem; font-weight:bold; opacity:0.85; }
 
 .small-btn { padding:5px; min-width:30px; font-size:1rem; }
 
@@ -28,8 +28,9 @@ label{color: white;}
 
 /*COMPITI*/
 #task-container{display:flex; flex-direction: column; gap: 15px; align-items: center;}
-.isCompleted{background: grey; width: 15px; height:15px; color:grey; margin-right:20px;}
-.isCompleted:hover{color:white; background:white;}
+.isCompleted{background: var(--sfondo); width: 15px; height:15px; color: var(--testo); margin-right:20px;}
+.isCompleted:hover{color: var(--sfondo); background: var(--testo);}
+.isCompleted:completed{color: green; background: grey;}
 .nascosto{display:none;}
 .cestino{border-left:20px; background: var(--sfondo); }
 .cestino:hover{background: var(--testo);}
@@ -43,11 +44,8 @@ label{color: white;}
   font-weight: 700;
 }
 .verifica{display:flex; justify-content: space-between; align-items: center; padding:10px 20px; background: var(--sfondo1); border-radius: 10px; width: 100%; max-width: 800px; }
-.verifica h3{
-  color: red;
-}
+.verifica h3{ color: red; }
 
 .bo1{width:50vw; max-width: 1;}
 .compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
 .compito h3{color: lightgreen;}
-.cancella{display:flex; justify-items: left;}
