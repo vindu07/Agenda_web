@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 import { 
   getFirestore, collection, addDoc, getDocs, 
   doc, getDoc, updateDoc, deleteDoc, 
-  query, where, orderBy 
+  query, where, orderBy, Timestamp
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 const db = getFirestore(app); // già inizializzato col tuo app
