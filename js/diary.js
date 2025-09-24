@@ -36,8 +36,7 @@ function updateDiary() {
 ts1.setDate(ts1.getDate() - 1);
 
 // 3️⃣ converto di nuovo in Timestamp
-const TS = Timestamp.fromDate(ts1)
-//TS.setDate(TS.getDate() + 1);
+const TS = Timestamp.fromDate(ts1);
 
   db.sortTasks({ dataInizio: TS,
   dataFine: ts /*,materia: "Italiano"*/ })
