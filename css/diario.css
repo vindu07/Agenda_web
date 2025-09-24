@@ -4,6 +4,7 @@
 .diary-header { display:flex; align-items:center; justify-content:space-between; }
 
 .day-display { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem; }
+.day-text{ display: flex; flex-direction: column; gap: 10px; align-items: left; }
 #day-number { font-family:'Baloo 2', sans-serif; font-size:5rem; font-weight:600; color:var(--accent-color,#4cafef); line-height:1; }
 #weekday-name { font-size:1.5rem; font-weight:600; color:var(--accent-color,#4cafef);}
 #month-name { font-size:1.3rem; font-weight:bold; opacity:0.85; }
