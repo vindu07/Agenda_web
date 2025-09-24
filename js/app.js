@@ -24,8 +24,3 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker registrato"))
     .catch(err => console.error("Errore Service Worker:", err));
 }
-
-
-//render 
-db.loadTasks();
-
