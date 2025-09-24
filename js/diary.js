@@ -37,6 +37,9 @@ nextBtn.addEventListener("click", () => {
 
 
 /*SALVA TASK TEMPORANEO*/
+import * as db from "./db.js"
+
+
 document.getElementById("save-task").addEventListener("click", () => {
   
   // raccogli valori dall'HUD
