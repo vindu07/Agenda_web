@@ -55,6 +55,10 @@ export function renderTasks(tasksArray) {
     btn.appendChild(img);
 
     btn.addEventListener("click", async () => {
+    
+    const conferma = confirm("Vuoi davvero eliminare questo task?");
+    if (!conferma) return; // se annulla, stoppa
+      
     await db.deleteTask(btn.id);      // cancella da Firestore
     tasksArray.splice(index, 1);   // cancella dall’array locale
     renderTasks(tasksArray);       // ricarica la lista
