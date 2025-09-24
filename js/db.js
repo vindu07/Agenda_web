@@ -1,6 +1,5 @@
 import * as Tasks from "./tasks.js";
 import { pagDiario } from "./diary.js";
-import { Timestamp } from "firebase/firestore";
 
 
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
