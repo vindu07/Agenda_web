@@ -131,7 +131,8 @@ export async function sortTasks(options = {}) {
       return b.priority - a.priority; 
     }
 
-    
+    // se non scatta nulla, mantieni ordine
+      return 0;
   });
   } catch (err) {
     console.error("Errore nel caricamento dei task:", err);
