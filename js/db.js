@@ -86,7 +86,7 @@ export async function sortTasks(options = {}) {
     }
 
     /// filtra per date
-    const startTS, endTS;
+    const startTS=null; const endTS=null;
       
     if (options.dataInizio) {
       startTS = options.dataInizio instanceof Timestamp 
