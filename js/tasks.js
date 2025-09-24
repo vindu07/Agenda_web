@@ -5,12 +5,12 @@ export function renderTasks(tasksArray) {
   tasksArray.forEach((task, index) => { 
     // contenitore principale
     const div = document.createElement("div");
-    div.classList.add(task.isTest === true ? "verifica" : "compito"); //true verifica, false compito
+    div.classList.add(task.isTest ? "verifica" : "compito"); //true verifica, false compito
     div.id = task.id;
 
     
 
-    if (task.isTest === true) {
+    if (task.isTest) {
       // sezione tag
       const tagDiv = document.createElement("div");
       tagDiv.classList.add("tag");
