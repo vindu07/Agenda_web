@@ -62,7 +62,7 @@ document.getElementById("save-task").addEventListener("click", () => {
   const isCompleted = false;
   const desc = document.getElementById("task-desc").value.trim();
   const materia = document.getElementById("task-subject").value;
-  const isTest = document.getElementById("isTest").value;
+  const isTest = document.getElementById("isTest").value === "0" ? false : true;
   const priority = document.getElementById("task-priority").value;
   
   //chiudi hud
