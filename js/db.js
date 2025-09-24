@@ -71,7 +71,7 @@ export async function deleteTask(id) {
  * @param {boolean|null} options.isCompleted
  * @param {string|null} options.priority
  */
-export async function loadTasks(options = {}) {
+export async function sortTasks(options = {}) {
   try {
     let q = collection(db, "tasks");
 
@@ -105,11 +105,6 @@ export async function loadTasks(options = {}) {
       q = query(q, ...conditions);
     }
 
-    // ordinamento per priorità
-    if (options.priority) {
-      q = query(q, orderBy("priority", options.priority));
-    }
-
     const querySnapshot = await getDocs(q);
 
     const tasks = [];
@@ -117,7 +112,24 @@ export async function loadTasks(options = {}) {
       tasks.push({ id: doc.id, ...doc.data() });
     });
 
-    return tasks;
+    return tasks.sort((a, b) => {
+    // 1️⃣ Verifiche prima di tutto
+    if (a.isTest !== b.isTest) {
+      return a.isTest ? -1 : 1; // se a è verifica, viene prima
+    }
+
+    // 2️⃣ Compiti non completati prima dei completati
+    if (a.isCompleted !== b.isCompleted) {
+      return a.isCompleted ? 1 : -1; // se a è completato, viene dopo
+    }
+
+    // 3️⃣ Priorità (3 alta, 1 bassa) solo se non completati
+    if (!a.isCompleted && !b.isCompleted) {
+      return b.priority - a.priority; 
+    }
+
+    
+  });
   } catch (err) {
     console.error("Errore nel caricamento dei task:", err);
     return [];
