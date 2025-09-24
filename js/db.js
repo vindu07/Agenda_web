@@ -78,25 +78,15 @@ export async function sortTasks(options = {}) {
 
     /// filtra per date
     if (options.dataInizio) {
-  let startTS;
-  if (options.dataInizio && options.dataInizio.seconds !== undefined && options.dataInizio.nanoseconds !== undefined) {
-    // è già un Timestamp
-    startTS = options.dataInizio;
-  } else {
-    // converto stringa o Date in Timestamp
-    startTS = Timestamp.fromDate(new Date(options.dataInizio));
-  }
-  conditions.push(where("data", "==", startTS));
+  const startTS = options.dataInizio;
+  
+  conditions.push(where("data", ">=", startTS));
 }
 
 if (options.dataFine) {
-  let endTS;
-  if (options.dataFine && options.dataFine.seconds !== undefined && options.dataFine.nanoseconds !== undefined) {
-    endTS = options.dataFine;
-  } else {
-    endTS = Timestamp.fromDate(new Date(options.dataFine));
-  }
-  conditions.push(where("data", "<=", endTS));
+  const startTS = options.dataFine;
+  
+  conditions.push(where("data", "<=", startTS));
 }
 
     // verifiche / compiti
