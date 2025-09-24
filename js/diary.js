@@ -27,8 +27,8 @@ function updateDiary() {
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
   
-  db.sortTasks({ /*dataInizio: pagDiario,
-  dataFine:  pagDiario*/ })
+  db.sortTasks({ dataInizio: new Date(pagDiario),
+  dataFine:  new Date(pagDiario) })
   .then(sortedTasks => {
     // qui sortedTasks è l'array ordinato
     Tasks.renderTasks(sortedTasks);
