@@ -1,3 +1,7 @@
+import * as db from "./db.js";
+
+
+
 const weekdays = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
 const months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
   "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
@@ -21,15 +25,13 @@ function updateDiary() {
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
-  const tasks = await loadTasks({
+  const tasks = await db.sortTasks({
   dataInizio: pagDiario,
   dataFine:  pagDiario,
-  isTest: true,
-  isCompleted: false,
-  priority: "asc"
-});
+  });
+  
 
-
+  
 }
 
 // Eventi per cambiare giorno
