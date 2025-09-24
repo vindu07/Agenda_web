@@ -26,11 +26,11 @@ label{color: white;}
 #hud textarea{background: var(--sfondo); color: var(--testo); border-radius: 5px; width: 200px; height: 80px;}
 
 /*COMPITI*/
-.spunta{background: grey; width: 15px; heigth:15px; color:grey; margin-right:20px;}
-.spunta:hover{color:white; background:white;}
+.isCompleted{background: grey; width: 15px; heigth:15px; color:grey; margin-right:20px;}
+.isCompleted:hover{color:white; background:white;}
 .nascosto{display:none;}
-#cestino{border-left:20px; background: var(--sfondo); }
-#cestino:hover{background: var(--testo);}
+.cestino{border-left:20px; background: var(--sfondo); }
+.cestino:hover{background: var(--testo);}
 .tag{
   font-size: 12px;
   padding: 1px 5px;
