@@ -86,7 +86,7 @@ export async function sortTasks(options = {}) {
     // converto stringa o Date in Timestamp
     startTS = Timestamp.fromDate(new Date(options.dataInizio));
   }
-  conditions.push(where("data", ">=", startTS));
+  conditions.push(where("data", "==", startTS));
 }
 
 if (options.dataFine) {
