@@ -63,7 +63,7 @@ document.getElementById("save-task").addEventListener("click", () => {
   const desc = document.getElementById("task-desc").value.trim();
   const materia = document.getElementById("task-subject").value;
   const isTest = document.getElementById("isTest").value === "0" ? false : true;
-  const priority = document.getElementById("task-priority").value;
+  const priority = int(document.getElementById("task-priority").value);
   
   //chiudi hud
   const hud = document.getElementById("hud"); 
