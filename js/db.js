@@ -1,3 +1,7 @@
+import * as Tasks from "./tasks.js";
+import { pagDiario } from "./diary.js";
+
+
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 const firebaseConfig = {
@@ -21,8 +25,7 @@ const db = getFirestore(app); // già inizializzato col tuo app
 const tasksRef = collection(db, "tasks");
 
 
-import * as Tasks from "./tasks.js";
-import { pagDiario } from "./diary.js";
+
 
 
 /*CREA TASK*/
