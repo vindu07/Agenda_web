@@ -1,3 +1,5 @@
+import * as db from "./db.js";
+
 export function renderTasks(tasksArray) {
   const container = document.getElementById("task-container");
   container.innerHTML = ""; // pulisco prima
@@ -53,7 +55,7 @@ export function renderTasks(tasksArray) {
     btn.appendChild(img);
 
     btn.addEventListener("click", async () => {
-    await deleteTask(btn.id);      // cancella da Firestore
+    await db.deleteTask(btn.id);      // cancella da Firestore
     tasksArray.splice(index, 1);   // cancella dall’array locale
     renderTasks(tasksArray);       // ricarica la lista
     });
