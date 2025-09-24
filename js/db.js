@@ -64,16 +64,7 @@ export async function deleteTask(id) {
   }
 }
 
-/**
- * Carica i task da Firestore con filtri
- * @param {Object} options - Opzioni di filtro/ordinamento
- * @param {string|null} options.materia
- * @param {string|null} options.dataInizio
- * @param {string|null} options.dataFine
- * @param {boolean|null} options.isTest
- * @param {boolean|null} options.isCompleted
- * @param {string|null} options.priority
- */
+
 export async function sortTasks(options = {}) {
   try {
     let q = collection(db, "tasks");
@@ -86,20 +77,27 @@ export async function sortTasks(options = {}) {
     }
 
     /// filtra per date
-    let startTS; let endTS;
-      
     if (options.dataInizio) {
-      startTS = options.dataInizio; /*instanceof Timestamp 
-        ? options.dataInizio 
-        : Timestamp.fromDate(new Date(options.dataInizio));*/
-      conditions.push(where("data", ">=", startTS));
-    }
-    if (options.dataFine) {
-      endTS = options.dataFine;/* instanceof Timestamp
-        ? options.dataFine
-        : Timestamp.fromDate(new Date(options.dataFine));*/
-      conditions.push(where("data", "<=", endTS));
-    }
+  let startTS;
+  if (options.dataInizio && options.dataInizio.seconds !== undefined && options.dataInizio.nanoseconds !== undefined) {
+    // è già un Timestamp
+    startTS = options.dataInizio;
+  } else {
+    // converto stringa o Date in Timestamp
+    startTS = Timestamp.fromDate(new Date(options.dataInizio));
+  }
+  conditions.push(where("data", ">=", startTS));
+}
+
+if (options.dataFine) {
+  let endTS;
+  if (options.dataFine && options.dataFine.seconds !== undefined && options.dataFine.nanoseconds !== undefined) {
+    endTS = options.dataFine;
+  } else {
+    endTS = Timestamp.fromDate(new Date(options.dataFine));
+  }
+  conditions.push(where("data", "<=", endTS));
+}
 
     // verifiche / compiti
     if (options.isTest !== null && options.isTest !== undefined) {
@@ -115,8 +113,7 @@ export async function sortTasks(options = {}) {
     if (conditions.length > 0) {
       q = query(q, ...conditions);
     }
-    console.log("Condizioni filtro date:", startTS, endTS);
-
+    
     const querySnapshot = await getDocs(q);
 
     const tasks = [];
