@@ -1,4 +1,4 @@
-function renderTasks(tasksArray) {
+export function renderTasks(tasksArray) {
   const container = document.getElementById("task-container");
   container.innerHTML = ""; // pulisco prima
 
@@ -17,6 +17,7 @@ function renderTasks(tasksArray) {
       const p = document.createElement("p");
       p.textContent = "VERIFICA";
       tagDiv.appendChild(p);
+      div.appendChild(tagDiv);
     } else {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -57,7 +58,6 @@ function renderTasks(tasksArray) {
     });
 
     // assemblo tutto
-    div.appendChild(tagDiv);
     div.appendChild(bo1Div);
     div.appendChild(btn);
     container.appendChild(div);
