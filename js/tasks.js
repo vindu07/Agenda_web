@@ -56,7 +56,7 @@ export function renderTasks(tasksArray) {
 
     btn.addEventListener("click", async () => {
     
-    const conferma = confirm("Vuoi davvero eliminare il compito?/nLa modifica sarà definitiva");
+    const conferma = confirm("Vuoi davvero eliminare il compito?");
     if (!conferma) return; // se annulla, stoppa
       
     await db.deleteTask(btn.id);      // cancella da Firestore
