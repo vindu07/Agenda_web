@@ -16,8 +16,8 @@ export function renderTasks(tasksArray) {
       tagDiv.classList.add("tag");
       const p = document.createElement("p");
       p.textContent = "VERIFICA";
-      tagDiv.appendChild(p);
       div.appendChild(tagDiv);
+      tagDiv.appendChild(p);
     } else {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
