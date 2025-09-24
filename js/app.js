@@ -21,6 +21,9 @@ const db = getFirestore(app); // già inizializzato col tuo app
 const tasksRef = collection(db, "tasks");
 
 
+import * as Tasks from "./tasks.js";
+
+
 /*CREA TASK*/
 async function createTask(task) {
   // Trasforma l'array in oggetto
@@ -57,7 +60,7 @@ async function loadTasks() {
     console.log("Tasks caricati:", tasks);
 
     // Passa l'array a taskRender
-    renderTasks(tasks);
+    Tasks.renderTasks(tasks);
 
   } catch (err) {
     console.error("Errore nel caricamento dei task:", err);
