@@ -58,6 +58,7 @@ export function renderTasks(tasksArray) {
     });
 
     // assemblo tutto
+    div.appendChild(checkbox);
     div.appendChild(bo1Div);
     div.appendChild(btn);
     container.appendChild(div);
