@@ -64,8 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*SALVA TASK TEMPORANEO*/
-import * as db from "./db.js";
-
 
 document.getElementById("save-task").addEventListener("click", () => {
   
