@@ -116,7 +116,7 @@ if ("serviceWorker" in navigator) {
     .catch(err => console.error("Errore Service Worker:", err));
 }
 
-/*SALVA TASK TEMPORANEO*/
+/*SALVA TASK TEMPORANEO*//*
 document.getElementById("save-task").addEventListener("click", () => {
   
   // raccogli valori dall'HUD
@@ -142,7 +142,7 @@ document.getElementById("save-task").addEventListener("click", () => {
     const hud = document.getElementById("hud"); 
     hud.classList.toggle("invisible");
   });
-});
+});*/
 
 //render 
 db.loadTasks();
