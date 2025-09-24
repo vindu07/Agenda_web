@@ -1,5 +1,5 @@
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+/*import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBrc58aNKEHfGueKron2D87g3tlAWWqBlU",
     authDomain: "agenda-pwa-b5bb0.firebaseapp.com",
@@ -25,7 +25,7 @@ import * as Tasks from "./tasks.js";
 import { pagDiario } from "./diary.js";
 
 
-/*CREA TASK*/
+/*CREA TASK*//*
 async function createTask(task) {
   // Trasforma l'array in oggetto
   const task_obj = {
@@ -49,7 +49,7 @@ async function createTask(task) {
 async function editTask(ID, task){}
 async function deleteTask(ID){}
 
-/*LEGGE I RECORD E LI MANDA AL RENDERER*/
+/*LEGGE I RECORD E LI MANDA AL RENDERER*//*
 async function loadTasks() {
   try {
     const snapshot = await getDocs(tasksRef);
@@ -70,12 +70,10 @@ async function loadTasks() {
 
 
 
+*/
 
 
-
-
-
-
+import * as db from "./db.js";
 
 
 
@@ -137,7 +135,7 @@ document.getElementById("save-task").addEventListener("click", () => {
   const newTask = [ scadenza, materia, isTest, priority, desc, isCompleted  ];
 
   //salva in firestore
-  createTask(newTask);
+  db.createTask(newTask);
 
   const salva = document.getElementById("save-task");
   salva.addEventListener("click", () => {
@@ -147,5 +145,5 @@ document.getElementById("save-task").addEventListener("click", () => {
 });
 
 //render 
-loadTasks();
+db.loadTasks();
 
