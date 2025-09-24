@@ -1,6 +1,6 @@
 import * as db from "./db.js";
 import * as Tasks from "./tasks.js";
-import { Timestamp } from "firebase/firestore";
+import { Timestamp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 
 
