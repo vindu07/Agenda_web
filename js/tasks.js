@@ -2,17 +2,18 @@ function renderTasks(tasksArray) {
   const container = document.getElementById("task-container");
   container.innerHTML = ""; // pulisco prima
 
-  tasksArray.slice(0, -1).forEach((task, index) => { //crea un array senza l'ultimo elemento(last_ID)
+  tasksArray.forEach((task, index) => { 
     // contenitore principale
     const div = document.createElement("div");
-    div.className = task.isTest === 1 ? "verifica" : "compito"; //1 verifica, 0 compito
-    div.id = task.ID;
+    div.className = task.isTest === true ? "verifica" : "compito"; //true verifica, false compito
+    div.id = task.id;
 
-    // sezione tag
-    const tagDiv = document.createElement("div");
-    tagDiv.className = "tag";
+    
 
-    if (task.type === "verifica") {
+    if (task.isTest === true) {
+      // sezione tag
+      const tagDiv = document.createElement("div");
+      tagDiv.className = "tag";
       const p = document.createElement("p");
       p.textContent = "VERIFICA";
       tagDiv.appendChild(p);
@@ -20,6 +21,7 @@ function renderTasks(tasksArray) {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.className = "isCompleted";
+      checkbox.id = task.id;
       checkbox.checked = task.isCompleted || false;
       checkbox.addEventListener("change", () => {
         task.isCompleted = checkbox.checked; // aggiorna array
@@ -43,14 +45,15 @@ function renderTasks(tasksArray) {
     // bottone cestino
     const btn = document.createElement("button");
     btn.className = "cestino";
-    btn.dataset.id = index;
+    btn.id = task.id;
     const img = document.createElement("img");
     img.src = "assets/icons/canc.png";
     img.alt = "Elimina";
     btn.appendChild(img);
 
     btn.addEventListener("click", () => {
-      tasksArray.splice(index, 1); // elimina dall’array
+      tasksArray.splice(index, 1);  // elimina dall’array
+      /*deleteTask(btn.id);*/  // elimina dal DB
       renderTasks(tasksArray);     // ricarica la lista
     });
 
