@@ -85,12 +85,18 @@ export async function sortTasks(options = {}) {
       conditions.push(where("materia", "==", options.materia));
     }
 
-    // filtra per date (salva sempre la data come stringa ISO "YYYY-MM-DD" o come Timestamp!)
+    /// filtra per date
     if (options.dataInizio) {
-      conditions.push(where("data", ">=", options.dataInizio));
+      const startTS = options.dataInizio instanceof Timestamp 
+        ? options.dataInizio 
+        : Timestamp.fromDate(new Date(options.dataInizio));
+      conditions.push(where("data", ">=", startTS));
     }
     if (options.dataFine) {
-      conditions.push(where("data", "<=", options.dataFine));
+      const endTS = options.dataFine instanceof Timestamp
+        ? options.dataFine
+        : Timestamp.fromDate(new Date(options.dataFine));
+      conditions.push(where("data", "<=", endTS));
     }
 
     // verifiche / compiti
