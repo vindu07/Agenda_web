@@ -26,7 +26,7 @@ function updateDiary() {
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
-  const tasks_today = db.sortTasks({
+  const tasks_today = await db.sortTasks({
   dataInizio: pagDiario,
   dataFine:  pagDiario,
   });
