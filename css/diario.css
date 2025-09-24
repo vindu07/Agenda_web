@@ -27,7 +27,7 @@ label{color: white;}
 #hud textarea{background: var(--sfondo); color: var(--testo); border-radius: 5px; width: 200px; height: 80px;}
 
 /*COMPITI*/
-.task-container{display:flex; flex-direction: column; gap: 15px; align-items: center;}
+#task-container{display:flex; flex-direction: column; gap: 15px; align-items: center;}
 .isCompleted{background: grey; width: 15px; height:15px; color:grey; margin-right:20px;}
 .isCompleted:hover{color:white; background:white;}
 .nascosto{display:none;}
