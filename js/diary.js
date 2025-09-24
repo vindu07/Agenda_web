@@ -21,6 +21,14 @@ function updateDiary() {
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
+  const tasks = await loadTasks({
+  dataInizio: pagDiario,
+  dataFine:  pagDiario,
+  isTest: true,
+  isCompleted: false,
+  priority: "asc"
+});
+
 
 }
 
