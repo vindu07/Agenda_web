@@ -5,7 +5,7 @@ export function renderTasks(tasksArray) {
   tasksArray.forEach((task, index) => { 
     // contenitore principale
     const div = document.createElement("div");
-    div.className = task.isTest === true ? "verifica" : "compito"; //true verifica, false compito
+    div.classList.add(task.isTest === true ? "verifica" : "compito"); //true verifica, false compito
     div.id = task.id;
 
     
@@ -13,7 +13,7 @@ export function renderTasks(tasksArray) {
     if (task.isTest === true) {
       // sezione tag
       const tagDiv = document.createElement("div");
-      tagDiv.className = "tag";
+      tagDiv.classList.add("tag");
       const p = document.createElement("p");
       p.textContent = "VERIFICA";
       tagDiv.appendChild(p);
@@ -21,7 +21,7 @@ export function renderTasks(tasksArray) {
     } else {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      checkbox.className = "isCompleted";
+      checkbox.classList.add("isCompleted");
       checkbox.id = task.id;
       checkbox.checked = task.isCompleted || false;
       checkbox.addEventListener("change", () => {
@@ -32,7 +32,7 @@ export function renderTasks(tasksArray) {
 
     // sezione contenuto
     const bo1Div = document.createElement("div");
-    bo1Div.className = "bo1";
+    bo1Div.classList.add("bo1");
 
     const h3 = document.createElement("h3");
     h3.textContent = task.materia;
@@ -44,7 +44,7 @@ export function renderTasks(tasksArray) {
 
     // bottone cestino
     const btn = document.createElement("button");
-    btn.className = "cestino";
+    btn.classList.add("cestino");
     btn.id = task.id;
     const img = document.createElement("img");
     img.src = "assets/icons/canc.png";
