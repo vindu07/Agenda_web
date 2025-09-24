@@ -46,8 +46,20 @@ export async function createTask(task) {
     //render
     loadTasks();
 }
+
+
 export async function editTask(ID, task){}
-export async function deleteTask(ID){}
+
+
+export async function deleteTask(id) {
+  try {
+    const ref = doc(db, "tasks", id); // puntatore al documento
+    await deleteDoc(ref);             // elimina dal db
+    console.log(`Task ${id} eliminata correttamente`);
+  } catch (error) {
+    console.error("Errore durante l'eliminazione:", error);
+  }
+}
 
 export async function sortTasks(ID){}
 
