@@ -78,8 +78,9 @@ async function loadTasks() {
 /*function editTask(ID, task){}
 function deleteTask(ID){}
 function sortTaskByDate(first_date, last_date){}
-function sortTaskBySubject(subject){}*/
+function sortTaskBySubject(subject){}
 
 
 function saveTasks(){}
 function getTasks(){}
+*/
