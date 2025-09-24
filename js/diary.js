@@ -26,13 +26,25 @@ function updateDiary() {
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
-  const tasks_today = await db.sortTasks({
+  
+  db.sortTasks({ dataInizio: pagDiario,
+  dataFine:  pagDiario })
+  .then(sortedTasks => {
+    // qui sortedTasks è l'array ordinato
+    Tasks.renderTasks(sortedTasks);
+  })
+  .catch(err => {
+    console.error("Errore nel caricamento/ordinamento dei task:", err);
+  });
+  
+  
+  /*const tasks_today = await db.sortTasks({
   dataInizio: pagDiario,
-  dataFine:  pagDiario,
+  dataFine:  pagDiario
   });
   
    // Passa l'array a taskRender
-    Tasks.renderTasks(tasks_today);
+    Tasks.renderTasks(tasks_today);*/
   
 }
 
