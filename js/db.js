@@ -80,13 +80,13 @@ export async function sortTasks(options = {}) {
     if (options.dataInizio) {
   const startTS = options.dataInizio;
   
-  conditions.push(where("data", ">=", startTS));
+  conditions.push(where("scadenza", ">=", startTS));
 }
 
 if (options.dataFine) {
   const startTS = options.dataFine;
   
-  conditions.push(where("data", "<=", startTS));
+  conditions.push(where("scadenza", "<=", startTS));
 }
 
     // verifiche / compiti
