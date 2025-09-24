@@ -1,4 +1,5 @@
 import * as db from "./db.js";
+import * as Tasks from "./tasks.js";
 
 
 
@@ -25,12 +26,13 @@ function updateDiary() {
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
 
-  const tasks = await db.sortTasks({
+  const tasks_today = await db.sortTasks({
   dataInizio: pagDiario,
   dataFine:  pagDiario,
   });
   
-
+   // Passa l'array a taskRender
+    Tasks.renderTasks(tasks_today);
   
 }
 
