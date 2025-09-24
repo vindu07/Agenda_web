@@ -89,15 +89,15 @@ export async function sortTasks(options = {}) {
     let startTS; let endTS;
       
     if (options.dataInizio) {
-      startTS = options.dataInizio instanceof Timestamp 
+      startTS = options.dataInizio; /*instanceof Timestamp 
         ? options.dataInizio 
-        : Timestamp.fromDate(new Date(options.dataInizio));
+        : Timestamp.fromDate(new Date(options.dataInizio));*/
       conditions.push(where("data", ">=", startTS));
     }
     if (options.dataFine) {
-      endTS = options.dataFine instanceof Timestamp
+      endTS = options.dataFine;/* instanceof Timestamp
         ? options.dataFine
-        : Timestamp.fromDate(new Date(options.dataFine));
+        : Timestamp.fromDate(new Date(options.dataFine));*/
       conditions.push(where("data", "<=", endTS));
     }
 
