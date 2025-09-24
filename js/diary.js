@@ -36,8 +36,23 @@ nextBtn.addEventListener("click", () => {
 });
 
 
+/*MOSTRA/NASCONDE HUD*/
+document.addEventListener("DOMContentLoaded", () => {
+  const newTask = document.getElementById("new-task");
+  newTask.addEventListener("click", () => {
+    const hud = document.getElementById("hud"); 
+    hud.classList.toggle("invisible");
+  });
+
+  const annulla = document.getElementById("annulla-task");
+  annulla.addEventListener("click", () => {
+    const hud = document.getElementById("hud"); 
+    hud.classList.toggle("invisible");
+  });
+});
+
 /*SALVA TASK TEMPORANEO*/
-import * as db from "./db.js"
+import * as db from "./db.js";
 
 
 document.getElementById("save-task").addEventListener("click", () => {
