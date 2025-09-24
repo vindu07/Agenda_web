@@ -52,11 +52,12 @@ export function renderTasks(tasksArray) {
     img.alt = "Elimina";
     btn.appendChild(img);
 
-    btn.addEventListener("click", () => {
-      tasksArray.splice(index, 1);  // elimina dall’array
-      /*deleteTask(btn.id);*/  // elimina dal DB
-      renderTasks(tasksArray);     // ricarica la lista
+    btn.addEventListener("click", async () => {
+    await deleteTask(btn.id);      // cancella da Firestore
+    tasksArray.splice(index, 1);   // cancella dall’array locale
+    renderTasks(tasksArray);       // ricarica la lista
     });
+
 
     // assemblo tutto
     
