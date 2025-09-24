@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/*MOSTRA/NASCONDE HUD*/
+/*MOSTRA/NASCONDE HUD*//*
 document.addEventListener("DOMContentLoaded", () => {
   const newTask = document.getElementById("new-task");
   newTask.addEventListener("click", () => {
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hud = document.getElementById("hud"); 
     hud.classList.toggle("invisible");
   });
-});
+});*/
 
 // registra il service worker
 if ("serviceWorker" in navigator) {
