@@ -69,7 +69,7 @@ nextBtn.addEventListener("click", () => {
 let touchstartX = 0;
 let touchendX = 0;
 
-const gestureZone = document.querySelector('.diario'); // Selettore dell'area del diario
+const gestureZone = document.querySelector('.diary-container'); // Selettore dell'area del diario
 
 gestureZone.addEventListener('touchstart', (e) => {
   touchstartX = e.changedTouches[0].screenX;
