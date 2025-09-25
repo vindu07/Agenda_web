@@ -9,8 +9,9 @@
 #weekday-name { font-size:1.8rem; font-weight:600; color:var(--accent-color,#4cafef);}
 #month-year { font-size:1.2rem; font-weight:bold; opacity:0.85; padding: 0;}
 
-.today{color: orange !important;}
+.today{color: green !important;}
 .sunday{color: red !important;}
+.holiday{color: orange !important;}
 .past{color: grey !important;}
 
 .small-btn { padding:5px; min-width:30px; font-size:1rem; }
