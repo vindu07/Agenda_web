@@ -29,6 +29,7 @@ label{color: white;}
 /*COMPITI*/
 #task-container{display:flex; flex-direction: column; gap: 15px; align-items: center; padding:0px;}
 .isCompleted{color: grey; font-style: italic; !important}
+.checkbox{background: var(--sfondo); color: var(--testo); margin: 20px;}
 
 .nascosto{display:none;}
 .cestino{border-left:20px; background: var(--sfondo); }
