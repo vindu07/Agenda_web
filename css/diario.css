@@ -29,8 +29,8 @@ label{color: white;}
 /*COMPITI*/
 #task-container{display:flex; flex-direction: column; gap: 15px; align-items: center;}
 .isCompleted{background: var(--sfondo); width: 15px; height:15px; color: var(--testo); margin-right:20px;}
-.isCompleted:hover{color: var(--sfondo); background: var(--testo);}
-.isCompleted:completed{color: green; background: grey;}
+/*.isCompleted:hover{color: var(--sfondo); background: var(--testo);}
+.isCompleted:completed{color: green; background: grey;}*/
 .nascosto{display:none;}
 .cestino{border-left:20px; background: var(--sfondo); }
 .cestino:hover{background: var(--testo);}
@@ -49,3 +49,7 @@ label{color: white;}
 .bo1{width:50vw; max-width: 1;}
 .compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
 .compito h3{color: lightgreen;}
+
+.1 h3 {color: green}
+.2 h3 {color: yellow}
+.3 h3 {color: orange;}
