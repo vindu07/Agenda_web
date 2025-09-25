@@ -33,7 +33,8 @@ function updateDiary() {
 
 const national_holidays = [  "1-1", "1-6", "4-25", "5-1", "6-2", "8-15", "11-1", "12-8", "12-25", "12-26" ]; // formato: mese-giorno
 const year_2025_holidays = ["10-31", "11-1", "11-3", "11-4", "12-22","12-23","12-24","12-27","12-28","12-29","12-30", "12-31", "1-2", "1-3", "1-4", "1-5", "2-16", "2-17", "2-18", "4-2","4-3","4-4","4-5","4-6","4-7","4-8" ];
-  
+
+const dayKey = `${currentDate.getMonth() + 1}-${currentDate.getDate()}`; // mese e giorno per confronto
   
   
 weekdayEl.classList.remove("sunday", "today", "past", "holiday");
@@ -49,13 +50,13 @@ if(currentDate.getDay() === 0){
   dayNumberEl.classList.add("sunday");
   console.log("Giorno classificato come sunday");
 }
-const dayKey = `${currentDate.getMonth() + 1}-${currentDate.getDate()}`; // mese e giorno per confronto
-
+  //controllo festa nazionale
 else if (national_holidays.includes(dayKey) ) {
   weekdayEl.classList.add("sunday");
   dayNumberEl.classList.add("sunday");
   console.log("Giorno classificato come sunday(festa nazionale)");
 }
+  //controllo vacanza
 else if(year_2025_holidays.includes(dayKey) ){
   weekdayEl.classList.add("holiday");
   dayNumberEl.classList.add("holiday");
