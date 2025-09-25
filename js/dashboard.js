@@ -11,7 +11,6 @@ let termine = new Date(); termine.setDate(termine.getDate() + numGiorni); termin
 const parametri = { isCompleted: false /*,dataInizio: oggi, dataFine: termine*/}
 
 
-Tasks.renderTasks(db.sortTasks(parametri)); //seleziona e visualizza i task
 db.sortTasks(parametri)
   .then(sortedTasks => {
     // qui sortedTasks è l'array ordinato
