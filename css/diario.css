@@ -32,7 +32,8 @@ label{color: white;}
 .checkbox{background: var(--sfondo); color: var(--testo); margin-right: 20px;}
 
 .nascosto{display:none;}
-.cestino{border-left:20px; }
+.cestino{border-left:20px; background: var(--sfondo1);}
+.cestino:hover{ cursor: pointer; background: var(--sfondo1);}
 .cestino img{ width: 20px; height: auto;}
 .tag{
   font-size: 12px;
