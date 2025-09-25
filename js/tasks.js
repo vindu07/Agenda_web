@@ -26,20 +26,23 @@ export function renderTasks(tasksArray) {
       checkbox.classList.add("isCompleted");
       checkbox.id = task.id;
       checkbox.checked = task.isCompleted || false;
-      checkbox.addEventListener("change", () => {
+      checkbox.addEventListener("change", async () => {
         task.isCompleted = checkbox.checked; // aggiorna array
        
         
-        db.completeTask(task.id); //aggiorna db
+        await db.completeTask(task.id); //aggiorna db
 
         const thisTask = document.querySelector(`.${task.isTest == 1 ? "verifica" : "compito" }#${task.id}`);
         thisTask.classList.toggle("isCompleted");//aggiunge .isCompleted alla classe
 
-         console.log("Task aggiornata:", task);
+         console.log("Task aggiornata:", thisTask.className);
+         renderTasks(tasksArray);       // ricarica la lista
       });
       div.appendChild(checkbox);
       div.classList.add(task.priority.toString());
     }
+
+    if (task.isCompleted) { div.classlist.add("isCompleted"); }
 
     // sezione contenuto
     const bo1Div = document.createElement("div");
