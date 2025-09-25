@@ -20,7 +20,6 @@ export function renderTasks(tasksArray) {
       p.textContent = "VERIFICA";
       div.appendChild(tagDiv);
       tagDiv.appendChild(p);
-      div.classList.add("3");
     } else {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
