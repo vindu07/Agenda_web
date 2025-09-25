@@ -5,7 +5,7 @@
 
 .day-display { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem; }
 .day-text{ display: flex; flex-direction: column; gap: 0; align-items: left; }
-#day-number { font-family:'Baloo 2', sans-serif; font-size:5rem; font-weight:600; color:var(--accent-color,#4cafef); line-height:1; }
+#day-number { font-family:'Baloo 2', sans-serif; font-size:5rem; font-weight:900; color:var(--accent-color,#4cafef); line-height:1; }
 #weekday-name { font-size:1.8rem; font-weight:600; color:var(--accent-color,#4cafef);}
 #month-year { font-size:1.2rem; font-weight:bold; opacity:0.85; padding: 0;}
 
