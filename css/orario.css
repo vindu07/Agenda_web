@@ -4,7 +4,7 @@
 
 /* Colori materie */
 :root {
-  --intestazione: #2878C8;  /* blu acceso */
+  --intestazione: white;  /* blu acceso */
   --italiano:    #F28C6B;   /* arancio caldo */
   --matematica:  #8A84E2;   /* viola blu */
   --fisica:      #5EC2F2;   /* azzurro brillante */
@@ -18,7 +18,7 @@
 }
 
 body.light-mode {
-  --intestazione: #005BBB;  /* blu intenso */
+  --intestazione: black;  /* blu intenso */
   --italiano:    #C94C1E;   /* mattone vivo */
   --matematica:  #4338CA;   /* blu/indigo forte */
   --fisica:      #0077B6;   /* azzurro deciso */
