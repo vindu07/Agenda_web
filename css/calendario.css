@@ -1,0 +1,42 @@
+#calendar {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#calendar th, #calendar td {
+  border: 1px solid #555;
+  aspect-ratio: 1 / 1; /* rende la cella quadrata */
+  position: relative;
+  padding: 4px;
+  vertical-align: top;
+}
+
+.day-number {
+  font-weight: bold;
+  display: block;
+  text-align: left;
+}
+
+.tasks {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* pallini */
+.tasks .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.tasks .dot.red { background: red; }
+.tasks .dot.green { background: green; }
+.tasks .dot.blue { background: blue; }
