@@ -55,6 +55,6 @@ label{color: white;}
 .bo1{width:60vw; max-width: 1;}
 .compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
 
-.\31 h3{color: green !important;}
-.\32 h3{color: yellow !important;}
-.\33 h3{color: orange !important;}
+.priority-1 h3{color: green !important;}
+.priority-2 h3{color: yellow !important;}
+.priority-3 h3{color: orange !important;}
