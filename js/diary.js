@@ -49,13 +49,7 @@ const TS = Timestamp.fromDate(ts1);
   });
   
   
-  /*const tasks_today = await db.sortTasks({
-  dataInizio: pagDiario,
-  dataFine:  pagDiario
-  });
-  
-   // Passa l'array a taskRender
-    Tasks.renderTasks(tasks_today);*/
+ 
   
 }
 
@@ -69,6 +63,40 @@ nextBtn.addEventListener("click", () => {
   currentDate.setDate(currentDate.getDate() + 1);
   updateDiary();
 });
+
+
+/*CAMBIA GIORNO TOUCH*/
+let touchstartX = 0;
+let touchendX = 0;
+
+const gestureZone = document.querySelector('.diario'); // Selettore dell'area del diario
+
+gestureZone.addEventListener('touchstart', (e) => {
+  touchstartX = e.changedTouches[0].screenX;
+});
+
+gestureZone.addEventListener('touchend', (e) => {
+  touchendX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  if (touchendX < touchstartX) {
+    // Swipe a sinistra: vai alla pagina successiva
+    console.log("Pagina successiva");
+    // Aggiungi qui la logica per caricare la pagina successiva
+    currentDate.setDate(currentDate.getDate() + 1);
+    updateDiary();
+  }
+  if (touchendX > touchstartX) {
+    // Swipe a destra: vai alla pagina precedente
+    console.log("Pagina precedente");
+    // Aggiungi qui la logica per caricare la pagina precedente
+    currentDate.setDate(currentDate.getDate() - 1);
+    updateDiary();
+  }
+}
+
 
 
 /*MOSTRA/NASCONDE HUD*/
