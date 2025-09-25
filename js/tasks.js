@@ -32,8 +32,7 @@ export function renderTasks(tasksArray) {
         
         await db.completeTask(task.id); //aggiorna db
 
-        const thisTask = document.querySelector(`.${task.isTest == 1 ? "verifica" : "compito" }#${task.id}`);
-        thisTask.classList.toggle("isCompleted");//aggiunge .isCompleted alla classe
+        div.classList.toggle("isCompleted");//aggiunge .isCompleted alla classe
 
          console.log("Task aggiornata:", thisTask.className);
          renderTasks(tasksArray);       // ricarica la lista
