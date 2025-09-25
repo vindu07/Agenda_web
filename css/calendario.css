@@ -1,42 +1,42 @@
-#calendar {
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed;
-  font-family: sans-serif;
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.day-name {
   text-align: center;
-}
-
-#calendar th, #calendar td {
-  border: 1px solid #555;
-  aspect-ratio: 1 / 1 !important; /* rende la cella quadrata */
-  position: relative;
-  padding: 4px;
-  vertical-align: top;
-}
-
-.day-number {
   font-weight: bold;
-  display: block;
-  text-align: left;
+  padding: 5px 0;
 }
 
-.tasks {
-  position: absolute;
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
+.day {
+  aspect-ratio: 1 / 1; /* quadrati perfetti */
+  background: #222;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  color: white;
+}
+
+.day .number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.day .tasks {
   display: flex;
   gap: 4px;
-  flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: center;
 }
 
 /* pallini */
-.tasks .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.day .tasks::before {
+  content: "•";
+  color: red;
 }
-.tasks .dot.red { background: red; }
-.tasks .dot.green { background: green; }
-.tasks .dot.blue { background: blue; }
