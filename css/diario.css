@@ -28,9 +28,8 @@ label{color: white;}
 
 /*COMPITI*/
 #task-container{display:flex; flex-direction: column; gap: 15px; align-items: center; padding:0px;}
-.isCompleted{background: var(--sfondo); width: 15px; height:15px; color: var(--testo); margin-right:20px;}
-/*.isCompleted:hover{color: var(--sfondo); background: var(--testo);}
-.isCompleted:completed{color: green; background: grey;}*/
+.isCompleted{color: grey; font-style: italic; !important}
+
 .nascosto{display:none;}
 .cestino{border-left:20px; background: var(--sfondo); }
 .cestino:hover{background: var(--testo);}
