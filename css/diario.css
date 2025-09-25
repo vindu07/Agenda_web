@@ -58,3 +58,4 @@ label{color: white;}
 .priority-1 h3{color: lightgreen;}
 .priority-2 h3{color: yellow;}
 .priority-3 h3{color: orange;}
+.isCompleted h3{color: grey !important; }
