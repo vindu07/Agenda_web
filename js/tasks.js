@@ -28,10 +28,14 @@ export function renderTasks(tasksArray) {
       checkbox.checked = task.isCompleted || false;
       checkbox.addEventListener("change", () => {
         task.isCompleted = checkbox.checked; // aggiorna array
-        console.log("Task aggiornata:", task);
+       
+        
+        db.completeTask(task.id); //aggiorna db
 
         const thisTask = document.querySelector(`.${task.isTest == 1 ? "verifica" : "compito" }#${task.id}`);
-        thisTask.classList.toggle("isCompleted");
+        thisTask.classList.toggle("isCompleted");//aggiunge .isCompleted alla classe
+
+         console.log("Task aggiornata:", task);
       });
       div.appendChild(checkbox);
       div.classList.add(task.priority.toString());
