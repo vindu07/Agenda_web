@@ -14,16 +14,17 @@
 
 .day {
   aspect-ratio: 1 / 1; /* quadrati perfetti */
-  background: #222;
+  background: #111;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 8px;
   color: white;
-}
+ }
 
 .day .number {
+  align:center; justify:center;
   font-size: 1.2rem;
   font-weight: bold;
 }
