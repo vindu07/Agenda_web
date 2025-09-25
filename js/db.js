@@ -64,6 +64,24 @@ export async function deleteTask(id) {
   }
 }
 
+export async function completeTask(id) {
+  try {
+  const ref = doc(db, "tasks", id);
+  const snap = await getDoc(ref);
+  if (snap.exists()) {
+    await updateDoc(ref, {
+      isCompleted: !snap.data().isCompleted
+    });
+    console.log(`Task ${id} invertito correttamente`);
+  } else {
+    console.log("Task non trovato");
+  }
+} catch (error) {
+  console.error("Errore durante l'aggiornamento:", error);
+}
+
+}
+
 
 export async function sortTasks(options = {}) {
   try {
