@@ -6,7 +6,7 @@ import { Timestamp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-fi
 const numGiorni = 4; //quanti giorni visualizza
 
 const oggi = Timestamp.fromDate(new Date());
-const termine = new Date(); termine.setDate(oggi.getdate() + 1 + numGiorni); termine = Timestamp.fromDate(termine);
+const termine = new Date(); termine.setDate(oggi.getDate() + 1 + numGiorni); termine = Timestamp.fromDate(termine);
 
 
 Tasks.renderTasks(db.sortTasks(parametri)); //seleziona e visualizza i task
