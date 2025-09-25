@@ -1,6 +1,7 @@
 import * as db from "./db.js";
 import * as Tasks from "./tasks.js";
 import * as settings from "./settings.js";
+import { Timestamp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 const numGiorni = 4; //quanti giorni visualizza
 
