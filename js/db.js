@@ -1,5 +1,5 @@
 import * as Tasks from "./tasks.js";
-import { pagDiario } from "./diary.js";
+//import { pagDiario } from "./diary.js";
 
 
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
