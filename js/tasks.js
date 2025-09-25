@@ -41,7 +41,7 @@ export function renderTasks(tasksArray) {
       div.classList.add(task.priority.toString());
     }
 
-    if (task.isCompleted) { div.classlist.add("isCompleted"); }
+    if (task.isCompleted) { div.classList.add("isCompleted"); }
 
     // sezione contenuto
     const bo1Div = document.createElement("div");
