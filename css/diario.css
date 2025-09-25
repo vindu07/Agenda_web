@@ -9,16 +9,16 @@
 #weekday-name { font-size:1.8rem; font-weight:600; color:var(--accent-color,#4cafef);}
 #month-year { font-size:1.2rem; font-weight:bold; opacity:0.85; padding: 0;}
 
-.today{color: orange; !important}
-.sunday{color: red; !important}
-.past{color: grey; !important}
+.today{color: orange !important;}
+.sunday{color: red !important;}
+.past{color: grey !important;}
 
 .small-btn { padding:5px; min-width:30px; font-size:1rem; }
 
 
 
 /* MODALE TASK no sta cancellarme*/
-.hud.invisible{display: none; !important}
+.hud.invisible{display: none !important;}
 .hud{ display: flex; background:var(--sfondo1); position:fixed; top: 15vh; bottom: 20vh; width: 80vw; max-width: 900px; border-radius:20px; flex-direction:column; gap: 15px; align-items:center; overflow-y: auto; overflow-x: hidden;padding:20px;}
 #hud h3{color: lightblue;}
 label{color: white;}
@@ -32,7 +32,7 @@ label{color: white;}
 
 /*COMPITI*/
 #task-container{display:flex; flex-direction: column; gap: 15px; align-items: center; padding:0px;}
-.isCompleted{color: grey; font-style: italic; !important}
+.isCompleted{color: grey; font-style: italic !important;}
 .checkbox{background: var(--sfondo); color: var(--testo); margin-right: 20px;}
 
 .nascosto{display:none;}
@@ -54,6 +54,6 @@ label{color: white;}
 .bo1{width:60vw; max-width: 1;}
 .compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
 
-.\31 h3{color: green;}
-.\32 h3{color: yellow;}
-.\33 h3{color: orange;}
+.\31 h3{color: green !important;}
+.\32 h3{color: yellow !important;}
+.\33 h3{color: orange !important;}
