@@ -11,6 +11,8 @@ const months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
 let currentDate = new Date();
 export var pagDiario; //data della pagina corrente
 
+const today = new Date();
+
 const weekdayEl = document.getElementById("weekday-name");
 const dayNumberEl = document.getElementById("day-number");
 const monthYearEl = document.getElementById("month-year");
@@ -26,6 +28,30 @@ function updateDiary() {
   //el aggiorna la variabile co la data del la pagina corrente
   pagDiario = currentDate.toISOString().slice(0,10);
   console.log(`Diario aggiornato → pagDiario = ${pagDiario}`);
+
+/*COLORI DIVERSI IN BASE A FESTIVO/OGGI/PASSATO*/
+weekdayEl.classList.remove("sunday", "today", "past");
+dayNumberEl.classList.remove("sunday", "today", "past");
+
+// Normalizza le date (solo anno, mese, giorno) per confronto senza ore/minuti
+const currentTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()).getTime();
+const todayTime = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+
+// Controllo domenica
+if(currentDate.getDay() === 0){
+  weekdayEl.classList.add("sunday");
+  dayNumberEl.classList.add("sunday");
+}
+// Controllo giorno corrente
+else if(currentTime === todayTime){
+  weekdayEl.classList.add("today");
+  dayNumberEl.classList.add("today");
+}
+// Controllo giorni passati
+else if(currentTime < todayTime){
+  weekdayEl.classList.add("past");
+  dayNumberEl.classList.add("past");
+}
 
   /*chiama sortTasks*/
   
@@ -114,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/*SALVA TASK TEMPORANEO*/
+/*SALVA TASK*/
 
 document.getElementById("save-task").addEventListener("click", () => {
   
