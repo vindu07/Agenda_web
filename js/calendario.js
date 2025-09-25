@@ -2,7 +2,7 @@ const days = document.querySelectorAll("#calendar .day-number");
 
 // metto i numeri dei giorni
 days.forEach((el, i) => {
-  el.textContent = i + 1; // esempio: 1..35
+  if(i<=3){ el.textContent = i + 1;} // esempio: 1..35
 });
 
 // aggiungo 3 pallini al giorno 10
