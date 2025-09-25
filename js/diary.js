@@ -36,8 +36,8 @@ const year_2025_holidays = ["10-31", "11-1", "11-3", "11-4", "12-22","12-23","12
   
   
   
-weekdayEl.classList.remove("sunday", "today", "past");
-dayNumberEl.classList.remove("sunday", "today", "past");
+weekdayEl.classList.remove("sunday", "today", "past", "holiday");
+dayNumberEl.classList.remove("sunday", "today", "past", "holiday");
 
 // Normalizza le date (solo anno, mese, giorno) per confronto senza ore/minuti
 const currentTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()).getTime();
@@ -51,9 +51,15 @@ if(currentDate.getDay() === 0){
 }
 const dayKey = `${currentDate.getMonth() + 1}-${currentDate.getDate()}`; // mese e giorno per confronto
 
-else if (national_holidays.includes(dayKey) || year_2025_holidays.includes(dayKey) ) {
+else if (national_holidays.includes(dayKey) ) {
   weekdayEl.classList.add("sunday");
   dayNumberEl.classList.add("sunday");
+  console.log("Giorno classificato come sunday(festa nazionale)");
+}
+else if(year_2025_holidays.includes(dayKey) ){
+  weekdayEl.classList.add("holiday");
+  dayNumberEl.classList.add("holiday");
+  console.log("Giorno classificato come holiday");
 }
 // Controllo giorno corrente
 else if(currentTime === todayTime){
