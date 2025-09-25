@@ -113,11 +113,12 @@ nextBtn.addEventListener("click", () => {
 });
 
 
-/*CAMBIA GIORNO TOUCH*/
+/* CAMBIA GIORNO TOUCH */
 let touchstartX = 0;
 let touchendX = 0;
+const swipeThreshold = 100; // distanza minima in px per considerarlo swipe
 
-const gestureZone = document.querySelector('.diary-container'); // Selettore dell'area del diario
+const gestureZone = document.querySelector('.diary-container');
 
 gestureZone.addEventListener('touchstart', (e) => {
   touchstartX = e.changedTouches[0].screenX;
@@ -129,21 +130,26 @@ gestureZone.addEventListener('touchend', (e) => {
 });
 
 function handleSwipe() {
-  if (touchendX < touchstartX) {
-    // Swipe a sinistra: vai alla pagina successiva
+  const diffX = touchendX - touchstartX;
+
+  if (Math.abs(diffX) < swipeThreshold) {
+    console.log("Swipe troppo corto, ignorato");
+    return; // non fare niente
+  }
+
+  if (diffX < 0) {
+    // Swipe a sinistra → pagina successiva
     console.log("Pagina successiva");
-    // Aggiungi qui la logica per caricare la pagina successiva
     currentDate.setDate(currentDate.getDate() + 1);
     updateDiary();
-  }
-  if (touchendX > touchstartX) {
-    // Swipe a destra: vai alla pagina precedente
+  } else {
+    // Swipe a destra → pagina precedente
     console.log("Pagina precedente");
-    // Aggiungi qui la logica per caricare la pagina precedente
     currentDate.setDate(currentDate.getDate() - 1);
     updateDiary();
   }
 }
+
 
 
 
