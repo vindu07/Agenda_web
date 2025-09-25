@@ -8,7 +8,7 @@ const numGiorni = 3; //quanti giorni visualizza
 let oggi = Timestamp.fromDate(new Date());
 let termine = new Date(); termine.setDate(termine.getDate() + numGiorni); termine = Timestamp.fromDate(termine);
 
-const parametri = { isCompleted: false /*,dataInizio: oggi, dataFine: termine*/}
+const parametri = { isCompleted: false ,dataInizio: oggi, dataFine: termine}
 
 
 db.sortTasks(parametri)
