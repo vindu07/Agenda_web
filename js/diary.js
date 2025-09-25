@@ -41,16 +41,19 @@ const todayTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(
 if(currentDate.getDay() === 0){
   weekdayEl.classList.add("sunday");
   dayNumberEl.classList.add("sunday");
+  console.log("Giorno classificato come sunday");
 }
 // Controllo giorno corrente
 else if(currentTime === todayTime){
   weekdayEl.classList.add("today");
   dayNumberEl.classList.add("today");
+  console.log("Giorno classificato come today");
 }
 // Controllo giorni passati
 else if(currentTime < todayTime){
   weekdayEl.classList.add("past");
   dayNumberEl.classList.add("past");
+  console.log("Giorno classificato come past");
 }
 
   /*chiama sortTasks*/
