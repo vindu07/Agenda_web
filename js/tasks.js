@@ -38,7 +38,7 @@ export function renderTasks(tasksArray) {
          renderTasks(tasksArray);       // ricarica la lista
       });
       div.appendChild(checkbox);
-      div.classList.add(task.priority.toString());
+      div.classList.add("priority-" + task.priority.toString());
       console.log("Task salvato con classe= ", div.className);
     }
 
