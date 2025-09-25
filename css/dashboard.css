@@ -31,6 +31,7 @@
 .bo1{width:60vw; max-width: 1;}
 .compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
 
-.1 h3 {color: green;}
-.2 h3 {color: yellow;}
-.3 h3 {color: orange;}
+.priority-1 h3{color: lightgreen;}
+.priority-2 h3{color: yellow;}
+.priority-3 h3{color: orange;}
+.isCompleted h3{color: grey !important; }
