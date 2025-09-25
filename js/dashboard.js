@@ -3,10 +3,10 @@ import * as Tasks from "./tasks.js";
 import * as settings from "./settings.js";
 import { Timestamp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
-const numGiorni = 4; //quanti giorni visualizza
+const numGiorni = 3; //quanti giorni visualizza
 
-const oggi = Timestamp.fromDate(new Date());
-const termine = new Date(); termine.setDate(termine.getDate() + 1 + numGiorni); termine = Timestamp.fromDate(termine);
+let oggi = Timestamp.fromDate(new Date());
+let termine = new Date(); termine.setDate(termine.getDate() + numGiorni); termine = Timestamp.fromDate(termine);
 
 const parametri = { isCompleted: false /*,dataInizio: oggi, dataFine: termine*/}
 
