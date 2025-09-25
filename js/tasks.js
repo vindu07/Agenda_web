@@ -23,7 +23,7 @@ export function renderTasks(tasksArray) {
     } else {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      checkbox.classList.add("isCompleted");
+      checkbox.classList.add("checkbox");
       checkbox.id = task.id;
       checkbox.checked = task.isCompleted || false;
       checkbox.addEventListener("change", async () => {
