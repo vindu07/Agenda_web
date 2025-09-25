@@ -20,6 +20,7 @@ export function renderTasks(tasksArray) {
       p.textContent = "VERIFICA";
       div.appendChild(tagDiv);
       tagDiv.appendChild(p);
+      div.classList.add("3");
     } else {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
@@ -29,8 +30,12 @@ export function renderTasks(tasksArray) {
       checkbox.addEventListener("change", () => {
         task.isCompleted = checkbox.checked; // aggiorna array
         console.log("Task aggiornata:", task);
+
+        const thisTask = document.querySelector(`.${task.isTest == 1 ? "verifica" : "compito" }#${task.id}`);
+        thisTask.classList.toggle("isCompleted");
       });
       div.appendChild(checkbox);
+      div.classList.add(task.priority.toString());
     }
 
     // sezione contenuto
