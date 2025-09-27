@@ -52,9 +52,11 @@ label{color: white;}
 }
 .verifica{display:flex; justify-content: space-between; align-items: center; padding:10px 20px; background: var(--sfondo1); border-radius: 10px; width: 100%; max-width: 800px; }
 .verifica h3{ color: red; }
+.verifica p{ font-family: Arial, sans-serif; }
 
 .bo1{width:60vw; max-width: 1;}
 .compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
+.compito p{ font-family: Arial, sans-serif; }
 
 .priority-1 h3{color: lightgreen;}
 .priority-2 h3{color: yellow;}
