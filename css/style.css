@@ -41,6 +41,13 @@ button:hover { background-color:var(--testo); color: var(--sfondo1); }
 
 body.light-mode button { background-color:white; color: var(--testo); }
 
+/* BARRA DI SCORRIMENTO*/
+::-webkit-scrollbar {
+  width: 5px;
+  background: var(--sfondo1);
+  color: var(--testo);
+}
+
 
 /*ICONE PULSANTI*/
 .nav-icon{
