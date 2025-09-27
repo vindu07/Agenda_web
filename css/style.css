@@ -18,11 +18,11 @@ body.light-mode{
 
 
 /*GENERALE*/
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Orbitron'; }
 body { background-color:var(--sfondo); color:var(--testo); min-height:100vh; line-height:1.6; transition: background-color 0.5s, color 0.5s; display: flex; flex-direction: column; min-height: 100vh; overflow:hidden;}
 
 header { position:fixed; top:0; left:0; right:0; height: 12vh; min-height: 60px; display:flex; justify-content:space-between; align-items:center; padding:15px 10px; margin-bottom: 20px;  background-color:var(--sfondo1); }
-header h1 { font-size:1.8em; }
+header h1 { font-size:1.8em; font-weight: 900; }
 header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-items: center; gap: 10px; }
 main {  position: fixed; top:12vh; bottom: 15vh; left:20px; right:20px;
