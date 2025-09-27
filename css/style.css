@@ -43,9 +43,8 @@ body.light-mode button { background-color:white; color: var(--testo); }
 
 /* BARRA DI SCORRIMENTO*/
 ::-webkit-scrollbar {
-  width: 5px;
-  background: var(--sfondo1);
-  color: var(--testo);
+  width: 1px;
+  background: var(--sfondo);
 }
 
 
