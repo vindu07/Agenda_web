@@ -1,7 +1,7 @@
 /* diary.css - Stili Diario */
 
 .diary-header { display:flex; align-items:center; justify-content:space-between; gap: 10px; }
-.diary-icons{ height: 1rem; width: auto; stroke: var(--testo); stroke-width: 0.1;}
+.diary-icons{ height: 1.5rem; width: auto; stroke: var(--testo); stroke-width: 0.2;}
 
 .day-display { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1rem; line-height: 1;}
 .day-text{ display: flex; flex-direction: column; gap: 0; align-items: left; }
