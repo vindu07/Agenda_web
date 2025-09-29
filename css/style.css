@@ -59,7 +59,7 @@ body.light-mode button { background-color:white; color: var(--testo); }
   width: auto;       /* mantiene proporzioni */
   border-radius: 10px; /* angoli arrotondati */
   transition: transform 0.3s ease;
-  fill: var(--testo);   /* Colore interno */
+  fill: none;   /* Colore interno */
   stroke: var(--testo);  /* Bordo */
   stroke-width: 2;/* effetto smooth */
 }
