@@ -30,7 +30,7 @@ header h1 { font-size:1.8em; font-weight: 900; }
 header button { padding:5px 10px; cursor:pointer; }
 header div{ padding: 0 0; display:flex; align-items: center; gap: 10px; }
 main {  position: fixed; top:12vh; bottom: 15vh; left:0; right:0;
-  background-color: var(--sfondo); overflow-x: hidden; overflow-y: auto; min-height: 0; padding: 10px; padding-top:20px; padding-bottom:20px; }
+  background-color: var(--sfondo); overflow-x: hidden; overflow-y: auto; min-height: 0; padding: 10px; padding-top:20px; padding-bottom:20px; align-items:center;}
 
 /*PULSANTI IN BASSO*/
 .nav-bar { position:fixed; bottom: 0; left:0; right:0; height:15vh; min-height: 60px; display:flex; width:100%; margin-top:20px;border-bottom: 5vh solid var(--sfondo1); border-top: 1px solid var(--bordo-scuro); }
