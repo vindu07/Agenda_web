@@ -52,12 +52,14 @@ label{color: white;}
   color:white;
   font-weight: 700;
 }
-.verifica{display:flex; justify-content: space-between; align-items: center; padding:10px 20px; background: var(--sfondo1); border-radius: 10px; width: 100%; max-width: 800px; }
+.verifica{display:flex; justify-content: space-between; align-items: center; padding:10px 20px; background: var(--sfondo1); border-radius: 10px; width: 100%; max-width: 800px; 
+         border-bottom: 1px solid var(--bordo-chiaro); border-left: 1px solid var(--bordo-chiaro); }
 .verifica h3{ color: red; }
 .verifica p{ font-family: Arial, sans-serif; }
 
 .bo1{width:60vw; max-width: 1;}
-.compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px; }
+.compito{display:flex; justify-content: space-between; align-items: center;padding:10px 20px; background: var(--sfondo1);  border-radius: 10px; width: 100%; max-width: 800px;
+        border-bottom: 1px solid var(--bordo-chiaro); border-left: 1px solid var(--bordo-chiaro); }
 .compito p{ font-family: Arial, sans-serif; }
 
 .priority-1 h3{color: lightgreen;}
