@@ -35,7 +35,7 @@ label{color: white;}
 #hud textarea{background: var(--sfondo); color: var(--testo); border-radius: 5px; width: 200px; height: 80px;}
 
 /*COMPITI*/
-#task-container{display:flex; flex-direction: column; gap: 15px; align-items: center; padding:0px; overflow-y: auto; overflow-x: hidden;}
+#task-container{display:flex; flex-direction: column; gap: 15px; align-items: center; padding:0px; overflow-y: auto; }
 .isCompleted{color: grey !important; font-style: italic !important;}
 .checkbox{background: var(--sfondo); color: var(--testo); margin-right: 20px;}
 
