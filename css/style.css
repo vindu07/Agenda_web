@@ -4,7 +4,7 @@
 /*VARIABILE PER TOGGLE TEMA*/
 :root{
   --testo: #eee;
-  --evidenziato: blue;
+  --evidenziato: #4cafef;
   --sfondo: #333;
   --sfondo1: #3a3a3a;
   --bordo-scuro: #222;
@@ -13,7 +13,7 @@
 
 body.light-mode{
   --testo: #111;
-  --evidenziato: blue;
+  --evidenziato: #4cafef;
   --sfondo: #eee;
   --sfondo1: #ddd;  
 }
