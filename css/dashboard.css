@@ -1,6 +1,6 @@
 /* diary.css - Stili Diario */
-
-.dashboard-header { display:flex; align-items:center; justify-content:space-between; width: 200px; max-width: 100%; margin-bottom: 1rem;}
+.dasboard-container{align-items: center;}
+.dashboard-header { display:flex; align-items:center; justify-content:space-between; width: 800px; max-width: 100%; margin-bottom: 1rem; }
 
 .small-btn { padding:5px; min-width:30px; font-size:1rem; }
 
