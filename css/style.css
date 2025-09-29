@@ -14,8 +14,10 @@
 body.light-mode{
   --testo: #111;
   --evidenziato: #4cafef;
-  --sfondo: #eee;
-  --sfondo1: #ddd;  
+  --sfondo: #efeffa;
+  --sfondo1: #fefafa;
+  --bordo-scuro: #ddd;
+  --bordo-chiaro: #eee;
 }
 
 
