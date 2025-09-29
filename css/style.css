@@ -58,7 +58,10 @@ body.light-mode button { background-color:white; color: var(--testo); }
   height: 8vh;    /*alto 15% dello schermo*/
   width: auto;       /* mantiene proporzioni */
   border-radius: 10px; /* angoli arrotondati */
-  transition: transform 0.3s ease; /* effetto smooth */
+  transition: transform 0.3s ease;
+  fill: var(--testo);   /* Colore interno */
+  stroke: var(--testo);  /* Bordo */
+  stroke-width: 2;/* effetto smooth */
 }
 .nav-icon:hover{
    transform: scale(1.3); /* ingrandisce del 30% */
