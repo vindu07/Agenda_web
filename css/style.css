@@ -38,7 +38,8 @@ main {  position: fixed; top:12vh; bottom: 15vh; left:0; right:0;
 
 
 /*PULSANTI TOGGLE E IMPOSTAZIONI*/
-button { border:none; border-radius:5px; background-color:var(--sfondo); color:var(--testo); transition:0.5s; cursor:pointer; border: 1px solid var(--bordo-scuro); }
+button { border:none; border-radius:5px; background-color:var(--sfondo1); color:var(--testo); transition:0.5s; cursor:pointer;  }
+button #toggle-theme, #settings {border: 1px solid var(--bordo-scuro); background-color:var(--sfondo);}
 button:hover { background-color:var(--testo); color: var(--sfondo1); }
 
 body.light-mode button { background-color:white; color: var(--testo); }
