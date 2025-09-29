@@ -23,7 +23,7 @@
 .hud.invisible{/* stato iniziale (nascosto) */
   opacity: 0; transform: scale(0.9); pointer-events: none;      /* non cliccabile quando chiuso */ transition: opacity 1s ease, transform 1s ease;}
 .hud{ display: flex; background:var(--sfondo1); position:fixed; top: 15vh; bottom: 20vh; width: 80vw; max-width: 900px; border-radius:20px; 
-     flex-direction:column; gap: 15px; align-items:center; overflow-y: auto; overflow-x: hidden;padding:20px; opacity: 1; transform: scale(1); pointer-events: auto; transition: opacity 1s ease, transform 1s ease;}
+     flex-direction:column; gap: 15px; align-items:center; padding:20px; opacity: 1; transform: scale(1); pointer-events: auto; transition: opacity 1s ease, transform 1s ease;}
 #hud h3{color: var(--accent-color,#4cafef);}
 label{color: white;}
 #hud button{background: var(--sfondo); padding:10px; width: 48%; font-size:16px;}
