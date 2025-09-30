@@ -43,6 +43,7 @@ body.light-mode {
     margin-top: 27.5%;
     align-items: center;
    text-align: center;
+   vertical-align: middle;
     padding: 1rem 1rem;
     border-radius: 1rem;
     background: var(--sfondo1);
