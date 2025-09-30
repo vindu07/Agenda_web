@@ -2,8 +2,6 @@
 
 Piccola webapp per tenere traccia dei task scolastici quotidiani - in sviluppo...
 
-Credits: icons8 per le icone   -> https://icons8.it/icons/all
-
 /agenda-scolastica
 │
 ├── index.html
@@ -11,20 +9,17 @@ Credits: icons8 per le icone   -> https://icons8.it/icons/all
 ├── diario.html
 ├── orario.html
 │
-├── partials
-│   ├── header.html
-│   ├── navbar.html
-│   └── footer.html
 ├── assets
 │   ├── icons
 │   ├── images
-│   ├── navbar.html
-│   └── footer.html
-│   
 │   
 │
 ├── css
-│   └── style.css
+│   ├── style.css
+│   ├── dashboard.css
+│   ├── diario.css
+│   └── orario.css
+├
 │
 └── js
     ├── app.js
@@ -32,6 +27,6 @@ Credits: icons8 per le icone   -> https://icons8.it/icons/all
     ├── calendar.js
     ├── diary.js
     ├── timetable.js
-    ├── debug.js
-    └── utils.js
+    ├── db.js
+    └── dashboard.js
 
