@@ -41,12 +41,13 @@ body.light-mode {
     height: 45%;
    margin: 10px;
     margin-top: 27.5%;
-    align: center;
+    align-items: center;
     padding: 1rem 1rem;
     border-radius: 1rem;
     background: var(--sfondo1);
     transition: background 0.3s ease;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 /* Tabella */
