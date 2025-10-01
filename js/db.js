@@ -28,6 +28,9 @@ const db = getFirestore(app/*, {
   ignoreUndefinedProperties: true
 }*/);
 const tasksRef = collection(db, "tasks");
+const archiveRef = collection(db, "archive");
+const settingsRef = collection(db, "settings");
+
 
 /*SALVA UNA COPIA OFFLINE DEL DB NEL BROWSER E SINCRONIZZA QUANDO CONNESSO*/
 enableIndexedDbPersistence(db).catch((err) => {
@@ -50,10 +53,17 @@ export async function createTask(task) {
   };
 
   // Salva in Firestore
+
+     //salva copia in archive
+     const archiveRef = await addDoc(archiveRef, task_obj);
+  console.log("Task salvato in archive);
+
+              
   const docRef = await addDoc(tasksRef, task_obj);
   console.log("Task salvato con ID:", docRef.id);
   alert("Compito salvato correttamente!");
   return docRef.id;
+  
     //render
     loadTasks();
 }
