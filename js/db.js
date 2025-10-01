@@ -15,6 +15,11 @@ const firebaseConfig = {
   };
 const app = initializeApp(firebaseConfig);
 
+/*SALVA UNA COPIA OFFLINE DEL DB NEL BROWSER E SINCRONIZZA QUANDO CONNESSO*/
+enableIndexedDbPersistence(db).catch((err) => {
+  console.error("Offline persistence error:", err.code);
+});
+
 import { 
   getFirestore, collection, addDoc, getDocs, 
   doc, getDoc, updateDoc, deleteDoc, 
