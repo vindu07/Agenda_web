@@ -54,11 +54,7 @@ export async function createTask(task) {
 
   // Salva in Firestore
 
-     //salva copia in archive
-     const archiveRef = await addDoc(archiveRef, task_obj);
-  console.log("Task salvato in archive);
-
-              
+                 
   const docRef = await addDoc(tasksRef, task_obj);
   console.log("Task salvato con ID:", docRef.id);
   alert("Compito salvato correttamente!");
