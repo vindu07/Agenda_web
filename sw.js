@@ -26,7 +26,7 @@ const FILES_TO_CACHE = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
-      for (let asset of ASSETS) {
+      for (let asset of FILES_TO_CACHE) {
         try {
           await cache.add(asset);
           console.log("Cachato:", asset);
