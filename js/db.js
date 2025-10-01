@@ -202,7 +202,7 @@ export async function archiveTasks() {
 
     for (const taskDoc of snapshot.docs) {
       const task = taskDoc.data();
-      const dueDate = task.scadenza ? new Date(task.scadenza) : null;
+      const dueDate = task.scadenza ? task.scadenza.toDate() : null;
 
       if (dueDate && dueDate < today) {
         // copia in archive
