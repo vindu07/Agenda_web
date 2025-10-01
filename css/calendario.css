@@ -36,7 +36,7 @@
 }
 
 /* Tablet / smartphone */
-@media (max-width: 1023px) {
+@media (max-width: 1200px) {
   .day . number  { font-size: 1rem;
    
   }
