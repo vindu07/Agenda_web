@@ -29,9 +29,9 @@
  }
 
 .day .number {
-  align:center; justify:center;
+  align-items:center; justify-items:center;
   font-family: 'Rubik Dirt';
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--evidenziato);
 }
 
