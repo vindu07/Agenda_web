@@ -1,9 +1,9 @@
 <script type="module">
   // Import base Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  //import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
   
   // Import Firestore
-  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+  //import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
   // 🔹 Config presa dalla tua console
   const firebaseConfig = {
@@ -17,10 +17,10 @@
   };
 
   // 🔹 Inizializza Firebase
-  const app = initializeApp(firebaseConfig);
+ // const app = initializeApp(firebaseConfig);
 
   // 🔹 Connetti Firestore
-  const db = getFirestore(app);
+  //const db = getFirestore(app);
 
   // 👇 Funzione di test: salva un task
   async function testSave() {
@@ -44,4 +44,4 @@
   // Prova subito
   testSave();
   testRead();
-</script>
+</script
