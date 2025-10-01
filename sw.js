@@ -1,8 +1,8 @@
 const CACHE_NAME = "agenda-cache-v1";
 const FILES_TO_CACHE = [
-  "/sw.js",
-  "/index.html",
-   "/orario.html",
+  "sw.js",
+  "index.html",
+   "orario.html",
    "/diario.html",
    "/calendario.html",
   "/css/style.css",
