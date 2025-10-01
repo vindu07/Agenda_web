@@ -17,9 +17,9 @@
   aspect-ratio: 1 / 1; /* quadrati perfetti */
   background: var(--sfondo1);
   border-radius: 15px;
-  border: var(--bordo-scuro);
-  border-bottom: var(--bordo-chiaro);
-  border-left: var(--bordo-chiaro);
+  border: 1px solid var(--bordo-scuro);
+  border-bottom: 1px solid var(--bordo-chiaro);
+  border-left: 1px solid var(--bordo-chiaro);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
