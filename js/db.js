@@ -196,3 +196,32 @@ export async function loadTasks() {
 }
 
 
+export async function archiveTasks() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // solo data senza ora
+
+  try {
+    const tasksCol = collection(db, "tasks");
+    const snapshot = await getDocs(tasksCol);
+
+    for (const taskDoc of snapshot.docs) {
+      const task = taskDoc.data();
+      const dueDate = task.dueDate ? new Date(task.dueDate) : null;
+
+      if (dueDate && dueDate < today) {
+        // copia in archive
+        const archiveRef = doc(db, "archive", taskDoc.id);
+        await setDoc(archiveRef, task);
+
+        // elimina da tasks
+        await deleteDoc(doc(db, "tasks", taskDoc.id));
+
+        console.log(`Task "${task.title}" archiviato`);
+      }
+    }
+
+    console.log("Archiviazione completata!");
+  } catch (err) {
+    console.error("Errore durante l'archiviazione:", err);
+  }
+}
