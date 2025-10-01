@@ -31,14 +31,14 @@
 .day .number {
   align-items:center; justify-items:center;
   font-family: 'Rubik Dirt';
-  font-size: 2rem;
+  font-size: 1rem;
   color: var(--evidenziato);
 }
 
-/* Tablet / smartphone */
-@media (max-width: 1023px) {
-  .day . number  { font-size: 1rem;}
-}
+/* pc / laptop */
+@media (min-width: 1024px) {
+  .day . number  { font-size: 2.5rem;}
+  }
 
 .day .tasks {
   display: flex;
