@@ -24,3 +24,14 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker registrato"))
     .catch(err => console.error("Errore Service Worker:", err));
 }
+
+/*REFRESHA LA CACHE DEL BROWSER*/
+if (navigator.onLine && navigator.serviceWorker.controller) {
+  navigator.serviceWorker.controller.postMessage("refreshCache");
+} // all'avvio
+
+setInterval(() => {
+  if (navigator.online && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage("refreshCache");
+  }
+}, 10 * 60 * 1000); // ogni 10 minuti
