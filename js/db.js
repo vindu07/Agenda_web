@@ -103,9 +103,11 @@ export async function completeTask(id) {
 
 export async function sortTasks(options = {}) {
   try {
+
+    let coll = "tasks"
+      if(options.collection){ coll = options.collection; } //modifica la collezione da filtrare se specificata nelle opzioni
     
-      
-    let q = collection(db, options.collection);
+      let q = collection(db, coll);
 
     const conditions = [];
 
