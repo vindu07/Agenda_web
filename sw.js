@@ -20,7 +20,8 @@ const FILES_TO_CACHE = [
   "js/tasks.js",
   "assets/icons/canc.png",
   "assets/icons/icon-192.png",
-  "https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+  "https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap",
+  "https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap"
 ];
 
 /*CONTROLLA UNO A UNO I FILE E MANDA ERRORE SE NON RIESCE A SALVARLI- SOLO PER DEBUG
