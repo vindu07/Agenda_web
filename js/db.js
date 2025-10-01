@@ -3,7 +3,7 @@ import * as Tasks from "./tasks.js";
 
 
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { initializeApp, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBrc58aNKEHfGueKron2D87g3tlAWWqBlU",
     authDomain: "agenda-pwa-b5bb0.firebaseapp.com",
