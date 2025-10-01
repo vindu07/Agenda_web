@@ -22,7 +22,7 @@ const FILES_TO_CACHE = [
   "assets/icons/icon-192.png",
 ];
 
-
+/*CONTROLLA UNO A UNO I FILE E MANDA ERRORE SE NON RIESCE A SALVARLI- SOLO PER DEBUG
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
@@ -36,7 +36,7 @@ self.addEventListener("install", (event) => {
       }
     })
   );
-});
+});*/
 
 
 // installazione → cache dei file base
