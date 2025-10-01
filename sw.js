@@ -1,8 +1,25 @@
 const CACHE_NAME = "agenda-cache-v1";
 const FILES_TO_CACHE = [
-  "/",
+  "/sw.js",
   "/index.html",
+   "/orario.html",
+   "/diario.html",
+   "/calendario.html",
   "/css/style.css",
+  "/css/calendario.css",
+  "/css/dashboard.css",
+  "/css/diario.css",
+  "/css/orario.css",
+  "/js/app.js",
+  "/js/calendario.js",
+  "/js/dashboard.js",
+  "/js/db.js",
+  "/js/diary.js",
+  "/js/orario.js",
+  "/js/settings.js",
+  "/js/tasks.js",
+  "/assets/icons/canc.png",
+   "/assets/icons/icon-192.png",
 ];
 
 // installazione → cache dei file base
