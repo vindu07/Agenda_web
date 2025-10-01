@@ -3,7 +3,7 @@ import * as Tasks from "./tasks.js";
 
 
 /*IMPORTA FUNZIONI DI FIRESTORE FIREBASE*/
-import { initializeApp, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBrc58aNKEHfGueKron2D87g3tlAWWqBlU",
     authDomain: "agenda-pwa-b5bb0.firebaseapp.com",
@@ -15,21 +15,20 @@ const firebaseConfig = {
   };
 const app = initializeApp(firebaseConfig);
 
-/*SALVA UNA COPIA OFFLINE DEL DB NEL BROWSER E SINCRONIZZA QUANDO CONNESSO*/
-enableIndexedDbPersistence(db).catch((err) => {
-  console.error("Offline persistence error:", err.code);
-});
 
 import { 
   getFirestore, collection, addDoc, getDocs, 
   doc, getDoc, updateDoc, deleteDoc, 
-  query, where, orderBy, Timestamp
+  query, where, orderBy, Timestamp, enableIndexedDbPersistence
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 const db = getFirestore(app); // già inizializzato col tuo app
 const tasksRef = collection(db, "tasks");
 
-
+/*SALVA UNA COPIA OFFLINE DEL DB NEL BROWSER E SINCRONIZZA QUANDO CONNESSO*/
+enableIndexedDbPersistence(db).catch((err) => {
+  console.error("Offline persistence error:", err.code);
+});
 
 
 
