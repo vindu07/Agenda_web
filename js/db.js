@@ -103,7 +103,9 @@ export async function completeTask(id) {
 
 export async function sortTasks(options = {}) {
   try {
-    let q = collection(db, "tasks");
+    
+      
+    let q = collection(db, options.collection);
 
     const conditions = [];
 
