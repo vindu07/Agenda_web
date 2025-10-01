@@ -35,3 +35,7 @@ setInterval(() => {
     navigator.serviceWorker.controller.postMessage("refreshCache");
   }
 }, 10 * 60 * 1000); // ogni 10 minuti
+
+
+
+db.archiveTasks(); //archivia i task passati
