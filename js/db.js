@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 
 import { 
   getFirestore, collection, addDoc, getDocs, 
-  doc, getDoc, updateDoc, deleteDoc, 
+  doc, getDoc, setDoc, updateDoc, deleteDoc, 
   query, where, orderBy, Timestamp, enableIndexedDbPersistence, CACHE_SIZE_UNLIMITED
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
