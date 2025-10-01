@@ -69,10 +69,14 @@ else if(currentTime === todayTime){
   console.log("Giorno classificato come today");
 }
 // Controllo giorni passati
+ let collezione = "tasks";//cambia collezione da tasks a archive per vedere i task passati
+  
 else if(currentTime < todayTime){
   weekdayEl.classList.add("past");
   dayNumberEl.classList.add("past");
   console.log("Giorno classificato come past");
+
+  collezione = "archive";
 }
 
   /*chiama sortTasks*/
@@ -86,8 +90,10 @@ ts1.setDate(ts1.getDate() - 1);
 // 3️⃣ converto di nuovo in Timestamp
 const TS = Timestamp.fromDate(ts1);
 
+ 
+  
   db.sortTasks({ dataInizio: TS,
-  dataFine: ts /*,materia: "Italiano"*/ })
+  dataFine: ts, collection: collezione })
   .then(sortedTasks => {
     // qui sortedTasks è l'array ordinato
     Tasks.renderTasks(sortedTasks);
