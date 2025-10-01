@@ -22,6 +22,23 @@ const FILES_TO_CACHE = [
    "/assets/icons/icon-192.png",
 ];
 
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      for (let asset of ASSETS) {
+        try {
+          await cache.add(asset);
+          console.log("Cachato:", asset);
+        } catch (err) {
+          console.error("Errore cache:", asset, err);
+        }
+      }
+    })
+  );
+});
+
+
 // installazione → cache dei file base
 self.addEventListener("install", event => {
   event.waitUntil(
