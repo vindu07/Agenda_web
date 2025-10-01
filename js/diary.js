@@ -44,6 +44,9 @@ dayNumberEl.classList.remove("sunday", "today", "past", "holiday");
 const currentTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()).getTime();
 const todayTime = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
 
+
+  let collezione = "tasks";//cambia collezione da tasks a archive per vedere i task passati
+
 // Controllo domenica
 if(currentDate.getDay() === 0){
   weekdayEl.classList.add("sunday");
@@ -69,7 +72,7 @@ else if(currentTime === todayTime){
   console.log("Giorno classificato come today");
 }
 // Controllo giorni passati
- let collezione = "tasks";//cambia collezione da tasks a archive per vedere i task passati
+ 
   
 else if(currentTime < todayTime){
   weekdayEl.classList.add("past");
