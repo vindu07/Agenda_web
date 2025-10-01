@@ -63,3 +63,24 @@ self.addEventListener("fetch", event => {
     caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
+
+// Listener per aggiornare cache
+self.addEventListener("message", (event) => {
+  if (event.data === "refreshCache") {
+    refreshCache();
+  }
+});
+
+// Funzione che aggiorna la cache
+async function refreshCache() {
+  const cache = await caches.open(CACHE_NAME);
+  FILES_TO_CACHE.forEach(async (url) => {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      await cache.put(url, response);
+      console.log("Cache aggiornata:", url);
+    } catch (err) {
+      console.error("Errore aggiornamento cache:", url, err);
+    }
+  });
+}
