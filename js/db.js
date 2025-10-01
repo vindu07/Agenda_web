@@ -23,7 +23,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 /*inizializza firestore con cache offline*/
-const db = initializeFirestore(app, {
+const db = getFirestore(app, {
   localCacheSizeBytes: CACHE_SIZE_UNLIMITED, // o un numero a piacere
   ignoreUndefinedProperties: true
 });
