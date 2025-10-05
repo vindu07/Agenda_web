@@ -13,7 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const settingsBtn = document.getElementById("settings");
   settingsBtn.addEventListener("click", () => {
-    alert("Funzione in fase di sviluppo");
+    const menuImpostazioni = document.getElementById("setting-main");
+    menuImpostazioni.classList.toggle("invisible");
+
+    const taskContainer =  document.getElementById("task-container");
+    taskContainer.classList.toggle("invisible");
   });
 });
 
