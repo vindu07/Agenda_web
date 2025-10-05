@@ -8,6 +8,7 @@
 
 /*COMPITI*/
 #task-container{display:flex; flex-direction: column; gap: 15px; align-items: center; padding:0px;}
+#task-container.invisible{display: none; }
 .isCompleted{color: grey !important; font-style: italic !important;}
 .checkbox{background: var(--sfondo); color: var(--testo); margin-right: 20px;}
 
