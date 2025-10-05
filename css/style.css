@@ -71,3 +71,26 @@ body.light-mode button { background-color:white; color: var(--testo); }
 
 body.light-mode .light { display: inline; }
 body.light-mode .dark { display: none; }
+
+
+/*MENU IMPOSTAZIONI*/
+
+#setting-main.invisible{display: none;}
+#setting-main{background: var(--sfondo1); border-radius: 1rem;  display: flex; flex-direction: column; gap: 20px; padding: 10px; }
+
+.setting-header{display: flex; justify-content: space-between; padding-left: 20px; padding-right: 20px; font-weight: 700; font-size: 1.5rem; }
+.setting-header button{padding: 10px; background: none; font-weight: 700; font-size: 1.5rem;}
+
+.settings{background: var(--sfondo); border-radius: 1rem; }
+
+.setting-btn:hover{background: var(--bordo-chiaro, #555); color: var(--sfondo1); }
+
+.setting-div{  background: none; padding: 20px; flex: 1; display: flex; flex-direction: row; justify-content: space-between; border-radius: 0; border-bottom: 1px solid var(--bordo-chiaro, #555); } 
+.setting-btn{width: 100%; align-items: center; display: flex; background: none; border-radius: 1rem; }
+
+.setting-icons{height: 1.5rem; width: auto; margin: 15px; padding: 0; border: 0;}
+
+.setting-btn.last .setting-div{border: none;}
+
+.profile{padding-bottom: 30px;  }
+.profile .setting-div{border: none;}
